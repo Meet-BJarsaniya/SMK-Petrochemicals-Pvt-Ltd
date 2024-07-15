@@ -28,7 +28,11 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Purchase Order" : "public/js/purchase_order.js",
+    "Supplier Quotation" : "public/js/supplier_quotation.js",
+    "Payment Entry": "public/js/payment_entry.js"
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -123,11 +127,10 @@ app_license = "mit"
 # Hook on document methods and events
 
 # doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
+#     "Purchase Order": {
+#         "on_submit": "smk_scm.public.py.purchase_order.on_submit",
+#         "on_update": "smk_scm.public.py.purchase_order.on_update",
+#     },
 # }
 
 # Scheduled Tasks
@@ -227,3 +230,13 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures=[
+    {"dt": "Payment Terms Template"},
+    # {"dt": "Workspace", "filters":[
+    #     [
+    #         "name", "in",[
+    #             "Purchase"
+    #         ]
+    #     ]
+    # ]},
+]

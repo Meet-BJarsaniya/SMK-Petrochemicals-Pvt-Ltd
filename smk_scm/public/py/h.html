@@ -1,0 +1,75 @@
+<div style="    display: flex;justify-content: space-between;">
+    <div>
+    </div>
+    <div><h2><b>Purchase Order</b></h2></div>
+    <div>
+        e-Invoice
+    </div>
+
+</div>
+<div style="display: flex;
+    justify-content: space-between">
+    <div style="     padding-top: 80px;">
+        IRN :<b>779bbcef31443ff294bf63157717677f0acb714e7008cbe82-<br>
+            ac077182ee69b24</b><br>
+        Ack No :<b>132418540061388</b><br>
+        Ack Date :<b>6-Jun-24</b><br>
+    </div>
+    <div>
+        ram-ram
+    </div>
+</div>
+
+
+<table width="100%">
+    <div style="display:flex;   border: 1px solid;margin-top: 25px;">
+        <div style="padding: 4px;width:45%;border-right:1px solid;">
+            {% set company = frappe.get_doc("Address","SMK PETROCHEMICALS INDIA PVT. LTD.-Billing" ) %}
+            <b>{{ company.address_title }}</b><br>
+            {{ company.address_line1 }}<br>
+            {{ company.address_line2 }}<br>
+            {{ company.city }}, {{ company.state }}<br>
+            {{ company.country }}<br>
+            GSTIN/UIN: 06AAJCS3912K1Z7<br>
+            State Name : Haryana, Code : 06<br>
+            CIN: U24201DL2005PTC132713<br>
+            Contact : 0130-2367838,011-42466698<br>
+            Fax : 0130-2367838<br>
+            E-Mail : mailto:info@smkpetro.com<br>
+            https://www.smkpetro.com<br>
+        </div>
+        <div style="width:55%;">
+            <div style="display: flex;">
+                <div style="display: flex;width:50%;justify-content: space-between;padding:4px">
+                    <div>
+                        <div>
+                            Invoice No.
+                        </div>
+                        <div>
+                            SMK/24-25/73
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            e-Way Bill No.
+                        </div>
+                        <div>
+                            351789358647
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex;width: 50%;padding:4px;border-left:1px solid;">
+                    <div>
+                        <div>
+                            Date
+                        </div>
+                        <div>
+                            6-Jun-24
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</table>
