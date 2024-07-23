@@ -1,0 +1,12 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Email Template",
+  "modified": "2024-07-12 18:16:07.449986",
+  "name": "RFQ",
+  "response": "<div class=\"ql-editor read-mode\"><p>Dear Sir,</p><p><br></p><p>Please give the quotation with the MOQ and lead time for the following items for this month:</p><p><br></p><p>&nbsp;{% for item in items %}</p><p>\"{{ item.item_code }}\" &nbsp;- &nbsp;{{ item.qty }} {{ item.uom }}</p><p>&nbsp;{% endfor %}</p></div>",
+  "response_html": null,
+  "subject": "Quotation for {{ items[0].item_code }}",
+  "use_html": 0
+ }
+]

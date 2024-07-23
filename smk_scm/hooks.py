@@ -232,6 +232,13 @@ doctype_js = {
 
 fixtures=[
     {"dt": "Payment Terms Template"},
+    {"dt": "Email Template", "filters":[
+        [
+            "name", "in",[
+                "RFQ"
+            ]
+        ]
+    ]},
     # {"dt": "Workspace", "filters":[
     #     [
     #         "name", "in",[

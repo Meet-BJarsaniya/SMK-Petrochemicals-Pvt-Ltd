@@ -30,6 +30,17 @@ frappe.ui.form.on("RFQ for New Item", {
 		}));
 	},
 
+	company: function (frm) {
+		frm.set_query("billing_address", function() {
+            return {
+                filters: {
+					address_title: frm.doc.company,
+					is_your_company_address: 1,
+                }
+            };
+        });
+	},
+	
 	onload: function (frm) {
 		if (!frm.doc.message_for_supplier) {
 			frm.set_value(

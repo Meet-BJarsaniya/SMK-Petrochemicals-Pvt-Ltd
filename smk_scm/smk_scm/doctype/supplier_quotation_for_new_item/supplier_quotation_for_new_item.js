@@ -174,13 +174,16 @@ frappe.ui.form.on("Supplier Quotation Item", {
     qty: function (frm, cdt, cdn) {
         updateAmount(frm, cdt, cdn);
         updateTotal(frm);
+        updateTax(frm)
     },
     rate: function (frm, cdt, cdn) {
         updateAmount(frm, cdt, cdn);
         updateTotal(frm);
+        updateTax(frm)
     },
     items_remove: function (frm) {
         updateTotal(frm);
+        updateTax(frm)
     }
 });
 
@@ -199,10 +202,34 @@ function updateTotal(frm) {
     frm.set_value("total_qty", total_qty);
     frm.set_value("total", total_amount);
     frm.set_value("net_total", total_amount);
-    frm.set_value("grand_total", total_amount);
-    rounded_total = Math.round(total_amount);
+}
+
+frappe.ui.form.on("Purchase Taxes and Charges", {
+    rate: function (frm, cdt, cdn) {
+        updateTax(frm, cdt, cdn);
+    },
+    taxes_remove: function (frm, cdt, cdn) {
+        updateTax(frm, cdt, cdn);
+    }
+});
+
+function updateTax(frm) {
+    let total_tax = 0;
+    let total_amount = frm.doc.total;
+
+    frm.doc.taxes.forEach((row, idx) => {
+        frappe.model.set_value(row.doctype, row.name, 'tax_amount', total_amount / 100 * row.rate);
+        total_tax += row.tax_amount;
+        frappe.model.set_value(row.doctype, row.name, 'total', total_amount + total_tax);
+    });
+    let grand_total = total_amount + total_tax
+    frm.refresh_fields('taxes');
+    frm.set_value("taxes_and_charges_added", total_tax);
+    frm.set_value("total_taxes_and_charges", total_tax);
+    frm.set_value("grand_total", grand_total);
+    rounded_total = Math.round(grand_total);
     frm.set_value("rounded_total", rounded_total);
-    frm.set_value("rounding_adjustment", rounded_total-total_amount);
+    frm.set_value("rounding_adjustment", rounded_total-grand_total);
 }
 
 // erpnext.buying.setup_buying_controller();
