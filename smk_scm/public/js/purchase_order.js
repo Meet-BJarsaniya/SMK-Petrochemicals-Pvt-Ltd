@@ -26,6 +26,7 @@ frappe.ui.form.on('Purchase Order', {
             }
             // frm.set_df_property('naming_series', 'hidden', 1)
         }
+        update_terms_options(frm);
 	},
     before_save: function(frm) {
         frm.doc.items.forEach(item => {
@@ -51,14 +52,11 @@ frappe.ui.form.on('Purchase Order', {
         });
     },
     refresh: function(frm) {
-        update_delivery_terms_options(frm);
+        update_terms_options(frm);
     },
-    custom_purchase_type: function(frm) {
-        update_delivery_terms_options(frm);
-    }
 });
 
-function update_delivery_terms_options(frm) {
+function update_terms_options(frm) {
     if (frm.doc.custom_purchase_type == "Import") {
         frm.set_df_property('custom_delivery_terms', 'options', ['Ex-work', 'Delivered', 'Free Carrier', 'Free On Board']);
         frm.set_query('payment_terms_template', function() {
@@ -69,7 +67,7 @@ function update_delivery_terms_options(frm) {
         frm.set_query('payment_terms_template', function() {
             return {
                 filters: {
-                    'name': ['in', ['Open Credit' , 'Advance Payment', 'Part Advance / Part Credit']]
+                    'name': ['in', ['Open Credit' , 'Advance Payment', 'Part Advance / Part Credit', 'Against Document']]
                 }
             };
         });
