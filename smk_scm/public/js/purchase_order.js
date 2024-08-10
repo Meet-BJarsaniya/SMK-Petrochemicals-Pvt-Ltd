@@ -53,6 +53,15 @@ frappe.ui.form.on('Purchase Order', {
     },
     refresh: function(frm) {
         update_terms_options(frm);
+		if (frm.doc.docstatus === 1) {
+			frm.add_custom_button(
+				__("QC Warehouse Entry"),
+				function () {
+					frm.trigger("make_supplier_quotation");
+				},
+				__("Create")
+			);
+        }
     },
 });
 

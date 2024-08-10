@@ -5,9 +5,7 @@ from frappe.email.queue import flush
 def send_email_to_owners(owners_list, supplier_quotation_id, supplier_quotation_details, company):
     owners = frappe.parse_json(owners_list)
     for owner in owners:
-        print(owner)
         recipient = frappe.db.get_value("User", owner, "email")
-        print(recipient)
         if recipient:
             message = f"""
             <p>Dear {frappe.db.get_value("User", owner, "first_name")},</p>
