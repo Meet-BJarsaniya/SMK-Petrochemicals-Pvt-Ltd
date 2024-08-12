@@ -7,6 +7,7 @@
  "field_order": [
   "company",
   "posting_date",
+  "purchase_order",
   "column_break_klwd",
   "supplier",
   "posting_time",
@@ -51,11 +52,17 @@
    "fieldtype": "Table",
    "label": "Item",
    "options": "QC Warehouse Item"
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "label": "Purchase Order",
+   "options": "Purchase Order"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-06 10:38:00.068197",
+ "modified": "2024-08-10 17:46:40.481842",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "QC Warehouse Entry",

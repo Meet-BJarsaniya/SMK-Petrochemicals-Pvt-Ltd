@@ -54,13 +54,34 @@ frappe.ui.form.on('Purchase Order', {
     refresh: function(frm) {
         update_terms_options(frm);
 		if (frm.doc.docstatus === 1) {
-			frm.add_custom_button(
-				__("QC Warehouse Entry"),
-				function () {
-					frm.trigger("make_supplier_quotation");
-				},
-				__("Create")
-			);
+            frm.add_custom_button('QC Warehouse Entry', () => {
+                // Create a new QC Warehouse Entry document
+                frappe.model.with_doctype('QC Warehouse Entry', () => {
+                    let new_doc = frappe.model.get_new_doc('QC Warehouse Entry');
+                    new_doc.company = frm.doc.company;
+                    new_doc.supplier = frm.doc.supplier;
+                    new_doc.purchase_order = frm.doc.name;
+                    frm.doc.items.forEach(item => {
+                        let qc_item = frappe.model.add_child(new_doc, 'qc_item');
+                        qc_item.item_code = item.item_code;
+                        qc_item.item_name = item.item_name;
+                        qc_item.item_group = item.item_group;
+                        qc_item.uom = item.uom;
+                        qc_item.purchase_order_qty = item.qty;
+                        qc_item.received_qty = "0";
+                        qc_item.pending_qty = item.qty;
+                        qc_item.balanced_qty = "0";
+                    });
+            
+                    // Refresh the field to show updated data
+                    frappe.model.set_value(new_doc.doctype, new_doc.name, 'qc_item', new_doc.qc_item);
+            
+                    // Save the new document and navigate to it
+                    // frappe.db.insert(new_doc).then(doc => {
+                        frappe.set_route('Form', 'QC Warehouse Entry', new_doc.name);
+                    // });
+                });
+            }, 'Create');            
         }
     },
 });
