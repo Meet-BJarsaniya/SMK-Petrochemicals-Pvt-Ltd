@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-02 12:42:22.114497",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "posting_date",
+  "leo_date",
+  "vessel_arrival_date",
+  "transit_arrival_date",
+  "column_break_lrfb",
+  "remark",
+  "gate_in_date",
+  "vessel_sailing_date",
+  "vessel_arrival_in_customer_port_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "leo_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "LEO Date"
+  },
+  {
+   "fieldname": "vessel_arrival_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Vessel Arrival Date"
+  },
+  {
+   "fieldname": "transit_arrival_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Transit Arrival Date"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remark"
+  },
+  {
+   "fieldname": "column_break_lrfb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gate_in_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Gate In Date"
+  },
+  {
+   "fieldname": "vessel_sailing_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Vessel Sailing Date"
+  },
+  {
+   "fieldname": "vessel_arrival_in_customer_port_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Vessel Arrival in Customer Port Date"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-02 12:50:07.083710",
+ "modified_by": "Administrator",
+ "module": "SMK SCM",
+ "name": "Shipment Dates",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
