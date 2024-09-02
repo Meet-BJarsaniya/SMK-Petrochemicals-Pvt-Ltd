@@ -12,7 +12,8 @@
   "supplier",
   "posting_time",
   "section_break_ypao",
-  "qc_item"
+  "qc_item",
+  "amended_from"
  ],
  "fields": [
   {
@@ -37,7 +38,8 @@
    "fieldname": "supplier",
    "fieldtype": "Link",
    "label": "Supplier",
-   "options": "Supplier"
+   "options": "Supplier",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_klwd",
@@ -57,12 +59,24 @@
    "fieldname": "purchase_order",
    "fieldtype": "Link",
    "label": "Purchase Order",
-   "options": "Purchase Order"
+   "options": "Purchase Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "QC Warehouse Entry",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-08-10 17:46:40.481842",
+ "modified": "2024-08-23 14:24:47.748658",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "QC Warehouse Entry",

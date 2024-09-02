@@ -9,17 +9,17 @@
   "company",
   "port_of_loading",
   "port_of_discharge",
-  "amended_from",
   "column_break_ocvk",
   "posting_date",
   "pickup_address",
   "item_description_section",
-  "item",
   "quantity",
   "gross_weight_in_kgs",
+  "terms",
   "column_break_xlmt",
   "nature",
-  "uom",
+  "volume_in_cbm",
+  "quote_from_cha",
   "charges_tab",
   "local_shipment_section",
   "currency_for_ocean_freight",
@@ -50,7 +50,8 @@
   "total_charges_in_usd",
   "total_in_inr_per_kgs",
   "column_break_upxo",
-  "total_charges_in_inr"
+  "total_charges_in_inr",
+  "amended_from"
  ],
  "fields": [
   {
@@ -74,16 +75,6 @@
    "label": "Posting Date"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Quote From CHA",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
    "fieldname": "port_of_loading",
    "fieldtype": "Data",
    "label": "Port of Loading"
@@ -104,12 +95,6 @@
    "label": "Item Description"
   },
   {
-   "fieldname": "item",
-   "fieldtype": "Link",
-   "label": "Item",
-   "options": "Item"
-  },
-  {
    "fieldname": "column_break_xlmt",
    "fieldtype": "Column Break"
   },
@@ -128,12 +113,6 @@
    "fieldname": "gross_weight_in_kgs",
    "fieldtype": "Float",
    "label": "Gross Weight in KGs"
-  },
-  {
-   "fieldname": "uom",
-   "fieldtype": "Link",
-   "label": "UOM",
-   "options": "UOM"
   },
   {
    "collapsible": 1,
@@ -304,12 +283,38 @@
    "fieldtype": "Link",
    "label": "Currency for CHA / Customs Clearance",
    "options": "Currency"
+  },
+  {
+   "fieldname": "terms",
+   "fieldtype": "Link",
+   "label": "Terms",
+   "options": "Incoterm"
+  },
+  {
+   "fieldname": "volume_in_cbm",
+   "fieldtype": "Data",
+   "label": "Volume in CBM"
+  },
+  {
+   "fieldname": "quote_from_cha",
+   "fieldtype": "Attach",
+   "label": "Quote From CHA"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Quote From CHA",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-13 15:44:56.084582",
+ "modified": "2024-08-29 11:27:01.592628",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Quote From CHA",
