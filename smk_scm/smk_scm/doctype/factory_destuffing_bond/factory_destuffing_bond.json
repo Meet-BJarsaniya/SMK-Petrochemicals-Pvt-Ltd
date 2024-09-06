@@ -1,0 +1,147 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-04 14:22:22.589319",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "company_address",
+  "cha",
+  "bond_reference_no",
+  "column_break_jkxs",
+  "posting_date",
+  "supplier",
+  "supplier_address",
+  "bond_no",
+  "section_break_twwq",
+  "name_of_authorised_person",
+  "place",
+  "column_break_ibgb",
+  "designation",
+  "signature",
+  "section_break_vgyr",
+  "template",
+  "message"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "column_break_jkxs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "company_address",
+   "fieldtype": "Small Text",
+   "label": "Company Address"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "supplier_address",
+   "fieldtype": "Small Text",
+   "label": "Supplier Address"
+  },
+  {
+   "fieldname": "cha",
+   "fieldtype": "Link",
+   "label": "CHA",
+   "options": "CHA Master"
+  },
+  {
+   "fieldname": "bond_reference_no",
+   "fieldtype": "Data",
+   "label": "Bond Reference No."
+  },
+  {
+   "fieldname": "bond_no",
+   "fieldtype": "Data",
+   "label": "Bond No."
+  },
+  {
+   "fieldname": "section_break_twwq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "name_of_authorised_person",
+   "fieldtype": "Link",
+   "label": "Name of Authorised person",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "place",
+   "fieldtype": "Data",
+   "label": "Place"
+  },
+  {
+   "fieldname": "column_break_ibgb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "name_of_authorised_person.designation",
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Signature",
+   "label": "Signature"
+  },
+  {
+   "fieldname": "section_break_vgyr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Template",
+   "options": "Factory Destuffing Bond Templates"
+  },
+  {
+   "fetch_from": "template.terms",
+   "fieldname": "message",
+   "fieldtype": "Text Editor",
+   "label": "Message"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-04 17:42:39.986605",
+ "modified_by": "Administrator",
+ "module": "SMK SCM",
+ "name": "Factory Destuffing Bond",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -14,11 +14,18 @@ frappe.ui.form.on("QC Warehouse Entry", {
         });
     },
     refresh: function (frm) {
-        frm.add_custom_button(__('Purchase Order'), function () {
-            open_purchase_order_dialog(frm);
-        }, __('Get Items From'));
+        if (frm.doc.docstatus==0){
+            frm.add_custom_button(__('Purchase Order'), function () {
+                open_purchase_order_dialog(frm);
+            }, __('Get Items From'));
+        }
+		if (frm.doc.docstatus === 1) {
+            frm.add_custom_button('Purchase Invoice', () => {
+                make_purchase_invoice(cur_frm.doc.purchase_order)
+            }, 'Create');
+        }
     },
-    after_save(frm) {
+    on_submit(frm) {
         let purchase_order = frm.doc.purchase_order;
         let qc_items = frm.doc.qc_item;
         let qc_items_dict = {};
@@ -88,27 +95,6 @@ function open_purchase_order_dialog(frm) {
 }
 
 function get_items_from_purchase_order(frm, purchase_order) {
-    // // Logic to get items from the selected Purchase Order
-    // frappe.call({
-    //     method: "smk_scm.smk_scm.doctype.qc_warehouse_entry.qc_warehouse_entry.get_items_from_po",  // Update this to your method path
-    //     args: {
-    //         doc: frm.doc,
-    //         purchase_order: purchase_order
-    //     },
-    // //     callback: function(response) {
-    // //         // Handle the response and update the form accordingly
-    // //         if (response.message) {
-    // //             // Update the form with the retrieved items
-    // //             // For example:
-    // //             // frm.set_value('items', response.message);
-    // //             console.log("UYG", response.message)
-    // //         }
-    // //     }
-
-    // });
-    // let po_doc = frappe.db.get_doc('Purchase Order', purchase_order);
-    // console.log("po_doc", po_doc)
-    // console.log("purchase_order", purchase_order)
     frappe.call({
         method: "frappe.client.get",
         args: {
@@ -144,6 +130,24 @@ function get_items_from_purchase_order(frm, purchase_order) {
                 //         }
                 //     }
                 // });
+            }
+        }
+    });
+}
+
+function make_purchase_invoice(purchase_order) {
+    frappe.call({
+        method: "erpnext.buying.doctype.purchase_order.purchase_order.make_purchase_invoice",
+        args: {
+            source_name: purchase_order // The Purchase Order name or ID
+        },
+        callback: function(response) {
+            if (response && response.message) {
+                // open the new Purchase Invoice form
+                frappe.model.sync(response.message);
+                frappe.set_route("Form", response.message.doctype, response.message.name);
+            } else {
+                frappe.msgprint(__("Could not create Purchase Invoice from the selected Purchase Order."));
             }
         }
     });

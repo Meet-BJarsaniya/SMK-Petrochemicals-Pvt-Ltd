@@ -10,6 +10,53 @@ frappe.ui.form.on('Purchase Order', {
             });
         }, 100);
     },
+    // onload_post_render: function(frm) {
+    //     frm.fields_dict.items.grid.wrapper.on('change', function() {
+    //         frm.doc.items.forEach(function(row) {
+    //             // Custom logic when received_qty changes
+    //             frappe.msgprint(row.item_name + " received_qty is now " + row.received_qty);
+    //             frappe.call({
+    //                 method: "frappe.client.get",
+    //                 args: {
+    //                     doctype: "QC Warehouse Entry",
+    //                     purchase_order: frm.doc.name
+    //                 },
+    //                 callback: function (response) {
+    //                     if (response.message.items) {
+    //                         console.log(response.message)
+                            // let items = response.message.items;
+                            // frm.set_value('purchase_order', response.message.name);
+                            // frm.clear_table('qc_item');
+                            // items.forEach(function (item) {
+                            //     let new_row = frm.add_child('qc_item', {
+                            //         item_code: item.item_code,
+                            //         item_name: item.item_name,
+                            //         item_group: item.item_group,
+                            //         uom: item.uom,
+                            //         purchase_order_qty: item.qty - item.custom_qc_qty,
+                            //     });
+                            // });
+                            // frm.refresh();
+                            // frappe.call({
+                            //     method: "frappe.client.set_value",
+                            //     args: {
+                            //         doctype: "Purchase Order",
+                            //         name: purchase_order,
+                            //         fieldname: "order_confirmation_no",
+                            //         value: 1000
+                            //     },
+                            //     callback: function(update_response) {
+                            //         if (!update_response.exc) {
+                            //             frappe.msgprint(__("Order Confirmation No updated to 1000"));
+                            //         }
+                            //     }
+                            // });
+    //                     }
+    //                 }
+    //             });
+    //         });
+    //     });
+    // },
     supplier: function(frm) {
         setTimeout(function() {
             // frm.set_df_property('naming_series', 'hidden', 1);
@@ -38,11 +85,42 @@ frappe.ui.form.on('Purchase Order', {
         });
     },
     on_submit: function(frm) {
+        let po_details = `
+            Supplier: ${frm.doc.supplier}<br>
+            Total: ${frm.doc.total} ${frm.doc.currency}<br>
+        `;
+        po_details += `
+            <table border="1" cellpadding="5" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>UOM</th>
+                        <th>Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+        frm.doc.items.forEach(item => {
+            po_details += `
+                <tr>
+                    <td>${item.item_name}</td>
+                    <td>${item.qty}</td>
+                    <td>${item.uom}</td>
+                    <td>${item.rate}</td>
+                </tr>
+            `;
+        });
+        po_details += `
+                </tbody>
+            </table>
+        `;
         frappe.call({
             method: 'smk_scm.public.py.purchase_order.send_email',
             args: {
                 name: frm.doc.name,
-                company: frm.doc.company
+                company: frm.doc.company,
+                po_details
             },
             callback: function(response) {
                 if (response.message) {
@@ -50,6 +128,53 @@ frappe.ui.form.on('Purchase Order', {
                 }
             }
         });
+    },
+    after_workflow_action: function(frm) {
+		if (frm.doc.workflow_state === "Approved") {
+            let po_details = `
+                Supplier: ${frm.doc.supplier}<br>
+                Total: ${frm.doc.total} ${frm.doc.currency}<br>
+            `;
+            po_details += `
+                <table border="1" cellpadding="5" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Quantity</th>
+                            <th>UOM</th>
+                            <th>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            frm.doc.items.forEach(item => {
+                po_details += `
+                    <tr>
+                        <td>${item.item_name}</td>
+                        <td>${item.qty}</td>
+                        <td>${item.uom}</td>
+                        <td>${item.rate}</td>
+                    </tr>
+                `;
+            });
+            po_details += `
+                    </tbody>
+                </table>
+            `;
+            frappe.call({
+                method: 'smk_scm.public.py.purchase_order.send_email',
+                args: {
+                    name: frm.doc.name,
+                    company: frm.doc.company,
+                    po_details
+                },
+                callback: function(response) {
+                    if (response.message) {
+                        frappe.msgprint('Emails sent successfully');
+                    }
+                }
+            });
+        }
     },
     refresh: function(frm) {
         update_terms_options(frm);
