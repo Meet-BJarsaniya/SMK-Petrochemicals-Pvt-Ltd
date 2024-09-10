@@ -86,10 +86,6 @@ frappe.ui.form.on('Purchase Order', {
     },
     on_submit: function(frm) {
         let po_details = `
-            Supplier: ${frm.doc.supplier}<br>
-            Total: ${frm.doc.total} ${frm.doc.currency}<br>
-        `;
-        po_details += `
             <table border="1" cellpadding="5" cellspacing="0">
                 <thead>
                     <tr>
@@ -120,6 +116,15 @@ frappe.ui.form.on('Purchase Order', {
             args: {
                 name: frm.doc.name,
                 company: frm.doc.company,
+                supplier: frm.doc.supplier,
+                acc_id: frm.doc.custom_accounting_team,
+                acc_name: frm.doc.custom_accounting_team_name,
+                payment_terms_template: frm.doc.payment_terms_template,
+                payment_schedule: frm.doc.payment_schedule,
+                logi_id: frm.doc.custom_logistics_team,
+                logi_name: frm.doc.custom_logistics_team_name,
+                custom_delivery_terms: frm.doc.custom_delivery_terms,
+                custom_delivery_term_description: frm.doc.custom_delivery_term_description,
                 po_details
             },
             callback: function(response) {
@@ -132,10 +137,6 @@ frappe.ui.form.on('Purchase Order', {
     after_workflow_action: function(frm) {
 		if (frm.doc.workflow_state === "Approved") {
             let po_details = `
-                Supplier: ${frm.doc.supplier}<br>
-                Total: ${frm.doc.total} ${frm.doc.currency}<br>
-            `;
-            po_details += `
                 <table border="1" cellpadding="5" cellspacing="0">
                     <thead>
                         <tr>
@@ -161,11 +162,46 @@ frappe.ui.form.on('Purchase Order', {
                     </tbody>
                 </table>
             `;
+            let payment_sch_details = `
+                <table border="1" cellpadding="5" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Payment Term</th>
+                            <th>Due Date</th>
+                            <th>Invoice Portion</th>
+                            <th>Payment Amount (INR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            frm.doc.payment_schedule.forEach(ps => {
+                payment_sch_details += `
+                    <tr>
+                        <td>${ps.payment_term}</td>
+                        <td>${ps.due_date}</td>
+                        <td>${ps.invoice_portion}</td>
+                        <td>${ps.payment_amount}</td>
+                    </tr>
+                `;
+            });
+            payment_sch_details += `
+                    </tbody>
+                </table>
+            `;
             frappe.call({
                 method: 'smk_scm.public.py.purchase_order.send_email',
                 args: {
                     name: frm.doc.name,
                     company: frm.doc.company,
+                    supplier: frm.doc.supplier,
+                    acc_id: frm.doc.custom_accounting_team,
+                    acc_name: frm.doc.custom_accounting_team_name,
+                    payment_terms_template: frm.doc.payment_terms_template,
+                    payment_schedule: payment_sch_details,
+                    logi_id: frm.doc.custom_logistics_team,
+                    logi_name: frm.doc.custom_logistics_team_name,
+                    custom_delivery_terms: frm.doc.custom_delivery_terms,
+                    custom_delivery_term_description: frm.doc.custom_delivery_term_description,
                     po_details
                 },
                 callback: function(response) {
@@ -193,9 +229,8 @@ frappe.ui.form.on('Purchase Order', {
                         qc_item.item_group = item.item_group;
                         qc_item.uom = item.uom;
                         qc_item.purchase_order_qty = item.qty;
-                        qc_item.received_qty = "0";
-                        qc_item.pending_qty = item.qty;
-                        qc_item.balanced_qty = "0";
+                        qc_item.grn_qty = item.received_qty;
+                        qc_item.remaining_po_qty = item.qty - item.custom_qc_qty;
                     });
             
                     // Refresh the field to show updated data

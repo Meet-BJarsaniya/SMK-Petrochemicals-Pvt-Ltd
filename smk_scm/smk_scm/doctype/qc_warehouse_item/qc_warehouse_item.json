@@ -13,8 +13,10 @@
   "uom",
   "section_break_esms",
   "purchase_order_qty",
-  "column_break_peig",
   "received_qty",
+  "column_break_peig",
+  "grn_qty",
+  "remaining_po_qty",
   "section_break_xhdr",
   "pending_qty",
   "column_break_mxyd",
@@ -66,13 +68,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "purchase_order_qty",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Purchase Order Qty",
-   "read_only": 1
-  },
-  {
    "fieldname": "received_qty",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -99,12 +94,31 @@
   {
    "fieldname": "column_break_mxyd",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remaining_po_qty",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remaining PO Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "purchase_order_qty",
+   "fieldtype": "Data",
+   "label": "Purchase Order Qty"
+  },
+  {
+   "fieldname": "grn_qty",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "GRN Qty",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-23 13:20:20.726818",
+ "modified": "2024-09-09 17:22:51.128065",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "QC Warehouse Item",

@@ -18,14 +18,19 @@ class QCWarehouseEntry(Document):
 # 		td.append(tr)
   
 @frappe.whitelist()
-def update_purchase_order_items(purchase_order, qc_items_dict):
+def update_purchase_order_items(purchase_order, qc_items_dict, bal_items_dict):
     # Ensure qc_items_dict is correctly parsed from JSON to a dictionary
     if isinstance(qc_items_dict, str):
         import json
         qc_items_dict = json.loads(qc_items_dict)
+    if isinstance(bal_items_dict, str):
+        import json
+        bal_items_dict = json.loads(bal_items_dict)
 
     purchase_order_doc = frappe.get_doc("Purchase Order", purchase_order)
     for item in purchase_order_doc.items:
         if item.item_code in qc_items_dict:
-            frappe.db.set_value("Purchase Order Item", item.name, "custom_qc_qty", qc_items_dict[item.item_code])
+            frappe.db.set_value("Purchase Order Item", item.name, "custom_qc_qty", item.custom_qc_qty + float(qc_items_dict[item.item_code]))
+            frappe.db.set_value("Purchase Order Item", item.name, "custom_bal_qty", float(bal_items_dict[item.item_code]))
+
     frappe.db.commit()
