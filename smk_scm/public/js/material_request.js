@@ -13,12 +13,18 @@ frappe.ui.form.on("Material Request", {
                 <tbody>
         `;
         frm.doc.items.forEach(item => {
+            var inputDate = item.schedule_date;
+            var parts = inputDate.split("-");
+            var year = parts[0];
+            var month = parts[1];
+            var day = parts[2];
+            var formattedDate = day ? `${day}-${month}-${year}` : `${year}`;
             mr_details += `
                 <tr>
                     <td>${item.item_name}</td>
                     <td>${item.qty}</td>
                     <td>${item.uom}</td>
-                    <td>${item.schedule_date}</td>
+                    <td>${formattedDate}</td>
                 </tr>
             `;
         });
@@ -30,6 +36,7 @@ frappe.ui.form.on("Material Request", {
             method: 'smk_scm.public.py.material_request.send_email',
             args: {
                 name: frm.doc.name,
+                doctype: frm.doc.doctype,
                 company: frm.doc.company,
                 recipient_id: frm.doc.custom_user_id,
                 recipient: frm.doc.custom_user_full_name,

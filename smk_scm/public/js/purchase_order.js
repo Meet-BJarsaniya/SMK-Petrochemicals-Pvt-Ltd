@@ -93,17 +93,29 @@ frappe.ui.form.on('Purchase Order', {
                         <th>Quantity</th>
                         <th>UOM</th>
                         <th>Rate</th>
+                        <th>Required By</th>
                     </tr>
                 </thead>
                 <tbody>
         `;
         frm.doc.items.forEach(item => {
+            const formattedRate = item.rate.toLocaleString('en-US', { 
+                style: 'currency', 
+                currency: frm.doc.currency
+            });
+            var inputDate = item.schedule_date;
+            var parts = inputDate.split("-");
+            var year = parts[0];
+            var month = parts[1];
+            var day = parts[2];
+            var formattedDate = day ? `${day}-${month}-${year}` : `${year}`;
             po_details += `
                 <tr>
                     <td>${item.item_name}</td>
                     <td>${item.qty}</td>
                     <td>${item.uom}</td>
-                    <td>${item.rate}</td>
+                    <td>${formattedRate}</td>
+                    <td>${formattedDate}</td>
                 </tr>
             `;
         });
@@ -111,10 +123,49 @@ frappe.ui.form.on('Purchase Order', {
                 </tbody>
             </table>
         `;
+        let payment_sch_details = `
+            <table border="1" cellpadding="5" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Payment Term</th>
+                        <th>Due Date</th>
+                        <th>Invoice Portion</th>
+                        <th>Payment Amount (INR)</th>
+                        <th>Required By</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+        frm.doc.payment_schedule.forEach(ps => {
+            const formattedRate = ps.payment_amount.toLocaleString('en-US', { 
+                style: 'currency', 
+                currency: frm.doc.currency
+            });
+            var inputDate = ps.due_date;
+            var parts = inputDate.split("-");
+            var year = parts[0];
+            var month = parts[1];
+            var day = parts[2];
+            var formattedDate = day ? `${day}-${month}-${year}` : `${year}`;
+            payment_sch_details += `
+                <tr>
+                    <td>${ps.payment_term}</td>
+                    <td>${formattedDate}</td>
+                    <td>${ps.invoice_portion}</td>
+                    <td>${formattedRate}</td>
+                    <td>${formattedDate}</td>
+                </tr>
+            `;
+        });
+        payment_sch_details += `
+                </tbody>
+            </table>
+        `;
         frappe.call({
             method: 'smk_scm.public.py.purchase_order.send_email',
             args: {
                 name: frm.doc.name,
+                doctype: frm.doc.doctype,
                 company: frm.doc.company,
                 supplier: frm.doc.supplier,
                 acc_id: frm.doc.custom_accounting_team,
@@ -144,17 +195,29 @@ frappe.ui.form.on('Purchase Order', {
                             <th>Quantity</th>
                             <th>UOM</th>
                             <th>Rate</th>
+                            <th>Required By</th>
                         </tr>
                     </thead>
                     <tbody>
             `;
             frm.doc.items.forEach(item => {
+                const formattedRate = item.rate.toLocaleString('en-US', { 
+                    style: 'currency', 
+                    currency: frm.doc.currency
+                });
+                var inputDate = item.schedule_date;
+                var parts = inputDate.split("-");
+                var year = parts[0];
+                var month = parts[1];
+                var day = parts[2];
+                var formattedDate = day ? `${day}-${month}-${year}` : `${year}`;
                 po_details += `
                     <tr>
                         <td>${item.item_name}</td>
                         <td>${item.qty}</td>
                         <td>${item.uom}</td>
-                        <td>${item.rate}</td>
+                        <td>${formattedRate}</td>
+                        <td>${formattedDate}</td>
                     </tr>
                 `;
             });
@@ -168,19 +231,29 @@ frappe.ui.form.on('Purchase Order', {
                         <tr>
                             <th>Payment Term</th>
                             <th>Due Date</th>
-                            <th>Invoice Portion</th>
+                            <th>Invoice Portion (%)</th>
                             <th>Payment Amount (INR)</th>
                         </tr>
                     </thead>
                     <tbody>
             `;
             frm.doc.payment_schedule.forEach(ps => {
+                const formattedRate = ps.payment_amount.toLocaleString('en-US', { 
+                    style: 'currency', 
+                    currency: frm.doc.currency
+                });
+                var inputDate = ps.due_date;
+                var parts = inputDate.split("-");
+                var year = parts[0];
+                var month = parts[1];
+                var day = parts[2];
+                var formattedDate = day ? `${day}-${month}-${year}` : `${year}`;
                 payment_sch_details += `
                     <tr>
                         <td>${ps.payment_term}</td>
-                        <td>${ps.due_date}</td>
+                        <td>${formattedDate}</td>
                         <td>${ps.invoice_portion}</td>
-                        <td>${ps.payment_amount}</td>
+                        <td>${formattedRate}</td>
                     </tr>
                 `;
             });
@@ -192,8 +265,10 @@ frappe.ui.form.on('Purchase Order', {
                 method: 'smk_scm.public.py.purchase_order.send_email',
                 args: {
                     name: frm.doc.name,
+                    doctype: frm.doc.doctype,
                     company: frm.doc.company,
                     supplier: frm.doc.supplier,
+                    schedule_date: frm.doc.schedule_date,
                     acc_id: frm.doc.custom_accounting_team,
                     acc_name: frm.doc.custom_accounting_team_name,
                     payment_terms_template: frm.doc.payment_terms_template,

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "autoname": "hash",
- "creation": "2024-07-10 18:11:15.890281",
+ "creation": "2024-09-11 15:46:57.364774",
  "doctype": "DocType",
  "document_type": "Document",
  "editable_grid": 1,
@@ -26,7 +26,6 @@
   "stock_uom",
   "col_break2",
   "uom",
-  "conversion_factor",
   "stock_qty",
   "sec_break_price_list",
   "price_list_rate",
@@ -39,8 +38,6 @@
   "amount",
   "item_tax_template",
   "col_break3",
-  "base_rate",
-  "base_amount",
   "pricing_rules",
   "section_break_24",
   "net_rate",
@@ -59,7 +56,6 @@
   "material_request",
   "sales_order",
   "request_for_quotation",
-  "custom_rfq_for_new_item",
   "col_break4",
   "material_request_item",
   "request_for_quotation_item",
@@ -80,12 +76,11 @@
    "bold": 1,
    "columns": 2,
    "fieldname": "item_code",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Item Code",
    "oldfieldname": "item_code",
    "oldfieldtype": "Link",
-   "options": "Item",
    "reqd": 1,
    "search_index": 1
   },
@@ -117,6 +112,22 @@
    "label": "Supplier Lead Time (days)"
   },
   {
+   "allow_on_submit": 1,
+   "bold": 1,
+   "fieldname": "expected_delivery_date",
+   "fieldtype": "Date",
+   "label": "Expected Delivery Date"
+  },
+  {
+   "default": "0",
+   "depends_on": "is_free_item",
+   "fieldname": "is_free_item",
+   "fieldtype": "Check",
+   "label": "Is Free Item",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
    "collapsible": 1,
    "fieldname": "section_break_5",
    "fieldtype": "Section Break",
@@ -130,6 +141,26 @@
    "oldfieldtype": "Small Text",
    "print_width": "300px",
    "width": "300px"
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "label": "Item Group",
+   "oldfieldname": "item_group",
+   "oldfieldtype": "Link",
+   "options": "Item Group",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Link",
+   "label": "Brand",
+   "oldfieldname": "brand",
+   "oldfieldtype": "Link",
+   "options": "Brand",
+   "print_hide": 1,
+   "read_only": 1
   },
   {
    "fieldname": "col_break1",
@@ -175,6 +206,33 @@
    "reqd": 1
   },
   {
+   "fieldname": "col_break2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "UOM",
+   "options": "UOM",
+   "print_hide": 1,
+   "print_width": "100px",
+   "reqd": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "stock_qty",
+   "fieldtype": "Float",
+   "label": "Qty as per Stock UOM",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_break_price_list",
+   "fieldtype": "Section Break"
+  },
+  {
    "fieldname": "price_list_rate",
    "fieldtype": "Currency",
    "label": "Price List Rate",
@@ -195,35 +253,8 @@
    "options": "currency"
   },
   {
-   "fieldname": "col_break2",
+   "fieldname": "col_break_price_list",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "uom",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "UOM",
-   "options": "UOM",
-   "print_hide": 1,
-   "print_width": "100px",
-   "reqd": 1,
-   "width": "100px"
-  },
-  {
-   "fieldname": "conversion_factor",
-   "fieldtype": "Float",
-   "label": "UOM Conversion Factor",
-   "print_hide": 1,
-   "read_only": 1,
-   "reqd": 1
-  },
-  {
-   "fieldname": "stock_qty",
-   "fieldtype": "Float",
-   "label": "Qty as per Stock UOM",
-   "no_copy": 1,
-   "print_hide": 1,
-   "read_only": 1
   },
   {
    "fieldname": "base_price_list_rate",
@@ -260,32 +291,15 @@
    "read_only": 1
   },
   {
+   "fieldname": "item_tax_template",
+   "fieldtype": "Link",
+   "label": "Item Tax Template",
+   "options": "Item Tax Template",
+   "print_hide": 1
+  },
+  {
    "fieldname": "col_break3",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "base_rate",
-   "fieldtype": "Currency",
-   "label": "Rate (Company Currency)",
-   "oldfieldname": "purchase_rate",
-   "oldfieldtype": "Currency",
-   "options": "Company:company:default_currency",
-   "print_hide": 1,
-   "print_width": "100px",
-   "read_only": 1,
-   "reqd": 1,
-   "width": "100px"
-  },
-  {
-   "fieldname": "base_amount",
-   "fieldtype": "Currency",
-   "label": "Amount (Company Currency)",
-   "oldfieldname": "amount",
-   "oldfieldtype": "Currency",
-   "options": "Company:company:default_currency",
-   "print_hide": 1,
-   "read_only": 1,
-   "reqd": 1
   },
   {
    "fieldname": "pricing_rules",
@@ -380,13 +394,6 @@
    "print_hide": 1
   },
   {
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "label": "Project",
-   "options": "Project",
-   "print_hide": 1
-  },
-  {
    "fieldname": "prevdoc_doctype",
    "fieldtype": "Data",
    "hidden": 1,
@@ -424,20 +431,13 @@
    "fieldtype": "Link",
    "label": "Request for Quotation",
    "no_copy": 1,
-   "options": "Request for Quotation",
+   "options": "RFQ for New Item",
    "print_hide": 1,
    "read_only": 1
   },
   {
    "fieldname": "col_break4",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "item_tax_template",
-   "fieldtype": "Link",
-   "label": "Item Tax Template",
-   "options": "Item Tax Template",
-   "print_hide": 1
   },
   {
    "fieldname": "material_request_item",
@@ -460,26 +460,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "brand",
-   "fieldtype": "Link",
-   "label": "Brand",
-   "oldfieldname": "brand",
-   "oldfieldtype": "Link",
-   "options": "Brand",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "item_group",
-   "fieldtype": "Link",
-   "label": "Item Group",
-   "oldfieldname": "item_group",
-   "oldfieldtype": "Link",
-   "options": "Item Group",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
    "description": "Tax detail table fetched from item master as a string and stored in this field.\nUsed for Taxes and Charges",
    "fieldname": "item_tax_rate",
    "fieldtype": "Code",
@@ -490,6 +470,50 @@
    "print_hide": 1,
    "read_only": 1,
    "report_hide": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "manufacture_details",
+   "fieldtype": "Section Break",
+   "label": "Manufacture"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Link",
+   "label": "Manufacturer",
+   "options": "Manufacturer"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manufacturer_part_no",
+   "fieldtype": "Data",
+   "label": "Manufacturer Part Number"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "ad_sec_break",
+   "fieldtype": "Section Break",
+   "label": "Accounting Dimensions"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "dimension_col_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "print_hide": 1
   },
   {
    "fieldname": "section_break_44",
@@ -505,86 +529,15 @@
    "oldfieldname": "page_break",
    "oldfieldtype": "Check",
    "print_hide": 1
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "manufacture_details",
-   "fieldtype": "Section Break",
-   "label": "Manufacture"
-  },
-  {
-   "fieldname": "manufacturer",
-   "fieldtype": "Link",
-   "label": "Manufacturer",
-   "options": "Manufacturer"
-  },
-  {
-   "fieldname": "manufacturer_part_no",
-   "fieldtype": "Data",
-   "label": "Manufacturer Part Number"
-  },
-  {
-   "fieldname": "column_break_15",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "sec_break_price_list",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "col_break_price_list",
-   "fieldtype": "Column Break"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "ad_sec_break",
-   "fieldtype": "Section Break",
-   "label": "Accounting Dimensions"
-  },
-  {
-   "default": "0",
-   "depends_on": "is_free_item",
-   "fieldname": "is_free_item",
-   "fieldtype": "Check",
-   "label": "Is Free Item",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
-   "allow_on_submit": 1,
-   "bold": 1,
-   "fieldname": "expected_delivery_date",
-   "fieldtype": "Date",
-   "label": "Expected Delivery Date"
-  },
-  {
-   "fieldname": "cost_center",
-   "fieldtype": "Link",
-   "label": "Cost Center",
-   "options": "Cost Center"
-  },
-  {
-   "fieldname": "dimension_col_break",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "custom_rfq_for_new_item",
-   "fieldtype": "Link",
-   "label": "RFQ for New Item",
-   "no_copy": 1,
-   "options": "RFQ for New Item",
-   "print_hide": 1,
-   "read_only": 1
   }
  ],
- "idx": 1,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-10 18:11:15.890281",
+ "modified": "2024-09-11 18:05:51.039394",
  "modified_by": "Administrator",
  "module": "SMK SCM",
- "name": "Supplier Quotation for New Item Item",
+ "name": "Supplier Quotation for New Item Items",
  "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [],

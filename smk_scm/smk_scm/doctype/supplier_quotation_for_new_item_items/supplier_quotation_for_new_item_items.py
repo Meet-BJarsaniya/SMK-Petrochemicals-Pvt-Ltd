@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class BillofLading(Document):
+class SupplierQuotationforNewItemItems(Document):
 	pass

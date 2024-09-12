@@ -35,7 +35,7 @@ def execute(filters=None):
 
 def get_data(filters):
 	sq = frappe.qb.DocType("Supplier Quotation for New Item")
-	sq_item = frappe.qb.DocType("Supplier Quotation Item")
+	sq_item = frappe.qb.DocType("Supplier Quotation for New Item Items")
 
 	query = (
 		frappe.qb.from_(sq_item)
@@ -52,7 +52,7 @@ def get_data(filters):
 			sq.price_list_currency,
 			sq_item.uom,
 			sq_item.stock_uom,
-			sq_item.custom_rfq_for_new_item,
+			sq_item.request_for_quotation,
 			sq_item.lead_time_days,
 			sq.supplier.as_("supplier_name"),
 			sq.valid_till,
@@ -72,8 +72,8 @@ def get_data(filters):
 	if filters.get("supplier_quotation"):
 		query = query.where(sq_item.parent.isin(filters.get("supplier_quotation")))
 
-	if filters.get("custom_rfq_for_new_item"):
-		query = query.where(sq_item.custom_rfq_for_new_item == filters.get("custom_rfq_for_new_item"))
+	if filters.get("request_for_quotation"):
+		query = query.where(sq_item.request_for_quotation == filters.get("request_for_quotation"))
 
 	if filters.get("supplier"):
 		query = query.where(sq.supplier.isin(filters.get("supplier")))
@@ -119,7 +119,7 @@ def prepare_data(supplier_quotation_data, filters):
 			"stock_uom": data.get("stock_uom"),
 			"base_amount": flt(data.get("base_amount"), float_precision),
 			"base_rate": flt(data.get("base_rate"), float_precision),
-			"custom_rfq_for_new_item": data.get("custom_rfq_for_new_item"),
+			"request_for_quotation": data.get("request_for_quotation"),
 			"valid_till": data.get("valid_till"),
 			"lead_time_days": data.get("lead_time_days"),
 		}
@@ -275,7 +275,7 @@ def get_columns(filters):
 			"width": 100,
 		},
 		{
-			"fieldname": "custom_rfq_for_new_item",
+			"fieldname": "request_for_quotation",
 			"label": _("Request for Quotation"),
 			"fieldtype": "Link",
 			"options": "RFQ for New Item",

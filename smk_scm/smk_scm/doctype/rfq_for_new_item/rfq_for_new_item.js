@@ -40,15 +40,6 @@ frappe.ui.form.on("RFQ for New Item", {
             };
         });
 	},
-	
-	onload: function (frm) {
-		if (!frm.doc.message_for_supplier) {
-			frm.set_value(
-				"message_for_supplier",
-				__("Please supply the specified items at the best possible rates")
-			);
-		}
-	},
 
 	refresh: function (frm, cdt, cdn) {
 		if (frm.doc.docstatus === 1) {
@@ -167,113 +158,113 @@ frappe.ui.form.on("RFQ for New Item", {
 			frm.page.set_inner_btn_group_as_primary(__("Create"));
 		}
 		if (frm.doc.docstatus === 0) {
-			frm.add_custom_button(
-				__("Material Request"),
-				function () {
-					erpnext.utils.map_current_doc({
-						method: "erpnext.stock.doctype.material_request.material_request.make_request_for_quotation",
-						source_doctype: "Material Request",
-						target: frm,
-						setters: {
-							schedule_date: undefined,
-							status: undefined,
-						},
-						get_query_filters: {
-							material_request_type: "Purchase",
-							docstatus: 1,
-							status: ["!=", "Stopped"],
-							per_ordered: ["<", 100],
-							company: frm.doc.company,
-						},
-					});
-				},
-				__("Get Items From")
-			);
+			// frm.add_custom_button(
+			// 	__("Material Request"),
+			// 	function () {
+			// 		erpnext.utils.map_current_doc({
+			// 			method: "erpnext.stock.doctype.material_request.material_request.make_request_for_quotation",
+			// 			source_doctype: "Material Request",
+			// 			target: frm,
+			// 			setters: {
+			// 				schedule_date: undefined,
+			// 				status: undefined,
+			// 			},
+			// 			get_query_filters: {
+			// 				material_request_type: "Purchase",
+			// 				docstatus: 1,
+			// 				status: ["!=", "Stopped"],
+			// 				per_ordered: ["<", 100],
+			// 				company: frm.doc.company,
+			// 			},
+			// 		});
+			// 	},
+			// 	__("Get Items From")
+			// );
 
-			// Get items from Opportunity
-			frm.add_custom_button(
-				__("Opportunity"),
-				function () {
-					erpnext.utils.map_current_doc({
-						method: "erpnext.crm.doctype.opportunity.opportunity.make_request_for_quotation",
-						source_doctype: "Opportunity",
-						target: frm,
-						setters: {
-							party_name: undefined,
-							opportunity_from: undefined,
-							status: undefined,
-						},
-						get_query_filters: {
-							status: ["not in", ["Closed", "Lost"]],
-							company: frm.doc.company,
-						},
-					});
-				},
-				__("Get Items From")
-			);
+			// // Get items from Opportunity
+			// frm.add_custom_button(
+			// 	__("Opportunity"),
+			// 	function () {
+			// 		erpnext.utils.map_current_doc({
+			// 			method: "erpnext.crm.doctype.opportunity.opportunity.make_request_for_quotation",
+			// 			source_doctype: "Opportunity",
+			// 			target: frm,
+			// 			setters: {
+			// 				party_name: undefined,
+			// 				opportunity_from: undefined,
+			// 				status: undefined,
+			// 			},
+			// 			get_query_filters: {
+			// 				status: ["not in", ["Closed", "Lost"]],
+			// 				company: frm.doc.company,
+			// 			},
+			// 		});
+			// 	},
+			// 	__("Get Items From")
+			// );
 
-			// Get items from open Material Requests based on supplier
-			frm.add_custom_button(
-				__("Possible Supplier"),
-				function () {
-					// Create a dialog window for the user to pick their supplier
-					var dialog = new frappe.ui.Dialog({
-						title: __("Select Possible Supplier"),
-						fields: [
-							{
-								fieldname: "supplier",
-								fieldtype: "Link",
-								options: "Supplier",
-								label: "Supplier",
-								reqd: 1,
-								description: __("Get Items from Material Requests against this Supplier"),
-							},
-						],
-						primary_action_label: __("Get Items"),
-						primary_action: (args) => {
-							if (!args) return;
-							dialog.hide();
+			// // Get items from open Material Requests based on supplier
+			// frm.add_custom_button(
+			// 	__("Possible Supplier"),
+			// 	function () {
+			// 		// Create a dialog window for the user to pick their supplier
+			// 		var dialog = new frappe.ui.Dialog({
+			// 			title: __("Select Possible Supplier"),
+			// 			fields: [
+			// 				{
+			// 					fieldname: "supplier",
+			// 					fieldtype: "Link",
+			// 					options: "Supplier",
+			// 					label: "Supplier",
+			// 					reqd: 1,
+			// 					description: __("Get Items from Material Requests against this Supplier"),
+			// 				},
+			// 			],
+			// 			primary_action_label: __("Get Items"),
+			// 			primary_action: (args) => {
+			// 				if (!args) return;
+			// 				dialog.hide();
 
-							erpnext.utils.map_current_doc({
-								method: "erpnext.buying.doctype.request_for_quotation.request_for_quotation.get_item_from_material_requests_based_on_supplier",
-								source_name: args.supplier,
-								target: frm,
-								setters: {
-									company: frm.doc.company,
-								},
-								get_query_filters: {
-									material_request_type: "Purchase",
-									docstatus: 1,
-									status: ["!=", "Stopped"],
-									per_ordered: ["<", 100],
-								},
-							});
-							dialog.hide();
-						},
-					});
+			// 				erpnext.utils.map_current_doc({
+			// 					method: "erpnext.buying.doctype.request_for_quotation.request_for_quotation.get_item_from_material_requests_based_on_supplier",
+			// 					source_name: args.supplier,
+			// 					target: frm,
+			// 					setters: {
+			// 						company: frm.doc.company,
+			// 					},
+			// 					get_query_filters: {
+			// 						material_request_type: "Purchase",
+			// 						docstatus: 1,
+			// 						status: ["!=", "Stopped"],
+			// 						per_ordered: ["<", 100],
+			// 					},
+			// 				});
+			// 				dialog.hide();
+			// 			},
+			// 		});
 
-					dialog.show();
-				},
-				__("Get Items From")
-			);
+			// 		dialog.show();
+			// 	},
+			// 	__("Get Items From")
+			// );
 
 			// Link Material Requests
-			frm.add_custom_button(
-				__("Link to Material Requests"),
-				function () {
-					erpnext.buying.link_to_mrs(frm);
-				},
-				__("Tools")
-			);
+			// frm.add_custom_button(
+			// 	__("Link to Material Requests"),
+			// 	function () {
+			// 		erpnext.buying.link_to_mrs(frm);
+			// 	},
+			// 	__("Tools")
+			// );
 
-			// Get Suppliers
-			frm.add_custom_button(
-				__("Get Suppliers"),
-				function () {
-					get_suppliers_button(frm);
-				},
-				__("Tools")
-			);
+			// // Get Suppliers
+			// frm.add_custom_button(
+			// 	__("Get Suppliers"),
+			// 	function () {
+			// 		get_suppliers_button(frm);
+			// 	},
+			// 	__("Tools")
+			// );
 		}
 	},
 
@@ -398,6 +389,58 @@ frappe.ui.form.on("RFQ for New Item", {
 
 		dialog.show();
 	},
+    on_submit(frm) {
+        let rfq_details = `
+            <table border="1" cellpadding="5" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>UOM</th>
+                        <th>Required By</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+        frm.doc.items.forEach(item => {
+            var inputDate = item.schedule_date;
+            var parts = inputDate.split("-");
+            var year = parts[0];
+            var month = parts[1];
+            var day = parts[2];
+            var formattedDate = day ? `${day}-${month}-${year}` : `${year}`;
+            rfq_details += `
+                <tr>
+                    <td>${item.item_code}</td>
+                    <td>${item.qty}</td>
+                    <td>${item.uom}</td>
+                    <td>${formattedDate}</td>
+                </tr>
+            `;
+        });
+        rfq_details += `
+                </tbody>
+            </table>
+        `;
+
+        frm.doc.suppliers.forEach(supplier => {
+            frappe.call({
+                method: 'smk_scm.public.py.request_for_quotation.send_email',
+                args: {
+                    name: frm.doc.name,
+                    company: frm.doc.company,
+                    recipient_id: supplier.email_id,
+                    recipient: supplier.supplier,
+                    rfq_details
+                },
+                callback: function(response) {
+                    if (response.message) {
+                        frappe.msgprint('An Email sent successfully');
+                    }
+                }
+            });
+        });
+    }
 });
 frappe.ui.form.on("Request for Quotation Item", {
 	items_add(frm, cdt, cdn) {

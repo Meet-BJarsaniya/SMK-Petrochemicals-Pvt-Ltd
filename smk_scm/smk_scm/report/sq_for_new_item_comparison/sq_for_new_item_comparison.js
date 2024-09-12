@@ -40,7 +40,7 @@ frappe.query_reports["SQ for New Item Comparison"] = {
 					return {
 						query: "erpnext.stock.doctype.quality_inspection.quality_inspection.item_query",
 						filters: {
-							from: "Supplier Quotation Item",
+							from: "Supplier Quotation for New Item Items",
 							parent: quote,
 						},
 					};
@@ -68,7 +68,7 @@ frappe.query_reports["SQ for New Item Comparison"] = {
 			fieldtype: "Link",
 			label: __("Request for Quotation"),
 			options: "RFQ for New Item",
-			fieldname: "custom_rfq_for_new_item",
+			fieldname: "request_for_quotation",
 			default: "",
 			get_query: () => {
 				return { filters: { docstatus: ["<", 2] } };

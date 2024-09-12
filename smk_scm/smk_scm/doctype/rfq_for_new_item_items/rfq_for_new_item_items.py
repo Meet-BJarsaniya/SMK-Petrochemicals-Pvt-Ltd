@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class KYCforLine(Document):
+class RFQforNewItemItems(Document):
 	pass
