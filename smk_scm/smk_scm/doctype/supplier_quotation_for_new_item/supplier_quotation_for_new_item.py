@@ -85,7 +85,7 @@ form_grid_templates = {"items": "templates/form_grid/item_grid.html"}
 
 @frappe.whitelist()
 def send_email_to_owners(recipient_id, name, doctype, supplier_quotation_details, company):
-    recipient_id='purchasemanager@smk.com'
+    # recipient_id='purchasemanager@smk.com'
     logo_url = get_url("/files/SMK logo.jpg")
     doctype_slug = frappe.scrub(doctype).replace("_", "-")
     document_url = frappe.utils.get_url(f"app/{doctype_slug}/{name}")
