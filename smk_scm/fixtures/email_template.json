@@ -2,9 +2,9 @@
  {
   "docstatus": 0,
   "doctype": "Email Template",
-  "modified": "2024-07-12 18:16:07.449986",
+  "modified": "2024-09-11 10:45:55.875064",
   "name": "RFQ",
-  "response": "<div class=\"ql-editor read-mode\"><p>Dear Sir,</p><p><br></p><p>Please give the quotation with the MOQ and lead time for the following items for this month:</p><p><br></p><p>&nbsp;{% for item in items %}</p><p>\"{{ item.item_code }}\" &nbsp;- &nbsp;{{ item.qty }} {{ item.uom }}</p><p>&nbsp;{% endfor %}</p></div>",
+  "response": "<div class=\"ql-editor read-mode\"><p>Dear {{ supplier_name }},</p><p><br></p><p>I hope this message finds you well.</p><p>We are currently in the process of reviewing our suppliers and would like to request a quotation for the following items. Please provide us with the item rates, including any applicable taxes, delivery charges, and terms of payment.</p><p><br></p><p>Item Details:</p><p> {% for item in items %}</p><p>Item Name/Description: {{ item.item_code }}</p><p>Quantity: {{ item.qty }}</p><p>Unit of Measure: {{ item.uom }}</p><p> {% endfor %}</p><p>Additional Information:</p><p>Delivery Location: {{ custom_delivery_location }}</p><p>Preferred Delivery Date: {{ schedule_date }}</p><p><br></p><p>Please provide us with a detailed quotation by {{ custom_rfq_deadline }}, and do not hesitate to contact me if you require any further information.</p><p>Thank you for your attention to this request. We look forward to your prompt response.</p><p><br></p><p>Best regards,</p><p>{{ user_fullname }}</p><p>{{ company }}</p></div>",
   "response_html": null,
   "subject": "Quotation for {{ items[0].item_code }}",
   "use_html": 0
