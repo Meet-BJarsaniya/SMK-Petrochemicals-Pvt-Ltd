@@ -2,60 +2,13 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Supplier Quotation for New Item", {
-	// setup: function (frm) {
-	// 	frm.custom_make_buttons = {
-	// 		"Purchase Order": "Purchase Order",
-	// 		Quotation: "Quotation",
-	// 	};
-	// },
-
 	refresh: function (frm) {
-		// var me = this;
-		// super.refresh();
-		// if (frm.doc.__islocal && !frm.doc.valid_till) {
-		// 	frm.set_value("valid_till", frappe.datetime.add_months(frm.doc.transaction_date, 1));
-		// }
         if (frm.doc.docstatus === 1) {
             frm.add_custom_button(__("Purchase Order"), function() {
                 frm.events.make_purchase_order(frm);
             }, __("Create"));
             frm.page.set_inner_btn_group_as_primary(__("Create"));
-            // frm.add_custom_button(__("Quotation"), function() {
-            //     frm.events.make_quotation(frm);
-            // }, __("Create"));
 		} else if (frm.doc.docstatus === 0) {
-			// frm.add_custom_button(
-			// 	__("Material Request"),
-			// 	function () {
-			// 		erpnext.utils.map_current_doc({
-			// 			method: "erpnext.stock.doctype.material_request.material_request.make_supplier_quotation",
-			// 			source_doctype: "Material Request",
-			// 			target: frm,
-			// 			setters: {
-			// 				schedule_date: undefined,
-			// 				status: undefined,
-			// 			},
-			// 			get_query_filters: {
-			// 				material_request_type: "Purchase",
-			// 				docstatus: 1,
-			// 				status: ["!=", "Stopped"],
-			// 				per_ordered: ["<", 100],
-			// 				company: frm.doc.company,
-			// 			},
-			// 		});
-			// 	},
-			// 	__("Get Items From")
-			// );
-
-			// // Link Material Requests
-			// frm.add_custom_button(
-			// 	__("Link to Material Requests"),
-			// 	function () {
-			// 		erpnext.buying.link_to_mrs(frm);
-			// 	},
-			// 	__("Tools")
-			// );
-
 			frm.add_custom_button(
 				__("Request for Quotation"),
 				function () {
@@ -88,20 +41,6 @@ frappe.ui.form.on("Supplier Quotation for New Item", {
 			frm: cur_frm,
 		});
 	},
-// 	make_quotation: function (frm) {
-// 		frappe.model.open_mapped_doc({
-// 			method: "smk_scm.smk_scm.doctype.supplier_quotation_for_new_item.supplier_quotation_for_new_item.make_quotation",
-// 			frm: cur_frm,
-// 		});
-// 	},
-//     before_save: function(frm) {
-//         frm.doc.items.forEach(item => {
-//             if (item.custom_rfq_for_new_item == '' || item.custom_rfq_for_new_item == null) {
-//                 item.custom_rfq_for_new_item = item.request_for_quotation;
-//                 item.request_for_quotation = '';
-//             }
-//         });
-//     },
     after_save: function(frm) {
         if (frm.doc.custom_approved_for_purchase_order) {
             let supplier_quotation_details = `

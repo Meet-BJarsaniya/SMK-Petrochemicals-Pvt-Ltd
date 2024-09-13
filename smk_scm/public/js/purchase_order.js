@@ -10,53 +10,6 @@ frappe.ui.form.on('Purchase Order', {
             });
         }, 100);
     },
-    // onload_post_render: function(frm) {
-    //     frm.fields_dict.items.grid.wrapper.on('change', function() {
-    //         frm.doc.items.forEach(function(row) {
-    //             // Custom logic when received_qty changes
-    //             frappe.msgprint(row.item_name + " received_qty is now " + row.received_qty);
-    //             frappe.call({
-    //                 method: "frappe.client.get",
-    //                 args: {
-    //                     doctype: "QC Warehouse Entry",
-    //                     purchase_order: frm.doc.name
-    //                 },
-    //                 callback: function (response) {
-    //                     if (response.message.items) {
-    //                         console.log(response.message)
-                            // let items = response.message.items;
-                            // frm.set_value('purchase_order', response.message.name);
-                            // frm.clear_table('qc_item');
-                            // items.forEach(function (item) {
-                            //     let new_row = frm.add_child('qc_item', {
-                            //         item_code: item.item_code,
-                            //         item_name: item.item_name,
-                            //         item_group: item.item_group,
-                            //         uom: item.uom,
-                            //         purchase_order_qty: item.qty - item.custom_qc_qty,
-                            //     });
-                            // });
-                            // frm.refresh();
-                            // frappe.call({
-                            //     method: "frappe.client.set_value",
-                            //     args: {
-                            //         doctype: "Purchase Order",
-                            //         name: purchase_order,
-                            //         fieldname: "order_confirmation_no",
-                            //         value: 1000
-                            //     },
-                            //     callback: function(update_response) {
-                            //         if (!update_response.exc) {
-                            //             frappe.msgprint(__("Order Confirmation No updated to 1000"));
-                            //         }
-                            //     }
-                            // });
-    //                     }
-    //                 }
-    //             });
-    //         });
-    //     });
-    // },
     supplier: function(frm) {
         setTimeout(function() {
             // frm.set_df_property('naming_series', 'hidden', 1);
@@ -137,10 +90,11 @@ frappe.ui.form.on('Purchase Order', {
                 <tbody>
         `;
         frm.doc.payment_schedule.forEach(ps => {
-            const formattedRate = ps.payment_amount.toLocaleString('en-US', { 
-                style: 'currency', 
-                currency: frm.doc.currency
-            });
+            const formattedRate = format_currency(ps.payment_amount, "INR", 3);
+            // const formattedRate = ps.payment_amount.toLocaleString('en-US', { 
+            //     style: 'currency', 
+            //     currency: frm.doc.currency
+            // });
             var inputDate = ps.due_date;
             var parts = inputDate.split("-");
             var year = parts[0];
@@ -238,10 +192,11 @@ frappe.ui.form.on('Purchase Order', {
                     <tbody>
             `;
             frm.doc.payment_schedule.forEach(ps => {
-                const formattedRate = ps.payment_amount.toLocaleString('en-US', { 
-                    style: 'currency', 
-                    currency: frm.doc.currency
-                });
+                const formattedRate = format_currency(ps.payment_amount, "INR", 3);
+                // const formattedRate = ps.payment_amount.toLocaleString('en-US', { 
+                //     style: 'currency', 
+                //     currency: frm.doc.currency
+                // });
                 var inputDate = ps.due_date;
                 var parts = inputDate.split("-");
                 var year = parts[0];

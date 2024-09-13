@@ -33,7 +33,7 @@ doctype_js = {
     "Request for Quotation" : "public/js/request_for_quotation.js",
     "Supplier Quotation" : "public/js/supplier_quotation.js",
     "Purchase Order" : "public/js/purchase_order.js",
-    "Payment Entry": "public/js/payment_entry.js",
+    # "Payment Entry": "public/js/payment_entry.js",
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
