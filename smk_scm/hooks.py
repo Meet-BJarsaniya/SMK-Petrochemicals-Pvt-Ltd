@@ -244,7 +244,7 @@ fixtures=[
     {"dt":"Property Setter","filters":[
         [
             "module","in",[
-                "smk_scm"
+                "SMK SCM"
             ]
         ]
     ]}
