@@ -241,6 +241,13 @@ fixtures=[
             ]
         ]
     ]},
+    {"dt":"Property Setter","filters":[
+        [
+            "module","in",[
+                "smk_scm"
+            ]
+        ]
+    ]}
     # {"dt": "Workspace", "filters":[
     #     [
     #         "name", "in",[

@@ -1,0 +1,327 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-09-13 15:00:01.961724",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_ly2a",
+  "naming_series",
+  "company",
+  "forwarder",
+  "request_for_quotation_cha",
+  "port_of_loading",
+  "port_of_discharge",
+  "column_break_ocvk",
+  "transaction_date",
+  "pickup_address",
+  "valid_till",
+  "approved_quote",
+  "item_description_section",
+  "quantity",
+  "net_weight",
+  "tare_weight",
+  "gross_weight",
+  "terms",
+  "column_break_xlmt",
+  "nature",
+  "dimensions_of_ibc_in_mm3",
+  "volume_in_cbm_",
+  "quote_from_cha",
+  "charges_tab",
+  "exchange_rate_section",
+  "currency",
+  "exchange_rate",
+  "section_break_gimd",
+  "charges",
+  "summary_tab",
+  "summary_section",
+  "cha_quote_summary",
+  "section_break_mdmk",
+  "transportation_from_cfs_to_factory",
+  "column_break_btcj",
+  "stamp_duty",
+  "customs_duty",
+  "section_break_meoa",
+  "total_charges_in_oth_curr",
+  "total_in_inr_per_kgs",
+  "column_break_upxo",
+  "total_charges_in_inr",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_ly2a",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "port_of_loading",
+   "fieldtype": "Data",
+   "label": "Port of Loading"
+  },
+  {
+   "fieldname": "port_of_discharge",
+   "fieldtype": "Data",
+   "label": "Port of Discharge"
+  },
+  {
+   "fieldname": "column_break_ocvk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pickup_address",
+   "fieldtype": "Small Text",
+   "label": "Pickup Address"
+  },
+  {
+   "fieldname": "item_description_section",
+   "fieldtype": "Section Break",
+   "label": "Item Description"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Data",
+   "label": "Quantity in IBC"
+  },
+  {
+   "fieldname": "terms",
+   "fieldtype": "Link",
+   "label": "Terms",
+   "options": "Incoterm"
+  },
+  {
+   "fieldname": "column_break_xlmt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "item.item_group",
+   "fieldname": "nature",
+   "fieldtype": "Data",
+   "label": "Nature"
+  },
+  {
+   "fieldname": "quote_from_cha",
+   "fieldtype": "Attach",
+   "label": "Quote From CHA"
+  },
+  {
+   "fieldname": "charges_tab",
+   "fieldtype": "Tab Break",
+   "label": "Charges"
+  },
+  {
+   "fieldname": "summary_tab",
+   "fieldtype": "Tab Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "exchange_rate_section",
+   "fieldtype": "Section Break",
+   "label": "Exchange Rate"
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Exchange Rate",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "cha_quote_summary",
+   "fieldtype": "Table",
+   "label": "CHA Quote Summary",
+   "options": "CHA Quote Summary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_meoa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_in_inr_per_kgs",
+   "fieldtype": "Currency",
+   "label": "Total in INR Per Kgs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_upxo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_charges_in_inr",
+   "fieldtype": "Currency",
+   "label": "Total charges in INR",
+   "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "no_copy": 1,
+   "options": "CHA-QUO-.YYYY.-",
+   "print_hide": 1,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "forwarder",
+   "fieldtype": "Link",
+   "label": "Forwarder",
+   "link_filters": "[[\"Supplier\",\"supplier_type\",\"=\",\"Forwarder\"]]",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Quote From CHA",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "valid_till",
+   "fieldtype": "Date",
+   "label": "Valid Till"
+  },
+  {
+   "default": "0",
+   "fieldname": "approved_quote",
+   "fieldtype": "Check",
+   "label": "Approved Quote"
+  },
+  {
+   "fieldname": "section_break_gimd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "charges",
+   "fieldtype": "Table",
+   "label": "Charges",
+   "options": "CHA Quote Charges"
+  },
+  {
+   "fieldname": "request_for_quotation_cha",
+   "fieldtype": "Link",
+   "label": "Request for Quotation CHA",
+   "options": "Request for CHA Quote"
+  },
+  {
+   "fieldname": "dimensions_of_ibc_in_mm3",
+   "fieldtype": "Data",
+   "label": "Dimensions of IBC in MM3"
+  },
+  {
+   "fieldname": "volume_in_cbm_",
+   "fieldtype": "Float",
+   "label": "Volume in CBM",
+   "precision": "4"
+  },
+  {
+   "fieldname": "net_weight",
+   "fieldtype": "Float",
+   "label": "Net Weight in Kgs"
+  },
+  {
+   "fieldname": "tare_weight",
+   "fieldtype": "Float",
+   "label": "Tare Weight in Kg per IBC"
+  },
+  {
+   "fieldname": "gross_weight",
+   "fieldtype": "Float",
+   "label": "Gross Weight in Kgs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_charges_in_oth_curr",
+   "fieldtype": "Currency",
+   "label": "Total charges in Foreign Curr",
+   "read_only": 1
+  },
+  {
+   "default": "USD",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Currency",
+   "options": "Currency",
+   "precision": "9",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_mdmk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "transportation_from_cfs_to_factory",
+   "fieldtype": "Currency",
+   "label": "Transportation from CFS to Factory"
+  },
+  {
+   "fieldname": "stamp_duty",
+   "fieldtype": "Currency",
+   "label": "Stamp Duty"
+  },
+  {
+   "fieldname": "column_break_btcj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customs_duty",
+   "fieldtype": "Currency",
+   "label": "Customs Duty"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-09-17 15:13:39.680257",
+ "modified_by": "Administrator",
+ "module": "SMK SCM",
+ "name": "Quote From CHA",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

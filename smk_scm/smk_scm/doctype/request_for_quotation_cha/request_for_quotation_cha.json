@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "creation": "2024-09-13 15:00:02.809167",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "forwarder",
+  "quote_status",
+  "column_break_3",
+  "email_id",
+  "send_email",
+  "email_sent"
+ ],
+ "fields": [
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.docstatus >= 1",
+   "fieldname": "quote_status",
+   "fieldtype": "Select",
+   "label": "Quote Status",
+   "options": "Pending\nReceived",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 3,
+   "fetch_from": "forwarder.email_id",
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email Id",
+   "no_copy": 1,
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "default": "1",
+   "fieldname": "send_email",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Send Email"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.docstatus >= 1",
+   "fieldname": "email_sent",
+   "fieldtype": "Check",
+   "label": "Email Sent",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "forwarder",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Forwarder",
+   "link_filters": "[[\"Supplier\",\"supplier_type\",\"=\",\"Forwarder\"]]",
+   "options": "Supplier",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-13 17:04:44.972882",
+ "modified_by": "Administrator",
+ "module": "SMK SCM",
+ "name": "Request for Quotation CHA",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
