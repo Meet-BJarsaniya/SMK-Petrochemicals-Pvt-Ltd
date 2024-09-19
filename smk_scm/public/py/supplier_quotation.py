@@ -5,7 +5,7 @@ from frappe.utils import get_url
 @frappe.whitelist()
 def send_email_to_owners(recipient_id, name, doctype, supplier_quotation_details, company):
     # recipient_id='purchasemanager@smk.com'
-    logo_url = get_url("/files/SMK logo.jpg")
+    logo_url = get_url("/files/SMK_Logo.jpg")
     doctype_slug = frappe.scrub(doctype).replace("_", "-")
     document_url = frappe.utils.get_url(f"app/{doctype_slug}/{name}")
     message = f"""
