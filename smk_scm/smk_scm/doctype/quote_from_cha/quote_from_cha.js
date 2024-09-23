@@ -12,8 +12,8 @@ frappe.ui.form.on("Quote From CHA", {
 	tare_weight(frm) {
         updateGrossWeight(frm);
 	},
-    currency: function (frm) {
-        updateExchangeRate(frm);
+    currency (frm) {
+        // updateExchangeRate(frm);
         frappe.db.get_value('Currency', frm.doc.currency, 'symbol', (r) => {
             if (r && r.symbol) {
                 let currency_symbol = r.symbol;
@@ -24,6 +24,18 @@ frappe.ui.form.on("Quote From CHA", {
                 frm.refresh_field('cha_quote_summary');
             }
         });
+    },
+    exchange_rate (frm) {
+        updateSummary(frm);
+    },
+    transportation_from_cfs_to_factory (frm) {
+        updateSummary(frm);
+    },
+    stamp_duty (frm) {
+        updateSummary(frm);
+    },
+    customs_duty (frm) {
+        updateSummary(frm);
     },
 });
 
@@ -43,8 +55,8 @@ frappe.ui.form.on("CHA Quote Charges", {
         updateSummary(frm);
     },
     currency: function (frm, cdt, cdn) {
-        updateSymbol(frm, cdt, cdn);
-        // updateSummary(frm);
+        // updateSymbol(frm, cdt, cdn);
+        updateSummary(frm);
     },
 });
 
@@ -60,16 +72,17 @@ function updateGrossWeight(frm){
 }
 
 
-function updateExchangeRate(frm){
-    getExchangeRate(frm.doc.currency, function(exchange_rate) {
-        frm.set_value('exchange_rate', exchange_rate)
-    });
-}
+// function updateExchangeRate(frm){
+//     getExchangeRate(frm.doc.currency, function(exchange_rate) {
+//         frm.set_value('exchange_rate', exchange_rate)
+//     });
+// }
 
 function updateSummary(frm) {
     // Create a dictionary to store totals per location and currency
     let location_currency_totals = {};
-    let total_in_inr = 0;  // Initialize the total amount in INR    
+    let total_in_inr = 0;  // Initialize the total amount in INR
+    total_in_inr += frm.doc.transportation_from_cfs_to_factory + frm.doc.stamp_duty + frm.doc.customs_duty;
 
     // Loop through the "CHA Quote Charges" child table
     frm.doc.charges.forEach(function(row) {
@@ -125,108 +138,6 @@ function updateSummary(frm) {
     frm.refresh_field("cha_quote_summary");
 }
 
-//     // Track the number of rows processed for final total calculation
-//     let row_count = Object.keys(location_currency_totals).length;
-//     let processed_count = 0;
-
-//     // Add rows to the "cha_quote_summary" child table for each location and currency combination
-//     Object.keys(location_currency_totals).forEach(function(key) {
-//         let data = location_currency_totals[key];
-
-//         // Call getExchangeRate and pass the callback function to handle the exchange rate
-//         // getExchangeRate(data.currency, function(exchange_rate) {
-//             let new_row = frm.add_child("cha_quote_summary");
-//             let amount_in_inr = data.amount * exchange_rate;
-
-//             // Set values in the new row
-//             frappe.model.set_value(new_row.doctype, new_row.name, {
-//                 'location': data.location,
-//                 'currency': data.currency,
-//                 'amount': data.amount,
-//                 'amount_in_inr': amount_in_inr,
-//                 'amount_in_oth_curr': amount_in_inr / frm.doc.exchange_rate,
-//             });
-
-//             // Add to the total amount in INR
-//             total_in_inr += amount_in_inr;
-
-//             // Refresh the child table field to show the updated rows
-//             frm.refresh_field("cha_quote_summary");
-
-//             // Check if all rows are processed, and set the total
-//             processed_count++;
-//             if (processed_count === row_count) {
-//                 frm.set_value('total_charges_in_inr', total_in_inr);
-//                 frm.set_value('total_charges_in_oth_curr', total_in_inr / frm.doc.exchange_rate);
-//                 frm.set_value('total_in_inr_per_kgs', total_in_inr / frm.doc.gross_weight);
-//             }
-//         // });
-//     });
-// }
-
-
-// function updateSummary(frm) {
-//     // Create a dictionary to store totals per location and currency
-//     let location_currency_totals = {};
-//     let total_in_inr = 0;  // Initialize the total amount in INR
-
-//     // Loop through the "CHA Quote Charges" child table
-//     frm.doc.charges.forEach(function(row) {
-//         let key = row.location + "_" + row.currency;
-
-//         // Initialize if not already present
-//         if (!location_currency_totals[key]) {
-//             location_currency_totals[key] = {
-//                 'location': row.location,
-//                 'currency': row.currency,
-//                 'amount': 0
-//             };
-//         }
-//         // Add the amount to the respective location and currency total
-//         location_currency_totals[key].amount += row.amount;
-//     });
-
-//     frm.clear_table("cha_quote_summary");
-
-//     // Track the number of rows processed for final total calculation
-//     let row_count = Object.keys(location_currency_totals).length;
-//     let processed_count = 0;
-
-//     // Add rows to the "cha_quote_summary" child table for each location and currency combination
-//     Object.keys(location_currency_totals).forEach(function(key) {
-//         let data = location_currency_totals[key];
-
-//         // Call getExchangeRate and pass the callback function to handle the exchange rate
-//         getExchangeRate(data.currency, function(exchange_rate) {
-//             let new_row = frm.add_child("cha_quote_summary");
-//             let amount_in_inr = data.amount * exchange_rate;
-
-//             // Set values in the new row
-//             frappe.model.set_value(new_row.doctype, new_row.name, {
-//                 'location': data.location,
-//                 'currency': data.currency,
-//                 'amount': data.amount,
-//                 'amount_in_inr': amount_in_inr,
-//                 'amount_in_oth_curr': amount_in_inr / frm.doc.exchange_rate,
-//             });
-
-//             // Add to the total amount in INR
-//             total_in_inr += amount_in_inr;
-
-//             // Refresh the child table field to show the updated rows
-//             frm.refresh_field("cha_quote_summary");
-
-//             // Check if all rows are processed, and set the total
-//             processed_count++;
-//             if (processed_count === row_count) {
-//                 frm.set_value('total_charges_in_inr', total_in_inr);
-//                 frm.set_value('total_charges_in_oth_curr', total_in_inr / frm.doc.exchange_rate);
-//                 frm.set_value('total_in_inr_per_kgs', total_in_inr / frm.doc.gross_weight);
-//             }
-//         });
-//     });
-// }
-
 
 // Modified getExchangeRate function to accept a callback
 function getExchangeRate(currency, callback) {
@@ -247,30 +158,4 @@ function getExchangeRate(currency, callback) {
             }
         }
     });
-}
-
-
-function updateSymbol(frm, cdt, cdn) {
-    let row = locals[cdt][cdn]; // Get the row object
-    // console.log(row)
-    // if (row.currency) {
-    //     // Set the currency symbol for the rate field dynamically
-    //     let rate_field = frappe.meta.get_docfield('CHA Quote Charges', 'rate', frm.doc.name);
-    //     console.log("fg",rate_field)
-        // Update the rate field's currency based on the selected currency in the row
-        // if (rate_field) {
-        //     rate_field.options = row.currency;
-        //     frm.refresh_field('charges');  // Replace with the actual child table fieldname
-        // }
-    // }
-    if (row.currency) {
-        // Fetch the symbol from the Currency doctype directly
-        frappe.db.get_value('Currency', row.currency, 'symbol', (r) => {
-            if (r && r.symbol) {
-                // let currency_symbol = r.symbol;
-                // frappe.model.set_currency_labels(cdt, cdn, "rate", currency_symbol)
-                // frm.refresh_field('charges');
-            }
-        });
-    }
 }

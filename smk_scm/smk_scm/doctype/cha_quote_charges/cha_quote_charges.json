@@ -48,7 +48,7 @@
    "fieldname": "description",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Description"
+   "label": "Charges Head"
   },
   {
    "fieldname": "location",
@@ -75,7 +75,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-18 17:03:22.880616",
+ "modified": "2024-09-20 16:47:53.276116",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "CHA Quote Charges",

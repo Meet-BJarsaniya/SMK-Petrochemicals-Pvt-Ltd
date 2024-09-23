@@ -1,0 +1,398 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-20 11:25:06.700687",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "purchase_order_date",
+  "type_of_format",
+  "delivery_date",
+  "vessel_date_etd_origin",
+  "draft_bl_approval",
+  "bl_no",
+  "ship_status",
+  "any_transshipment",
+  "column_break_hmdh",
+  "posting_date",
+  "purchase_order_no",
+  "items",
+  "exwciffob",
+  "draft_bl",
+  "draft_bl_date",
+  "bl_date",
+  "eta_destinartion_1",
+  "section_break_cwcd",
+  "switch_bl_payment_date",
+  "switch_draft_bl_date",
+  "switch_bl",
+  "bl_status",
+  "courier_docket_no",
+  "free_days_cfs",
+  "column_break_wujz",
+  "switch_draft_bl",
+  "switch_bl_date",
+  "eta_destination_2",
+  "doc_communication_date",
+  "free_days_line",
+  "section_break_owqg",
+  "draft_be_status",
+  "be_date",
+  "line_do_payment_date",
+  "out_of_charge_date",
+  "vehicle_driver_contact_no",
+  "eta_warehouse",
+  "free_days_cfs1",
+  "column_break_sxph",
+  "draft_be_date",
+  "be",
+  "cfs_payment_date",
+  "vehicle_no",
+  "date",
+  "warehouse_location",
+  "free_days_line1",
+  "section_break_owir",
+  "port_of_origin",
+  "port_of_discharge",
+  "draft_shipping_bill_no",
+  "draft_shipping_bill_date",
+  "column_break_hpfb",
+  "connection_port",
+  "gate_in_cut_off_date",
+  "draft_shipping_bill",
+  "section_break_lcqa",
+  "connecting_vessel_date",
+  "column_break_ailf",
+  "connection_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "column_break_hmdh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_owir",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_hpfb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "purchase_order_date",
+   "fieldtype": "Date",
+   "label": "Purchase Order Date"
+  },
+  {
+   "fieldname": "purchase_order_no",
+   "fieldtype": "Link",
+   "label": "Purchase Order No.",
+   "options": "Purchase Order"
+  },
+  {
+   "fieldname": "type_of_format",
+   "fieldtype": "Select",
+   "label": "Type of Format",
+   "options": "Import\nExport"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Data",
+   "label": "Items"
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery Date"
+  },
+  {
+   "fieldname": "exwciffob",
+   "fieldtype": "Select",
+   "label": "EXW/CIF/FOB",
+   "options": "EXW\nCIF\nFOB"
+  },
+  {
+   "fieldname": "vessel_date_etd_origin",
+   "fieldtype": "Date",
+   "label": "Vessel Date/ ETD origin"
+  },
+  {
+   "fieldname": "draft_bl_approval",
+   "fieldtype": "Select",
+   "label": "Draft BL approval",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "draft_bl",
+   "fieldtype": "Attach",
+   "label": "Draft BL"
+  },
+  {
+   "fieldname": "draft_bl_date",
+   "fieldtype": "Date",
+   "label": "Draft BL Date"
+  },
+  {
+   "fieldname": "bl_no",
+   "fieldtype": "Data",
+   "label": "BL No."
+  },
+  {
+   "fieldname": "bl_date",
+   "fieldtype": "Date",
+   "label": "BL Date"
+  },
+  {
+   "fieldname": "ship_status",
+   "fieldtype": "Data",
+   "label": "Ship status"
+  },
+  {
+   "fieldname": "any_transshipment",
+   "fieldtype": "Select",
+   "label": "Any Transshipment",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "eta_destinartion_1",
+   "fieldtype": "Date",
+   "label": "ETA Destinartion 1"
+  },
+  {
+   "depends_on": "eval: doc.any_transshipment == 'Yes'",
+   "fieldname": "section_break_cwcd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "switch_bl_payment_date",
+   "fieldtype": "Date",
+   "label": " Switch BL payment date"
+  },
+  {
+   "fieldname": "switch_draft_bl_date",
+   "fieldtype": "Date",
+   "label": "Switch draft BL date"
+  },
+  {
+   "fieldname": "switch_bl",
+   "fieldtype": "Attach",
+   "label": "Switch BL"
+  },
+  {
+   "fieldname": "column_break_wujz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "switch_draft_bl",
+   "fieldtype": "Select",
+   "label": "Switch draft BL",
+   "options": "\nApproved\nNot Approved"
+  },
+  {
+   "fieldname": "switch_bl_date",
+   "fieldtype": "Date",
+   "label": "Switch BL date"
+  },
+  {
+   "fieldname": "eta_destination_2",
+   "fieldtype": "Date",
+   "label": "ETA destination 2"
+  },
+  {
+   "fieldname": "bl_status",
+   "fieldtype": "Select",
+   "label": "BL status",
+   "options": "\nSurrender\nOriginal"
+  },
+  {
+   "fieldname": "courier_docket_no",
+   "fieldtype": "Data",
+   "label": "Courier docket No."
+  },
+  {
+   "fieldname": "free_days_cfs",
+   "fieldtype": "Int",
+   "label": "Free days CFS"
+  },
+  {
+   "fieldname": "doc_communication_date",
+   "fieldtype": "Date",
+   "label": "Doc communication date"
+  },
+  {
+   "fieldname": "free_days_line",
+   "fieldtype": "Int",
+   "label": "Free days Line"
+  },
+  {
+   "depends_on": "eval: doc.any_transshipment == 'No'",
+   "fieldname": "section_break_owqg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "draft_be_status",
+   "fieldtype": "Data",
+   "label": "Draft BE status"
+  },
+  {
+   "fieldname": "be_date",
+   "fieldtype": "Date",
+   "label": "BE date"
+  },
+  {
+   "fieldname": "column_break_sxph",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "draft_be_date",
+   "fieldtype": "Date",
+   "label": "draft BE date"
+  },
+  {
+   "fieldname": "be",
+   "fieldtype": "Attach",
+   "label": "BE"
+  },
+  {
+   "fieldname": "line_do_payment_date",
+   "fieldtype": "Date",
+   "label": "Line DO payment date"
+  },
+  {
+   "fieldname": "out_of_charge_date",
+   "fieldtype": "Date",
+   "label": "Out of Charge date"
+  },
+  {
+   "fieldname": "cfs_payment_date",
+   "fieldtype": "Date",
+   "label": "CFS payment date"
+  },
+  {
+   "fieldname": "vehicle_no",
+   "fieldtype": "Data",
+   "label": "Vehicle No."
+  },
+  {
+   "fieldname": "vehicle_driver_contact_no",
+   "fieldtype": "Data",
+   "label": "Vehicle driver contact No.",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "eta_warehouse",
+   "fieldtype": "Data",
+   "label": "ETA Warehouse"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "warehouse_location",
+   "fieldtype": "Date",
+   "label": "Warehouse Location"
+  },
+  {
+   "fieldname": "free_days_cfs1",
+   "fieldtype": "Int",
+   "label": "Free days CFS"
+  },
+  {
+   "fieldname": "free_days_line1",
+   "fieldtype": "Int",
+   "label": "Free days Line"
+  },
+  {
+   "fieldname": "section_break_lcqa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "connecting_vessel_date",
+   "fieldtype": "Date",
+   "label": "Connecting vessel date"
+  },
+  {
+   "fieldname": "column_break_ailf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "connection_status",
+   "fieldtype": "Data",
+   "label": "Connection status"
+  },
+  {
+   "fieldname": "port_of_origin",
+   "fieldtype": "Data",
+   "label": "Port of Origin"
+  },
+  {
+   "fieldname": "gate_in_cut_off_date",
+   "fieldtype": "Date",
+   "label": "Gate in Cut off date"
+  },
+  {
+   "fieldname": "connection_port",
+   "fieldtype": "Data",
+   "label": "Connection Port"
+  },
+  {
+   "fieldname": "port_of_discharge",
+   "fieldtype": "Data",
+   "label": "Port of Discharge"
+  },
+  {
+   "fieldname": "draft_shipping_bill_no",
+   "fieldtype": "Data",
+   "label": "Draft Shipping Bill No."
+  },
+  {
+   "fieldname": "draft_shipping_bill_date",
+   "fieldtype": "Date",
+   "label": "Draft Shipping bill date"
+  },
+  {
+   "fieldname": "draft_shipping_bill",
+   "fieldtype": "Attach",
+   "label": "Draft Shipping bill"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-20 14:48:14.866613",
+ "modified_by": "Administrator",
+ "module": "SMK SCM",
+ "name": "Logistic Tracking",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

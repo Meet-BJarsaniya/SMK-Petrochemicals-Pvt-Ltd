@@ -25,8 +25,9 @@
   "gross_weight",
   "terms",
   "column_break_xlmt",
+  "uom",
   "nature",
-  "dimensions_of_ibc_in_mm3",
+  "dimensions_in_mm3",
   "volume_in_cbm_",
   "quote_from_cha",
   "charges_tab",
@@ -89,7 +90,7 @@
   {
    "fieldname": "quantity",
    "fieldtype": "Data",
-   "label": "Quantity in IBC"
+   "label": "Quantity"
   },
   {
    "fieldname": "terms",
@@ -132,8 +133,8 @@
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Exchange Rate",
-   "precision": "9",
-   "read_only": 1
+   "precision": "6",
+   "reqd": 1
   },
   {
    "fieldname": "summary_section",
@@ -231,11 +232,6 @@
    "options": "Request for CHA Quote"
   },
   {
-   "fieldname": "dimensions_of_ibc_in_mm3",
-   "fieldtype": "Data",
-   "label": "Dimensions of IBC in MM3"
-  },
-  {
    "fieldname": "volume_in_cbm_",
    "fieldtype": "Float",
    "label": "Volume in CBM",
@@ -278,11 +274,13 @@
    "fieldtype": "Section Break"
   },
   {
+   "default": "0",
    "fieldname": "transportation_from_cfs_to_factory",
    "fieldtype": "Currency",
    "label": "Transportation from CFS to Factory"
   },
   {
+   "default": "0",
    "fieldname": "stamp_duty",
    "fieldtype": "Currency",
    "label": "Stamp Duty"
@@ -292,15 +290,28 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "customs_duty",
    "fieldtype": "Currency",
    "label": "Customs Duty"
+  },
+  {
+   "fetch_from": "item.item_group",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "dimensions_in_mm3",
+   "fieldtype": "Data",
+   "label": "Dimensions in MM3"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-17 15:13:39.680257",
+ "modified": "2024-09-20 17:23:05.214931",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Quote From CHA",
