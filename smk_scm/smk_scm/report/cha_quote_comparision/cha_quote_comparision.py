@@ -15,21 +15,21 @@ def execute(filters=None):
 
 	sql = f"""
 		SELECT 
-			QC.forwarder,
-			QC.name,
-			QC.total_charges_in_inr,
-			QC.gross_weight,
-			QC.request_for_quotation_cha
-		FROM `tabQuote From CHA` AS QC
-		WHERE QC.docstatus != 2
+			CQ.forwarder,
+			CQ.name,
+			CQ.total_charges_in_inr,
+			CQ.gross_weight,
+			CQ.request_for_quotation_cha
+		FROM `tabQuote From CHA` AS CQ
+		WHERE CQ.docstatus == 1
 	"""
 	if filters.get('from_date') and filters.get('to_date'):
-		sql += f"AND QC.transaction_date BETWEEN '{filters.get('from_date')}' AND '{filters.get('to_date')}'"
+		sql += f"AND CQ.transaction_date BETWEEN '{filters.get('from_date')}' AND '{filters.get('to_date')}'"
 
 	if filters.get('company'):
-		sql += f"AND QC.company  = '{filters.get('company')}'"
+		sql += f"AND CQ.company  = '{filters.get('company')}'"
 
 	if filters.get('request_for_quotation_cha'):
-		sql += f"AND QC.request_for_quotation_cha  = '{filters.get('request_for_quotation_cha')}'"
+		sql += f"AND CQ.request_for_quotation_cha  = '{filters.get('request_for_quotation_cha')}'"
 	data = frappe.db.sql(sql,as_dict = True)
 	return columns, data
