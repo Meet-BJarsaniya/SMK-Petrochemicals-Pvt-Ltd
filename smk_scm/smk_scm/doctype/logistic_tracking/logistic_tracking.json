@@ -1,14 +1,16 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:",
  "creation": "2024-09-20 11:25:06.700687",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "company",
   "purchase_order_date",
+  "naming_series",
   "type_of_format",
-  "delivery_date",
+  "exw_dly_date",
   "vessel_date_etd_origin",
   "draft_bl_approval",
   "bl_no",
@@ -24,17 +26,19 @@
   "bl_date",
   "eta_destinartion_1",
   "section_break_cwcd",
+  "switch_bl_request",
+  "switch_bl_date",
+  "eta_destination_2",
+  "doc_communication_date",
+  "eta_destination_3",
+  "free_days_cfs",
+  "column_break_wujz",
   "switch_bl_payment_date",
+  "switch_draft_bl",
   "switch_draft_bl_date",
   "switch_bl",
   "bl_status",
   "courier_docket_no",
-  "free_days_cfs",
-  "column_break_wujz",
-  "switch_draft_bl",
-  "switch_bl_date",
-  "eta_destination_2",
-  "doc_communication_date",
   "free_days_line",
   "section_break_owqg",
   "draft_be_status",
@@ -43,7 +47,7 @@
   "out_of_charge_date",
   "vehicle_driver_contact_no",
   "eta_warehouse",
-  "free_days_cfs1",
+  "free_days_line1",
   "column_break_sxph",
   "draft_be_date",
   "be",
@@ -51,7 +55,7 @@
   "vehicle_no",
   "date",
   "warehouse_location",
-  "free_days_line1",
+  "free_days_cfs1",
   "section_break_owir",
   "port_of_origin",
   "port_of_discharge",
@@ -85,7 +89,8 @@
   },
   {
    "fieldname": "section_break_owir",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "column_break_hpfb",
@@ -106,17 +111,13 @@
    "fieldname": "type_of_format",
    "fieldtype": "Select",
    "label": "Type of Format",
-   "options": "Import\nExport"
+   "options": "Import\nExport",
+   "set_only_once": 1
   },
   {
    "fieldname": "items",
    "fieldtype": "Data",
    "label": "Items"
-  },
-  {
-   "fieldname": "delivery_date",
-   "fieldtype": "Date",
-   "label": "Delivery Date"
   },
   {
    "fieldname": "exwciffob",
@@ -259,7 +260,7 @@
   {
    "fieldname": "draft_be_date",
    "fieldtype": "Date",
-   "label": "draft BE date"
+   "label": "Draft BE date"
   },
   {
    "fieldname": "be",
@@ -319,7 +320,8 @@
   },
   {
    "fieldname": "section_break_lcqa",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "connecting_vessel_date",
@@ -369,14 +371,40 @@
    "fieldname": "draft_shipping_bill",
    "fieldtype": "Attach",
    "label": "Draft Shipping bill"
+  },
+  {
+   "fieldname": "switch_bl_request",
+   "fieldtype": "Small Text",
+   "label": "Switch Bl request"
+  },
+  {
+   "fieldname": "eta_destination_3",
+   "fieldtype": "Date",
+   "label": "ETA destination 3"
+  },
+  {
+   "fieldname": "exw_dly_date",
+   "fieldtype": "Date",
+   "label": "EXW Dly Date"
+  },
+  {
+   "default": "LT/IM/.FY./.###",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "LT/IM/.FY./.###\nLT/EX/.FY./.###",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-20 14:48:14.866613",
+ "modified": "2024-09-24 18:41:40.737976",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Logistic Tracking",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

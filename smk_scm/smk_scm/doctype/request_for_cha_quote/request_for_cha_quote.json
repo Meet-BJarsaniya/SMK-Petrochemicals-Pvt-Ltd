@@ -9,30 +9,26 @@
  "field_order": [
   "naming_series",
   "company",
-  "billing_address",
-  "billing_address_display",
+  "pick_up_address",
   "column_break1",
   "transaction_date",
   "schedule_date",
-  "status",
+  "port_of_loading",
+  "port_of_discharge",
   "chas_section",
   "forwarder",
-  "details_section",
-  "quantity_ibc",
+  "item_description_section",
+  "quantity",
   "net_weight_kgs",
+  "tare_weight",
   "gross_weight_kgs",
+  "terms",
   "column_break_ahbc",
+  "uom",
   "nature",
-  "tare_weight_kgs_per_ibc",
-  "section_break_jwdc",
-  "length_of_ibc_mm",
-  "width_of_ibc_mm",
-  "column_break_futq",
-  "height_of_ibc_mm",
-  "volume_in_cbm",
-  "amended_from",
-  "section_break_bngz",
-  "cha_details"
+  "dimensions_in_mm3",
+  "volume_in_cbm_",
+  "amended_from"
  ],
  "fields": [
   {
@@ -89,24 +85,13 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "details_section",
-   "fieldtype": "Section Break",
-   "oldfieldtype": "Section Break",
-   "options": "fa fa-shopping-cart"
-  },
-  {
-   "fieldname": "quantity_ibc",
-   "fieldtype": "Data",
-   "label": "Quantity (IBC)"
-  },
-  {
    "fieldname": "net_weight_kgs",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
    "label": "Net Weight (Kgs)"
   },
   {
    "fieldname": "gross_weight_kgs",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
    "label": "Gross Weight (Kgs)"
   },
   {
@@ -119,37 +104,62 @@
    "label": "Nature"
   },
   {
-   "fieldname": "tare_weight_kgs_per_ibc",
+   "fieldname": "forwarder",
+   "fieldtype": "Table",
+   "label": "Forwarder",
+   "options": "Request for Quotation CHA",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "pick_up_address",
+   "fieldtype": "Small Text",
+   "label": "Pick up Address"
+  },
+  {
+   "fieldname": "port_of_loading",
    "fieldtype": "Data",
-   "label": "Tare Weight (Kgs) per IBC"
+   "label": "Port of Loading"
   },
   {
-   "fieldname": "section_break_jwdc",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "length_of_ibc_mm",
+   "fieldname": "port_of_discharge",
    "fieldtype": "Data",
-   "label": "Length of IBC (MM)"
+   "label": "Port of Discharge"
   },
   {
-   "fieldname": "width_of_ibc_mm",
+   "fieldname": "item_description_section",
+   "fieldtype": "Section Break",
+   "label": "Item Description",
+   "oldfieldtype": "Section Break",
+   "options": "fa fa-shopping-cart"
+  },
+  {
+   "fieldname": "quantity",
    "fieldtype": "Data",
-   "label": "Width of IBC (MM)"
+   "label": "Quantity"
   },
   {
-   "fieldname": "column_break_futq",
-   "fieldtype": "Column Break"
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
   },
   {
-   "fieldname": "height_of_ibc_mm",
+   "fieldname": "terms",
+   "fieldtype": "Link",
+   "label": "Terms",
+   "options": "Incoterm"
+  },
+  {
+   "fieldname": "dimensions_in_mm3",
    "fieldtype": "Data",
-   "label": "Height of IBC (MM)"
+   "label": "Dimensions in MM3"
   },
   {
-   "fieldname": "volume_in_cbm",
-   "fieldtype": "Data",
-   "label": "Volume in CBM"
+   "fieldname": "volume_in_cbm_",
+   "fieldtype": "Float",
+   "label": "Volume in CBM",
+   "precision": "4"
   },
   {
    "fieldname": "amended_from",
@@ -162,48 +172,16 @@
    "search_index": 1
   },
   {
-   "fieldname": "billing_address",
-   "fieldtype": "Link",
-   "label": "Company Billing Address",
-   "options": "Address"
-  },
-  {
-   "fieldname": "billing_address_display",
-   "fieldtype": "Small Text",
-   "label": "Billing Address Details",
-   "read_only": 1
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "\nDraft\nSubmitted\nCancelled",
-   "search_index": 1
-  },
-  {
-   "fieldname": "forwarder",
-   "fieldtype": "Table",
-   "label": "Forwarder",
-   "options": "Request for Quotation CHA",
-   "print_hide": 1,
-   "reqd": 1
-  },
-  {
-   "fieldname": "section_break_bngz",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "cha_details",
-   "fieldtype": "Table",
-   "label": "CHA Details",
-   "options": "CHA Details"
+   "fieldname": "tare_weight",
+   "fieldtype": "Float",
+   "label": "Tare Weight (Kgs/Qty)"
   }
  ],
  "icon": "fa fa-shopping-cart",
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-13 16:49:01.409831",
+ "modified": "2024-09-25 10:52:27.474245",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Request for CHA Quote",

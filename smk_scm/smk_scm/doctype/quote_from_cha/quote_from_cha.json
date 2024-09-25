@@ -9,8 +9,8 @@
   "section_break_ly2a",
   "naming_series",
   "company",
-  "forwarder",
   "request_for_quotation_cha",
+  "forwarder",
   "port_of_loading",
   "port_of_discharge",
   "column_break_ocvk",
@@ -245,7 +245,7 @@
   {
    "fieldname": "tare_weight",
    "fieldtype": "Float",
-   "label": "Tare Weight in Kg per IBC"
+   "label": "Tare Weight in Kg per Qty"
   },
   {
    "fieldname": "gross_weight",
@@ -311,7 +311,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-20 17:23:05.214931",
+ "modified": "2024-09-25 11:58:43.573769",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Quote From CHA",

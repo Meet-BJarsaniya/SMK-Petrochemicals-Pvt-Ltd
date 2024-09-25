@@ -19,10 +19,32 @@ frappe.ui.form.on('Purchase Order', {
         if (frm.is_new()){
             // frm.set_df_property('naming_series', 'hidden', 1)
             if (frm.doc.custom_purchase_type == "Local"){
-                frm.set_value("naming_series", "SMK/LO/PO/.FY./.###")
+                frm.set_value("naming_series", "PO/LO/.FY./.#####")
+                frm.set_df_property('supplier', 'label', `Supplier`);
+                frm.set_value("supplier", null);
+                frm.set_query("supplier", function() {
+                    return {};
+                });
             }
             else if (frm.doc.custom_purchase_type == "Import"){
-                frm.set_value("naming_series", "SMK/IM/PO/.FY./.###")
+                frm.set_value("naming_series", "PO/IM/.FY./.#####")
+                frm.set_df_property('supplier', 'label', `Supplier`);
+                frm.set_value("supplier", null);
+                frm.set_query("supplier", function() {
+                    return {};
+                });
+            }
+            else {
+                frm.set_value("naming_series", "PO/CHA/.FY./.#####")
+                frm.set_df_property('supplier', 'label', `Forwarder`);
+                frm.set_value("supplier", null);
+                frm.set_query("supplier", function() {
+                    return {
+                        filters: {
+                            supplier_type: "Forwarder"
+                        }
+                    };
+                });
             }
             // frm.set_df_property('naming_series', 'hidden', 1)
         }
@@ -36,6 +58,9 @@ frappe.ui.form.on('Purchase Order', {
                 item.conversion_factor = 0.0;
             }
         });
+    },
+    after_save: function(frm) {
+        frm.set_df_property('custom_purchase_type', 'read_only', 1);
     },
     on_submit: function(frm) {
         let po_details = `
@@ -128,6 +153,8 @@ frappe.ui.form.on('Purchase Order', {
                 payment_schedule: frm.doc.payment_schedule,
                 logi_id: frm.doc.custom_logistics_team,
                 logi_name: frm.doc.custom_logistics_team_name,
+                prod_id: frm.doc.custom_production_user,
+                prod_name: frm.doc.custom_production_user_name,
                 custom_delivery_terms: frm.doc.custom_delivery_terms,
                 custom_delivery_term_description: frm.doc.custom_delivery_term_description,
                 po_details
@@ -230,6 +257,8 @@ frappe.ui.form.on('Purchase Order', {
                     payment_schedule: payment_sch_details,
                     logi_id: frm.doc.custom_logistics_team,
                     logi_name: frm.doc.custom_logistics_team_name,
+                    prod_id: frm.doc.custom_production_user,
+                    prod_name: frm.doc.custom_production_user_name,
                     custom_delivery_terms: frm.doc.custom_delivery_terms,
                     custom_delivery_term_description: frm.doc.custom_delivery_term_description,
                     po_details

@@ -1,7 +1,7 @@
 // Copyright (c) 2024, Sanskar Technolab and contributors
 // For license information, please see license.txt
 
-frappe.query_reports["CHA Quote Comparision"] = {
+frappe.query_reports["CHA Quote Comparison"] = {
 	"filters": [
 		{
 			"fieldname": "company",
