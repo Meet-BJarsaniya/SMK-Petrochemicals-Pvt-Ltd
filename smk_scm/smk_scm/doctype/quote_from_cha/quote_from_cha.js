@@ -37,6 +37,17 @@ frappe.ui.form.on("Quote From CHA", {
     customs_duty (frm) {
         updateSummary(frm);
     },
+    after_save (frm) {
+        if (frm.doc.approved_quote) {
+            frappe.db.set_value('Request for CHA Quote', frm.doc.request_for_quotation_cha, {
+                'any_quote_approved': 1
+            });
+        } else {
+            frappe.db.set_value('Request for CHA Quote', frm.doc.request_for_quotation_cha, {
+                'any_quote_approved': 0
+            });
+        }
+    }
 });
 
 frappe.ui.form.on("CHA Quote Charges", {
@@ -152,9 +163,6 @@ function getExchangeRate(currency, callback) {
                 let exchange_rate = response.message;
                 // Pass the exchange rate back to the callback function
                 callback(exchange_rate);
-                // if  (exchange_rate !== 1) {
-                //     cur_frm.set_value('exchange_rate', exchange_rate)
-                // }
             }
         }
     });

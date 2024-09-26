@@ -23,7 +23,11 @@ frappe.ui.form.on('Purchase Order', {
                 frm.set_df_property('supplier', 'label', `Supplier`);
                 frm.set_value("supplier", null);
                 frm.set_query("supplier", function() {
-                    return {};
+                    return {
+                        filters: {
+                            supplier_type: ["!=", "Forwarder"]
+                        }
+                    };
                 });
             }
             else if (frm.doc.custom_purchase_type == "Import"){
@@ -31,7 +35,11 @@ frappe.ui.form.on('Purchase Order', {
                 frm.set_df_property('supplier', 'label', `Supplier`);
                 frm.set_value("supplier", null);
                 frm.set_query("supplier", function() {
-                    return {};
+                    return {
+                        filters: {
+                            supplier_type: ["!=", "Forwarder"]
+                        }
+                    };
                 });
             }
             else {
@@ -58,9 +66,6 @@ frappe.ui.form.on('Purchase Order', {
                 item.conversion_factor = 0.0;
             }
         });
-    },
-    after_save: function(frm) {
-        frm.set_df_property('custom_purchase_type', 'read_only', 1);
     },
     on_submit: function(frm) {
         let po_details = `
@@ -164,6 +169,14 @@ frappe.ui.form.on('Purchase Order', {
                     frappe.msgprint('Emails sent successfully');
                 }
             }
+        });
+        frappe.db.set_value('Quote From CHA', frm.doc.custom_quote_from_cha, {
+            'any_po_approved': 1
+        });
+    },
+    after_cancel (frm) {
+        frappe.db.set_value('Quote From CHA', frm.doc.custom_quote_from_cha, {
+            'any_po_approved': 0
         });
     },
     after_workflow_action: function(frm) {
@@ -269,10 +282,38 @@ frappe.ui.form.on('Purchase Order', {
                     }
                 }
             });
+            frappe.db.set_value('Quote From CHA', frm.doc.custom_quote_from_cha, {
+                'any_po_approved': 1
+            });
         }
     },
     refresh: function(frm) {
         update_terms_options(frm);
+        if (!frm.is_new()) {
+            frm.set_df_property('custom_purchase_type', 'read_only', 1);
+        }
+        if (frm.is_new()) {
+            if (frm.doc.custom_purchase_type == "CHA"){
+                frm.set_df_property('supplier', 'label', `Forwarder`);
+                frm.set_query("supplier", function() {
+                    return {
+                        filters: {
+                            supplier_type: "Forwarder"
+                        }
+                    };
+                });
+            }
+            else {
+                frm.set_df_property('supplier', 'label', `Supplier`);
+                frm.set_query("supplier", function() {
+                    return {
+                        filters: {
+                            supplier_type: ["!=", "Forwarder"]
+                        }
+                    };
+                });
+            }
+        }
 		if (frm.doc.docstatus === 1) {
             frm.add_custom_button('QC Warehouse Entry', () => {
                 // Create a new QC Warehouse Entry document

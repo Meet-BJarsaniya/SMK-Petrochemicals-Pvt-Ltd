@@ -3,7 +3,7 @@ from frappe.email.queue import flush
 from frappe.utils import get_url
 
 @frappe.whitelist()
-def send_email(name, doctype, company, supplier, acc_id, acc_name, payment_terms_template, payment_schedule, logi_id, logi_name, custom_delivery_terms, custom_delivery_term_description, po_details):
+def send_email(name, doctype, company, supplier, acc_id, acc_name, payment_terms_template, payment_schedule, logi_id, logi_name, prod_name, prod_id, custom_delivery_terms, custom_delivery_term_description, po_details):
     supplier_id = frappe.get_value("Supplier", supplier, "email_id")
     logo_url = get_url("/private/files/SMK logo.jpg")
     doctype_slug = frappe.scrub(doctype).replace("_", "-")
