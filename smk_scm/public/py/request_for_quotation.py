@@ -3,7 +3,7 @@ from frappe.email.queue import flush
 from frappe.utils import get_url
 
 @frappe.whitelist()
-def send_email(name, company, recipient_id, recipient, rfq_details):
+def send_email(name, company, recipient_id, recipient, rfq_details, tc_name, terms):
     logo_url = get_url("/private/files/SMK logo.jpg")
     message = f"""
     <p>Dear {recipient},</p>
@@ -11,6 +11,8 @@ def send_email(name, company, recipient_id, recipient, rfq_details):
     <br>We are currently in the process of reviewing our suppliers and would like to request a quotation for the following items. Please provide us with the item rates, including any applicable taxes, delivery charges, and terms of payment.</p>
     <b>Item Details:</b>
     <p>{rfq_details}</p>
+    <p><b>Terms: {tc_name}
+    <br>Terms and Conditions:</b> {terms}</p>
     <p>Please provide us with a detailed quotation, and do not hesitate to contact me if you require any further information.
     <br>Thank you for your attention to this request. We look forward to your prompt response.</p>
     <p>Best regards,<br>{company}</p>

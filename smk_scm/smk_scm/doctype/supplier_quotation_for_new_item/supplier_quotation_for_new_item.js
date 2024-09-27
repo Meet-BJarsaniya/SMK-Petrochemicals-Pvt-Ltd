@@ -51,11 +51,13 @@ frappe.ui.form.on("Supplier Quotation for New Item", {
                             <th>Quantity</th>
                             <th>UOM</th>
                             <th>Rate</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
             `;
             frm.doc.items.forEach(item => {
+                let descriptionText = item.description.replace(/<\/?p[^>]*>/g, '').trim();
                 const formattedRate = item.rate.toLocaleString('en-US', { 
                     style: 'currency', 
                     currency: frm.doc.currency
@@ -66,6 +68,7 @@ frappe.ui.form.on("Supplier Quotation for New Item", {
                         <td>${item.qty}</td>
                         <td>${item.uom}</td>
                         <td>${formattedRate}</td>
+                        <td>${descriptionText}</td>
                     </tr>
                 `;
             });

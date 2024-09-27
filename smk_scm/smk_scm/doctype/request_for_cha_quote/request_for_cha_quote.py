@@ -11,16 +11,18 @@ class RequestforCHAQuote(Document):
 	pass
 
 @frappe.whitelist()
-def send_email(name, company, recipient_id, recipient, rfq_details, item_details):
+def send_email(name, company, recipient_id, recipient, rfq_details, item_details, tc_name, terms):
     logo_url = get_url("/private/files/SMK logo.jpg")
     message = f"""
     <p>Dear {recipient},</p>
     <p>I hope this message finds you well.
     <br>We are in the process of importing materials and would like to request a quotation for the logistics services required for the shipment mentioned below. Kindly provide us with a detailed quote for the services listed, including applicable charges.</p>
-    <b>Shipment Details:</b>
-    <p>{rfq_details}</p>
-    <b>Item Details:</b>
-    <p>{item_details}</p>
+    <p style="margin: 0.5em 0 !important;"><b>Shipment Details:
+    <br>{rfq_details}
+    <p style="margin: 1em 0 0.5em 0 !important;"><b>Item Details:</b>
+    <br>{item_details}</p>
+    <p><b>Terms: {tc_name}
+    <br>Terms and Conditions:</b> {terms}</p>
     <p>We would appreciate it if you could send us your detailed quotation. Please let us know if you need any further details.
     <br>Thank you for your prompt response and assistance.</p>
     <p>Best regards,<br>{company}</p>

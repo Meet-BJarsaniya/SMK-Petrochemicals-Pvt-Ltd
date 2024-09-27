@@ -8,11 +8,13 @@ frappe.ui.form.on('Request for Quotation', {
                         <th>Quantity</th>
                         <th>UOM</th>
                         <th>Required By</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
         `;
         frm.doc.items.forEach(item => {
+            let descriptionText = item.description.replace(/<\/?p[^>]*>/g, '').trim();
             var inputDate = item.schedule_date;
             var parts = inputDate.split("-");
             var year = parts[0];
@@ -25,6 +27,7 @@ frappe.ui.form.on('Request for Quotation', {
                     <td>${item.qty}</td>
                     <td>${item.uom}</td>
                     <td>${formattedDate}</td>
+                    <td>${descriptionText}</td>
                 </tr>
             `;
         });
@@ -33,6 +36,7 @@ frappe.ui.form.on('Request for Quotation', {
             </table>
         `;
 
+        let terms = frm.doc.terms.replace(/<\/?[^>]+(>|$)/g, '').trim();
         frm.doc.suppliers.forEach(supplier => {
             frappe.call({
                 method: 'smk_scm.public.py.request_for_quotation.send_email',
@@ -41,7 +45,9 @@ frappe.ui.form.on('Request for Quotation', {
                     company: frm.doc.company,
                     recipient_id: supplier.email_id,
                     recipient: supplier.supplier,
-                    rfq_details
+                    rfq_details,
+                    tc_name : frm.doc.tc_name,
+                    terms
                 },
                 callback: function(response) {
                     if (response.message) {

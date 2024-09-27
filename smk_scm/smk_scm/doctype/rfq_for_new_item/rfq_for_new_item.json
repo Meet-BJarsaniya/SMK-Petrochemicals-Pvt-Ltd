@@ -20,7 +20,10 @@
   "suppliers",
   "section_break_ridb",
   "items",
-  "amended_from"
+  "amended_from",
+  "terms_and_conditions_section",
+  "tc_name",
+  "terms"
  ],
  "fields": [
   {
@@ -140,13 +143,34 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "terms",
+   "fieldname": "terms_and_conditions_section",
+   "fieldtype": "Section Break",
+   "label": "Terms and Conditions",
+   "options": "fa fa-legal"
+  },
+  {
+   "fieldname": "tc_name",
+   "fieldtype": "Link",
+   "label": "Terms",
+   "options": "Terms and Conditions",
+   "print_hide": 1
+  },
+  {
+   "fetch_from": "tc_name.terms",
+   "fieldname": "terms",
+   "fieldtype": "Text Editor",
+   "label": "Terms and Conditions"
   }
  ],
  "icon": "fa fa-shopping-cart",
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-12 11:53:18.957930",
+ "modified": "2024-09-27 16:35:51.861217",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "RFQ for New Item",

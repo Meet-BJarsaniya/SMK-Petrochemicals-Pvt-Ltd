@@ -23,13 +23,16 @@
   "net_weight_kgs",
   "tare_weight",
   "gross_weight_kgs",
-  "terms",
+  "terms_",
   "column_break_ahbc",
   "uom",
   "nature",
   "dimensions_in_mm3",
   "volume_in_cbm_",
-  "amended_from"
+  "amended_from",
+  "terms_and_conditions_section",
+  "tc_name",
+  "terms"
  ],
  "fields": [
   {
@@ -146,10 +149,10 @@
    "options": "UOM"
   },
   {
+   "fetch_from": "tc_name.terms",
    "fieldname": "terms",
-   "fieldtype": "Link",
-   "label": "Terms",
-   "options": "Incoterm"
+   "fieldtype": "Text Editor",
+   "label": "Terms and Conditions"
   },
   {
    "fieldname": "dimensions_in_mm3",
@@ -184,13 +187,34 @@
    "fieldtype": "Check",
    "hidden": 1,
    "label": "Any Quote Approved"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "terms",
+   "fieldname": "terms_and_conditions_section",
+   "fieldtype": "Section Break",
+   "label": "Terms and Conditions",
+   "options": "fa fa-legal"
+  },
+  {
+   "fieldname": "tc_name",
+   "fieldtype": "Link",
+   "label": "Terms",
+   "options": "Terms and Conditions",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "terms_",
+   "fieldtype": "Link",
+   "label": "Terms",
+   "options": "Incoterm"
   }
  ],
  "icon": "fa fa-shopping-cart",
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-26 11:57:10.702408",
+ "modified": "2024-09-27 17:39:24.470958",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Request for CHA Quote",

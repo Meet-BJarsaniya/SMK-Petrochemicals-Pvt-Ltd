@@ -8,11 +8,13 @@ frappe.ui.form.on("Material Request", {
                         <th>Quantity</th>
                         <th>UOM</th>
                         <th>Required By</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
         `;
         frm.doc.items.forEach(item => {
+            let descriptionText = item.description.replace(/<\/?p[^>]*>/g, '').trim();
             var inputDate = item.schedule_date;
             var parts = inputDate.split("-");
             var year = parts[0];
@@ -25,6 +27,7 @@ frappe.ui.form.on("Material Request", {
                     <td>${item.qty}</td>
                     <td>${item.uom}</td>
                     <td>${formattedDate}</td>
+                    <td>${descriptionText}</td>
                 </tr>
             `;
         });
