@@ -21,7 +21,7 @@ def execute(filters=None):
 			CQ.gross_weight,
 			CQ.request_for_quotation_cha
 		FROM `tabQuote From CHA` AS CQ
-		WHERE CQ.docstatus = 0
+		WHERE CQ.docstatus = 1
 	"""
 	if filters.get('from_date') and filters.get('to_date'):
 		sql += f"AND CQ.transaction_date BETWEEN '{filters.get('from_date')}' AND '{filters.get('to_date')}'"

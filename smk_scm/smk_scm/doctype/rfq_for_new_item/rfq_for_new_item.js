@@ -55,6 +55,12 @@ frappe.ui.form.on("RFQ for New Item", {
 		}
 	},
 
+	validate (frm) {
+		if (frm.doc.schedule_date <= frm.doc.transaction_date) {
+			frappe.throw("Required Date should be greater than current date.");
+		}
+	},
+
 	make_supplier_quotation: function (frm) {
 		var doc = frm.doc;
 		var dialog = new frappe.ui.Dialog({
@@ -191,7 +197,10 @@ frappe.ui.form.on("RFQ for New Item", {
                 <tbody>
         `;
         frm.doc.items.forEach(item => {
-            let descriptionText = item.description.replace(/<\/?p[^>]*>/g, '').trim();
+            let descriptionText = "";
+			if (item.description) {
+				descriptionText = item.description.replace(/<\/?p[^>]*>/g, '').trim();
+			}
             var inputDate = item.schedule_date;
             var parts = inputDate.split("-");
             var year = parts[0];
@@ -213,7 +222,10 @@ frappe.ui.form.on("RFQ for New Item", {
             </table>
         `;
 
-        let terms = frm.doc.terms.replace(/<\/?[^>]+(>|$)/g, '').trim();
+        let terms = "";
+        if (frm.doc.terms) {
+            terms = frm.doc.terms.replace(/<\/?[^>]+(>|$)/g, '').trim();
+        }
         frm.doc.suppliers.forEach(supplier => {
             frappe.call({
                 method: 'smk_scm.public.py.request_for_quotation.send_email',
@@ -223,7 +235,7 @@ frappe.ui.form.on("RFQ for New Item", {
                     recipient_id: supplier.email_id,
                     recipient: supplier.supplier,
                     rfq_details,
-                    tc_name : frm.doc.tc_name,
+                    tc_name : frm.doc.tc_name || "",
                     terms
                 },
                 callback: function(response) {

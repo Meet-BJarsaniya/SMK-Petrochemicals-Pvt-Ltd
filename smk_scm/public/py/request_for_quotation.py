@@ -11,8 +11,12 @@ def send_email(name, company, recipient_id, recipient, rfq_details, tc_name, ter
     <br>We are currently in the process of reviewing our suppliers and would like to request a quotation for the following items. Please provide us with the item rates, including any applicable taxes, delivery charges, and terms of payment.</p>
     <b>Item Details:</b>
     <p>{rfq_details}</p>
-    <p><b>Terms: {tc_name}
-    <br>Terms and Conditions:</b> {terms}</p>
+    """
+    if tc_name:
+        message += f"<p><b>Terms: {tc_name}</b></p>"
+    if terms:
+        message += f"<p><b>Terms and Conditions:</b> {terms}</p>"
+    message += f"""
     <p>Please provide us with a detailed quotation, and do not hesitate to contact me if you require any further information.
     <br>Thank you for your attention to this request. We look forward to your prompt response.</p>
     <p>Best regards,<br>{company}</p>

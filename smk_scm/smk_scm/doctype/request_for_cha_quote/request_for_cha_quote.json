@@ -20,9 +20,9 @@
   "forwarder",
   "item_description_section",
   "quantity",
-  "net_weight_kgs",
+  "net_weight",
   "tare_weight",
-  "gross_weight_kgs",
+  "gross_weight",
   "terms_",
   "column_break_ahbc",
   "uom",
@@ -82,21 +82,12 @@
   {
    "fieldname": "schedule_date",
    "fieldtype": "Date",
-   "label": "Required Date"
+   "label": "Required Date",
+   "reqd": 1
   },
   {
    "fieldname": "chas_section",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "net_weight_kgs",
-   "fieldtype": "Float",
-   "label": "Net Weight (Kgs)"
-  },
-  {
-   "fieldname": "gross_weight_kgs",
-   "fieldtype": "Float",
-   "label": "Gross Weight (Kgs)"
   },
   {
    "fieldname": "column_break_ahbc",
@@ -105,7 +96,8 @@
   {
    "fieldname": "nature",
    "fieldtype": "Data",
-   "label": "Nature"
+   "label": "Nature",
+   "reqd": 1
   },
   {
    "fieldname": "forwarder",
@@ -118,17 +110,20 @@
   {
    "fieldname": "pick_up_address",
    "fieldtype": "Small Text",
-   "label": "Pick up Address"
+   "label": "Pick up Address",
+   "reqd": 1
   },
   {
    "fieldname": "port_of_loading",
    "fieldtype": "Data",
-   "label": "Port of Loading"
+   "label": "Port of Loading",
+   "reqd": 1
   },
   {
    "fieldname": "port_of_discharge",
    "fieldtype": "Data",
-   "label": "Port of Discharge"
+   "label": "Port of Discharge",
+   "reqd": 1
   },
   {
    "fieldname": "item_description_section",
@@ -140,13 +135,15 @@
   {
    "fieldname": "quantity",
    "fieldtype": "Data",
-   "label": "Quantity"
+   "label": "Quantity",
+   "reqd": 1
   },
   {
    "fieldname": "uom",
    "fieldtype": "Link",
    "label": "UOM",
-   "options": "UOM"
+   "options": "UOM",
+   "reqd": 1
   },
   {
    "fetch_from": "tc_name.terms",
@@ -157,13 +154,15 @@
   {
    "fieldname": "dimensions_in_mm3",
    "fieldtype": "Data",
-   "label": "Dimensions in MM3"
+   "label": "Dimensions in MM3",
+   "reqd": 1
   },
   {
    "fieldname": "volume_in_cbm_",
    "fieldtype": "Float",
    "label": "Volume in CBM",
-   "precision": "4"
+   "precision": "4",
+   "reqd": 1
   },
   {
    "fieldname": "amended_from",
@@ -178,7 +177,8 @@
   {
    "fieldname": "tare_weight",
    "fieldtype": "Float",
-   "label": "Tare Weight (Kgs/Qty)"
+   "label": "Tare Weight (Kgs/Qty)",
+   "reqd": 1
   },
   {
    "allow_on_submit": 1,
@@ -207,14 +207,27 @@
    "fieldname": "terms_",
    "fieldtype": "Link",
    "label": "Terms",
-   "options": "Incoterm"
+   "options": "Incoterm",
+   "reqd": 1
+  },
+  {
+   "fieldname": "net_weight",
+   "fieldtype": "Float",
+   "label": "Net Weight (Kgs)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gross_weight",
+   "fieldtype": "Float",
+   "label": "Gross Weight (Kgs)",
+   "read_only": 1
   }
  ],
  "icon": "fa fa-shopping-cart",
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-27 17:39:24.470958",
+ "modified": "2024-10-01 11:34:20.682872",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Request for CHA Quote",

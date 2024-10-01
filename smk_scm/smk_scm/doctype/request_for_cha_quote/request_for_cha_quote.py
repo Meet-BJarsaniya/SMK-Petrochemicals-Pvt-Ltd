@@ -21,8 +21,12 @@ def send_email(name, company, recipient_id, recipient, rfq_details, item_details
     <br>{rfq_details}
     <p style="margin: 1em 0 0.5em 0 !important;"><b>Item Details:</b>
     <br>{item_details}</p>
-    <p><b>Terms: {tc_name}
-    <br>Terms and Conditions:</b> {terms}</p>
+    """
+    if tc_name:
+        message += f"<p><b>Terms: {tc_name}</b></p>"
+    if terms:
+        message += f"<p><b>Terms and Conditions:</b> {terms}</p>"
+    message += f"""
     <p>We would appreciate it if you could send us your detailed quotation. Please let us know if you need any further details.
     <br>Thank you for your prompt response and assistance.</p>
     <p>Best regards,<br>{company}</p>

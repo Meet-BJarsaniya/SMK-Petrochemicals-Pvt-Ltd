@@ -3,7 +3,6 @@
 
 frappe.ui.form.on("Quote From CHA", {
 	quantity(frm) {
-        console.log()
         updateGrossWeight(frm);
 	},
 	net_weight(frm) {
@@ -37,6 +36,11 @@ frappe.ui.form.on("Quote From CHA", {
     customs_duty (frm) {
         updateSummary(frm);
     },
+	validate (frm) {
+		if (frm.doc.valid_till <= frm.doc.transaction_date) {
+			frappe.throw("Valid till Date should be greater than current date.");
+		}
+	},
     after_save (frm) {
         if (frm.doc.approved_quote) {
             frappe.db.set_value('Request for CHA Quote', frm.doc.request_for_quotation_cha, {
@@ -47,7 +51,27 @@ frappe.ui.form.on("Quote From CHA", {
                 'any_quote_approved': 0
             });
         }
-    }
+        if (frm.doc.approved_quote) {
+            // Call the server-side method to send emails
+            frappe.call({
+                method: 'smk_scm.smk_scm.doctype.quote_from_cha.quote_from_cha.send_email_to_owners',
+                args: {
+                    recipient_id: frm.doc.owner,
+                    name: frm.doc.name,
+                    doctype: frm.doc.doctype,
+                    forwarder: frm.doc.forwarder,
+                    gross_weight: frm.doc.gross_weight,
+                    total_charges_in_inr: frm.doc.total_charges_in_inr,
+                    company: frm.doc.company
+                },
+                callback: function(response) {
+                    if (response.message) {
+                        frappe.msgprint('An Email sent successfully');
+                    }
+                }
+            });
+        }
+    },
 });
 
 frappe.ui.form.on("CHA Quote Charges", {

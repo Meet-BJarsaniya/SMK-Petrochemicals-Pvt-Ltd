@@ -170,14 +170,18 @@ frappe.ui.form.on('Purchase Order', {
                 }
             }
         });
-        frappe.db.set_value('Quote From CHA', frm.doc.custom_quote_from_cha, {
-            'any_po_approved': 1
-        });
+        if (frm.doc.custom_quote_from_cha) {
+            frappe.db.set_value('Quote From CHA', frm.doc.custom_quote_from_cha, {
+                'any_po_approved': 1
+            });
+        }
     },
     after_cancel (frm) {
-        frappe.db.set_value('Quote From CHA', frm.doc.custom_quote_from_cha, {
-            'any_po_approved': 0
-        });
+        if (frm.doc.custom_quote_from_cha) {
+            frappe.db.set_value('Quote From CHA', frm.doc.custom_quote_from_cha, {
+                'any_po_approved': 0
+            });
+        }
     },
     after_workflow_action: function(frm) {
 		if (frm.doc.workflow_state === "Approved") {
@@ -273,10 +277,10 @@ frappe.ui.form.on('Purchase Order', {
                     payment_schedule: payment_sch_details,
                     logi_id: frm.doc.custom_logistics_team,
                     logi_name: frm.doc.custom_logistics_team_name,
-                    prod_id: frm.doc.custom_production_user,
-                    prod_name: frm.doc.custom_production_user_name,
+                    prod_id: frm.doc.custom_production_user || "",
+                    prod_name: frm.doc.custom_production_user_name || "",
                     custom_delivery_terms: frm.doc.custom_delivery_terms,
-                    custom_delivery_term_description: frm.doc.custom_delivery_term_description,
+                    custom_delivery_term_description: frm.doc.custom_delivery_term_description || '',
                     po_details
                 },
                 callback: function(response) {
@@ -285,9 +289,11 @@ frappe.ui.form.on('Purchase Order', {
                     }
                 }
             });
-            frappe.db.set_value('Quote From CHA', frm.doc.custom_quote_from_cha, {
-                'any_po_approved': 1
-            });
+            if (frm.doc.custom_quote_from_cha) {
+                frappe.db.set_value('Quote From CHA', frm.doc.custom_quote_from_cha, {
+                    'any_po_approved': 1
+                });
+            }
         }
     },
     refresh: function(frm) {
@@ -297,6 +303,7 @@ frappe.ui.form.on('Purchase Order', {
         }
         if (frm.is_new()) {
             if (frm.doc.custom_purchase_type == "CHA"){
+                frm.set_value("naming_series", "PO/CHA/.FY./.#####");
                 frm.set_df_property('supplier', 'label', `Forwarder`);
                 frm.set_query("supplier", function() {
                     return {
@@ -315,6 +322,11 @@ frappe.ui.form.on('Purchase Order', {
                         }
                     };
                 });
+                if (frm.doc.custom_purchase_type == "Local"){
+                    frm.set_value("naming_series", "PO/LO/.FY./.#####");
+                } else {
+                    frm.set_value("naming_series", "PO/IM/.FY./.#####");
+                }
             }
         }
 		if (frm.doc.docstatus === 1) {

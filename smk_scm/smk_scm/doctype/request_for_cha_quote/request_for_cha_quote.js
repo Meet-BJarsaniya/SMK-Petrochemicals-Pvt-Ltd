@@ -2,6 +2,20 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Request for CHA Quote", {
+	validate (frm) {
+		if (frm.doc.schedule_date <= frm.doc.transaction_date) {
+			frappe.throw("Required Date should be greater than current date.");
+		}
+	},
+	quantity(frm) {
+        updateGrossWeight(frm);
+	},
+	net_weight(frm) {
+        updateGrossWeight(frm);
+	},
+	tare_weight(frm) {
+        updateGrossWeight(frm);
+	},
     on_submit (frm) {
         let rfq_details = `
             Pick up Address:</b> ${ frm.doc.pick_up_address }</p>
@@ -53,7 +67,10 @@ frappe.ui.form.on("Request for CHA Quote", {
             </table>
         `;
 
-        let terms = frm.doc.terms.replace(/<\/?[^>]+(>|$)/g, '').trim();
+        let terms = "";
+        if (frm.doc.terms) {
+            terms = frm.doc.terms.replace(/<\/?[^>]+(>|$)/g, '').trim();
+        }
         frm.doc.forwarder.forEach(cha => {            
             if (cha.send_email) {                
                 frappe.call({
@@ -65,7 +82,7 @@ frappe.ui.form.on("Request for CHA Quote", {
                         recipient: cha.forwarder,
                         rfq_details,
                         item_details,
-                        tc_name : frm.doc.tc_name,
+                        tc_name : frm.doc.tc_name || "",
                         terms
                     },
                     callback: function(response) {
@@ -78,3 +95,7 @@ frappe.ui.form.on("Request for CHA Quote", {
         });
     }
 });
+
+function updateGrossWeight(frm){
+    frm.set_value('gross_weight', frm.doc.net_weight + frm.doc.tare_weight * frm.doc.quantity)
+}

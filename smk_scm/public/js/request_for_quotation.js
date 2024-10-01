@@ -36,7 +36,10 @@ frappe.ui.form.on('Request for Quotation', {
             </table>
         `;
 
-        let terms = frm.doc.terms.replace(/<\/?[^>]+(>|$)/g, '').trim();
+        let terms = "";
+        if (frm.doc.terms) {
+            terms = frm.doc.terms.replace(/<\/?[^>]+(>|$)/g, '').trim();
+        }
         frm.doc.suppliers.forEach(supplier => {
             frappe.call({
                 method: 'smk_scm.public.py.request_for_quotation.send_email',
@@ -46,8 +49,8 @@ frappe.ui.form.on('Request for Quotation', {
                     recipient_id: supplier.email_id,
                     recipient: supplier.supplier,
                     rfq_details,
-                    tc_name : frm.doc.tc_name,
-                    terms
+                    tc_name : frm.doc.tc_name || "",
+                    terms: terms
                 },
                 callback: function(response) {
                     if (response.message) {

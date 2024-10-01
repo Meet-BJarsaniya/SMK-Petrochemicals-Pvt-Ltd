@@ -72,24 +72,25 @@ def send_email(name, doctype, company, supplier, acc_id, acc_name, payment_terms
     )
     flush()
     
-    #Prod team mail
-    message = f"""
-    <p>Dear {prod_name},</p>
-    <p>I hope this message finds you well.
-    <br>A new Purchase Order { name } has been created for { supplier }. Please review the delivery terms below for your reference:
-    <br>Click <a href="{document_url}">here</a> to open the Purchase Order.</p>
-    <b>Item Details:</b>
-    <p>{po_details}</p>
-    <p><b>Delivery Term Details:</b>
-    <br>Delivery Terms: {custom_delivery_terms}
-    <br>Delivery Terms Description: {custom_delivery_term_description}</p>
-    <p>Please ensure that the logistics are coordinated accordingly. If you need further information, feel free to contact us.</p>
-    <p>Best regards,<br>{company}</p>
-    <img src="{logo_url}" alt="SMK Petrochemicals" width="200" />
-    """
-    frappe.sendmail(
-        recipients=[prod_id],
-        subject="Delivery Terms for Purchase Order - '" + name + "'",
-        message=message
-    )
-    flush()
+    if prod_id != "":
+        #Prod team mail
+        message = f"""
+        <p>Dear {prod_name},</p>
+        <p>I hope this message finds you well.
+        <br>A new Purchase Order { name } has been created for { supplier }. Please review the delivery terms below for your reference:
+        <br>Click <a href="{document_url}">here</a> to open the Purchase Order.</p>
+        <b>Item Details:</b>
+        <p>{po_details}</p>
+        <p><b>Delivery Term Details:</b>
+        <br>Delivery Terms: {custom_delivery_terms}
+        <br>Delivery Terms Description: {custom_delivery_term_description}</p>
+        <p>Please ensure that the logistics are coordinated accordingly. If you need further information, feel free to contact us.</p>
+        <p>Best regards,<br>{company}</p>
+        <img src="{logo_url}" alt="SMK Petrochemicals" width="200" />
+        """
+        frappe.sendmail(
+            recipients=[prod_id],
+            subject="Delivery Terms for Purchase Order - '" + name + "'",
+            message=message
+        )
+        flush()

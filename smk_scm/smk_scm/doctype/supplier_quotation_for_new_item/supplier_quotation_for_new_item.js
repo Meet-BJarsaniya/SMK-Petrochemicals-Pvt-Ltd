@@ -41,6 +41,13 @@ frappe.ui.form.on("Supplier Quotation for New Item", {
 			frm: cur_frm,
 		});
 	},
+
+	validate (frm) {
+		if (frm.doc.valid_till <= frm.doc.transaction_date) {
+			frappe.throw("Valid till Date should be greater than current date.");
+		}
+	},
+
     after_save: function(frm) {
         if (frm.doc.custom_approved_for_purchase_order) {
             let supplier_quotation_details = `
@@ -57,7 +64,10 @@ frappe.ui.form.on("Supplier Quotation for New Item", {
                     <tbody>
             `;
             frm.doc.items.forEach(item => {
-                let descriptionText = item.description.replace(/<\/?p[^>]*>/g, '').trim();
+                let descriptionText = "";
+                if (item.description) {
+                    descriptionText = item.description.replace(/<\/?p[^>]*>/g, '').trim();
+                }
                 const formattedRate = item.rate.toLocaleString('en-US', { 
                     style: 'currency', 
                     currency: frm.doc.currency
