@@ -7,32 +7,51 @@
  "engine": "InnoDB",
  "field_order": [
   "company",
-  "purchase_order_date",
-  "naming_series",
   "type_of_format",
-  "exw_dly_date",
-  "vessel_date_etd_origin",
-  "draft_bl_approval",
-  "bl_no",
-  "ship_status",
-  "any_transshipment",
-  "column_break_hmdh",
+  "naming_series",
+  "column_break_krvm",
   "posting_date",
   "purchase_order_no",
+  "purchase_order_date",
+  "sales_order_no",
+  "sales_order_date",
+  "section_break_xood",
   "items",
+  "section_break_sdbp",
+  "port_of_origin",
+  "port_of_discharge",
+  "exw_dly_date",
+  "vessel_date_etd_origin",
+  "draft_shipping_bill_no",
+  "shipping_bill_no",
+  "shipping_bill",
+  "draft_bl_approval",
+  "bl",
+  "ship_status",
+  "shipment_route_track",
+  "any_transshipment",
+  "column_break_hmdh",
+  "connection_port",
   "exwciffob",
-  "draft_bl",
+  "gate_in_cut_off_date",
+  "draft_shipping_bill",
+  "draft_shipping_bill_date",
+  "shipping_bill_date",
+  "leo_date",
   "draft_bl_date",
+  "bl_no",
   "bl_date",
   "eta_destinartion_1",
   "section_break_cwcd",
   "switch_bl_request",
+  "connecting_vessel_date",
   "switch_bl_date",
   "eta_destination_2",
   "doc_communication_date",
   "eta_destination_3",
   "free_days_cfs",
   "column_break_wujz",
+  "connection_status",
   "switch_bl_payment_date",
   "switch_draft_bl",
   "switch_draft_bl_date",
@@ -47,6 +66,8 @@
   "out_of_charge_date",
   "vehicle_driver_contact_no",
   "eta_warehouse",
+  "bl_status_",
+  "doc_communication_date_",
   "free_days_line1",
   "column_break_sxph",
   "draft_be_date",
@@ -55,20 +76,8 @@
   "vehicle_no",
   "date",
   "warehouse_location",
-  "free_days_cfs1",
-  "section_break_owir",
-  "port_of_origin",
-  "port_of_discharge",
-  "draft_shipping_bill_no",
-  "draft_shipping_bill_date",
-  "column_break_hpfb",
-  "connection_port",
-  "gate_in_cut_off_date",
-  "draft_shipping_bill",
-  "section_break_lcqa",
-  "connecting_vessel_date",
-  "column_break_ailf",
-  "connection_status"
+  "courier_docket_no_",
+  "free_days_cfs1"
  ],
  "fields": [
   {
@@ -88,24 +97,23 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_owir",
-   "fieldtype": "Section Break",
-   "hidden": 1
-  },
-  {
-   "fieldname": "column_break_hpfb",
-   "fieldtype": "Column Break"
-  },
-  {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
+   "fetch_from": "purchase_order_no.transaction_date",
    "fieldname": "purchase_order_date",
    "fieldtype": "Date",
    "label": "Purchase Order Date"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "purchase_order_no",
    "fieldtype": "Link",
    "label": "Purchase Order No.",
-   "options": "Purchase Order"
+   "link_filters": "[[\"Purchase Order\",\"docstatus\",\"=\",\"1\"]]",
+   "mandatory_depends_on": "eval: doc.type_of_format==\"Import\"",
+   "no_copy": 1,
+   "options": "Purchase Order",
+   "set_only_once": 1,
+   "unique": 1
   },
   {
    "fieldname": "type_of_format",
@@ -115,15 +123,10 @@
    "set_only_once": 1
   },
   {
-   "fieldname": "items",
-   "fieldtype": "Data",
-   "label": "Items"
-  },
-  {
    "fieldname": "exwciffob",
    "fieldtype": "Select",
-   "label": "EXW/CIF/FOB",
-   "options": "EXW\nCIF\nFOB"
+   "label": "EXW/CIF/FOB/CFR",
+   "options": "EXW\nCIF\nFOB\nCFR"
   },
   {
    "fieldname": "vessel_date_etd_origin",
@@ -135,11 +138,6 @@
    "fieldtype": "Select",
    "label": "Draft BL approval",
    "options": "Yes\nNo"
-  },
-  {
-   "fieldname": "draft_bl",
-   "fieldtype": "Attach",
-   "label": "Draft BL"
   },
   {
    "fieldname": "draft_bl_date",
@@ -173,6 +171,7 @@
    "label": "ETA Destinartion 1"
   },
   {
+   "collapsible": 1,
    "depends_on": "eval: doc.any_transshipment == 'Yes'",
    "fieldname": "section_break_cwcd",
    "fieldtype": "Section Break"
@@ -239,16 +238,19 @@
    "label": "Free days Line"
   },
   {
+   "collapsible": 1,
    "depends_on": "eval: doc.any_transshipment == 'No'",
    "fieldname": "section_break_owqg",
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "draft_be_status",
    "fieldtype": "Data",
    "label": "Draft BE status"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "be_date",
    "fieldtype": "Date",
    "label": "BE date"
@@ -258,47 +260,56 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "draft_be_date",
    "fieldtype": "Date",
    "label": "Draft BE date"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "be",
    "fieldtype": "Attach",
    "label": "BE"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "line_do_payment_date",
    "fieldtype": "Date",
    "label": "Line DO payment date"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "out_of_charge_date",
    "fieldtype": "Date",
    "label": "Out of Charge date"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "cfs_payment_date",
    "fieldtype": "Date",
    "label": "CFS payment date"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "vehicle_no",
    "fieldtype": "Data",
    "label": "Vehicle No."
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "vehicle_driver_contact_no",
    "fieldtype": "Data",
    "label": "Vehicle driver contact No.",
    "options": "Phone"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "eta_warehouse",
    "fieldtype": "Data",
    "label": "ETA Warehouse"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Date"
@@ -319,55 +330,55 @@
    "label": "Free days Line"
   },
   {
-   "fieldname": "section_break_lcqa",
-   "fieldtype": "Section Break",
-   "hidden": 1
-  },
-  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
    "fieldname": "connecting_vessel_date",
    "fieldtype": "Date",
    "label": "Connecting vessel date"
   },
   {
-   "fieldname": "column_break_ailf",
-   "fieldtype": "Column Break"
-  },
-  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
    "fieldname": "connection_status",
    "fieldtype": "Data",
    "label": "Connection status"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
    "fieldname": "port_of_origin",
    "fieldtype": "Data",
    "label": "Port of Origin"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
    "fieldname": "gate_in_cut_off_date",
    "fieldtype": "Date",
    "label": "Gate in Cut off date"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
    "fieldname": "connection_port",
    "fieldtype": "Data",
    "label": "Connection Port"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
    "fieldname": "port_of_discharge",
    "fieldtype": "Data",
    "label": "Port of Discharge"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
    "fieldname": "draft_shipping_bill_no",
    "fieldtype": "Data",
    "label": "Draft Shipping Bill No."
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
    "fieldname": "draft_shipping_bill_date",
    "fieldtype": "Date",
    "label": "Draft Shipping bill date"
   },
   {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
    "fieldname": "draft_shipping_bill",
    "fieldtype": "Attach",
    "label": "Draft Shipping bill"
@@ -396,11 +407,103 @@
    "options": "LT/IM/.FY./.###\nLT/EX/.FY./.###",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
+   "fieldname": "shipping_bill_no",
+   "fieldtype": "Data",
+   "label": "Shipping Bill No."
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
+   "fieldname": "shipping_bill",
+   "fieldtype": "Attach",
+   "label": "Shipping bill"
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
+   "fieldname": "shipping_bill_date",
+   "fieldtype": "Date",
+   "label": "Shipping bill date"
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
+   "fieldname": "leo_date",
+   "fieldtype": "Date",
+   "label": "LEO date"
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
+   "fieldname": "shipment_route_track",
+   "fieldtype": "Data",
+   "label": "Shipment route track"
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
+   "fieldname": "bl_status_",
+   "fieldtype": "Select",
+   "label": "BL status",
+   "options": "\nSurrender\nOriginal"
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
+   "fieldname": "doc_communication_date_",
+   "fieldtype": "Date",
+   "label": "Doc communication date"
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
+   "fieldname": "courier_docket_no_",
+   "fieldtype": "Date",
+   "label": "Courier docket no"
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
+   "fieldname": "sales_order_no",
+   "fieldtype": "Link",
+   "label": "Sales Order No.",
+   "link_filters": "[[\"Sales Order\",\"docstatus\",\"=\",\"1\"]]",
+   "mandatory_depends_on": "eval: doc.type_of_format==\"Export\"",
+   "no_copy": 1,
+   "options": "Sales Order",
+   "set_only_once": 1,
+   "unique": 1
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
+   "fetch_from": "sales_order_no.transaction_date",
+   "fieldname": "sales_order_date",
+   "fieldtype": "Date",
+   "label": "Sales Order Date"
+  },
+  {
+   "fieldname": "column_break_krvm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xood",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_sdbp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "bl",
+   "fieldtype": "Attach",
+   "label": "BL"
+  },
+  {
+   "fetch_from": "purchase_order_no.ignore_pricing_rule",
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Logistic Tracking Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-24 18:41:40.737976",
+ "modified": "2024-10-07 18:54:05.747298",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Logistic Tracking",
