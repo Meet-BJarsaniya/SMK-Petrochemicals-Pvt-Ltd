@@ -247,12 +247,12 @@ fixtures=[
                 "SMK SCM"
             ]
         ]
-    ]}
-    # {"dt": "Workspace", "filters":[
-    #     [
-    #         "name", "in",[
-    #             "Purchase"
-    #         ]
-    #     ]
-    # ]},
+    ]},
+    {"dt": "Workflow", "filters":[
+        [
+            "name", "in",[
+                "Purchase Order"
+            ]
+        ]
+    ]},
 ]

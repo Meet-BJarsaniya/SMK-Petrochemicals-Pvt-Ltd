@@ -8,6 +8,27 @@ frappe.ui.form.on('Purchase Order', {
                     item.conversion_factor = 0.0;
                 }
             });
+            if (frm.doc.custom_purchase_type == "CHA"){
+                frm.set_value("naming_series", "PO/CHA/.FY./.#####");
+                frm.set_df_property('supplier', 'label', `Forwarder`);
+                frm.set_query("supplier", function() {
+                    return {
+                        filters: {
+                            supplier_type: "Forwarder"
+                        }
+                    };
+                });
+            }
+            else {
+                frm.set_df_property('supplier', 'label', `Supplier`);
+                frm.set_query("supplier", function() {
+                    return {
+                        filters: {
+                            supplier_type: ["!=", "Forwarder"]
+                        }
+                    };
+                });
+            }
         }, 100);
     },
     supplier: function(frm) {
@@ -158,10 +179,10 @@ frappe.ui.form.on('Purchase Order', {
                 payment_schedule: frm.doc.payment_schedule,
                 logi_id: frm.doc.custom_logistics_team,
                 logi_name: frm.doc.custom_logistics_team_name,
-                prod_id: frm.doc.custom_production_user,
-                prod_name: frm.doc.custom_production_user_name,
+                prod_id: frm.doc.custom_production_user || "",
+                prod_name: frm.doc.custom_production_user_name || "",
                 custom_delivery_terms: frm.doc.custom_delivery_terms,
-                custom_delivery_term_description: frm.doc.custom_delivery_term_description,
+                custom_delivery_term_description: frm.doc.custom_delivery_term_description || '',
                 po_details
             },
             callback: function(response) {
