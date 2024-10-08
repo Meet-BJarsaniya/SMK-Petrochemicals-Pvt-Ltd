@@ -108,12 +108,9 @@
    "fieldname": "purchase_order_no",
    "fieldtype": "Link",
    "label": "Purchase Order No.",
-   "link_filters": "[[\"Purchase Order\",\"docstatus\",\"=\",\"1\"]]",
    "mandatory_depends_on": "eval: doc.type_of_format==\"Import\"",
-   "no_copy": 1,
    "options": "Purchase Order",
-   "set_only_once": 1,
-   "unique": 1
+   "set_only_once": 1
   },
   {
    "fieldname": "type_of_format",
@@ -462,12 +459,9 @@
    "fieldname": "sales_order_no",
    "fieldtype": "Link",
    "label": "Sales Order No.",
-   "link_filters": "[[\"Sales Order\",\"docstatus\",\"=\",\"1\"]]",
    "mandatory_depends_on": "eval: doc.type_of_format==\"Export\"",
-   "no_copy": 1,
    "options": "Sales Order",
-   "set_only_once": 1,
-   "unique": 1
+   "set_only_once": 1
   },
   {
    "depends_on": "eval: doc.type_of_format==\"Export\"",
@@ -498,12 +492,13 @@
    "fieldname": "items",
    "fieldtype": "Table",
    "label": "Items",
-   "options": "Logistic Tracking Item"
+   "options": "Logistic Tracking Item",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-07 18:54:05.747298",
+ "modified": "2024-10-08 10:53:15.483917",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Logistic Tracking",
