@@ -68,6 +68,7 @@ frappe.ui.form.on("Logistic Tracking", {
                     row.item_code = item.item_code;
                     row.item_name = item.item_name;
                     row.qty = item.qty;
+                    row.uom = item.uom;
                     row.rate = item.rate;
                     row.amount = item.amount;
                     row.description = item.description;
@@ -85,6 +86,7 @@ frappe.ui.form.on("Logistic Tracking", {
                     row.item_code = item.item_code;
                     row.item_name = item.item_name;
                     row.qty = item.qty;
+                    row.uom = item.uom;
                     row.rate = item.rate;
                     row.amount = item.amount;
                     row.description = item.description;
