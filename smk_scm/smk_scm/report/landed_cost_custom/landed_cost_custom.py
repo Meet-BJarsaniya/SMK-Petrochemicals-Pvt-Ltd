@@ -42,6 +42,6 @@ def execute(filters=None):
 	if filters.get('custom_lcv_created'):
 		sql += f"AND PR.custom_lcv_created = {1 if filters.get('custom_lcv_created') == 'Yes' else 0}"
 
-	sql += f"ORDER BY PR.name"
+	sql += f"\n	ORDER BY PR.name"
 	data = frappe.db.sql(sql,as_dict = True)
 	return columns, data
