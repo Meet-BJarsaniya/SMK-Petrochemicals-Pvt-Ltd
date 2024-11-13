@@ -1,0 +1,35 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2024-11-08 15:58:40.890111",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{\"columns\":[{\"label\":\"Id\",\"fieldname\":\"name\",\"fieldtype\":\"Link\",\"options\":\"Job Card\",\"width\":100,\"id\":\"name\",\"name\":\"Id\",\"editable\":false,\"compareValue\":null},{\"label\":\"Posting Date\",\"fieldname\":\"posting_date\",\"fieldtype\":\"Date\",\"width\":100,\"id\":\"posting_date\",\"name\":\"Posting Date\",\"editable\":false},{\"fieldname\":\"production_plan\",\"fieldtype\":\"Link\",\"label\":\"Production Plan\",\"insert_after_index\":1,\"link_field\":{\"fieldname\":\"work_order\",\"names\":{}},\"doctype\":\"Work Order\",\"options\":\"Production Plan\",\"width\":100,\"id\":\"production_plan\",\"name\":\"Production Plan\",\"editable\":false,\"compareValue\":null},{\"label\":\"Status\",\"fieldname\":\"status\",\"width\":100,\"id\":\"status\",\"name\":\"Status\",\"editable\":false,\"compareValue\":null},{\"label\":\"Work Order\",\"fieldname\":\"work_order\",\"fieldtype\":\"Link\",\"options\":\"Work Order\",\"width\":100,\"id\":\"work_order\",\"name\":\"Work Order\",\"editable\":false,\"compareValue\":null},{\"label\":\"Production Item\",\"fieldname\":\"production_item\",\"fieldtype\":\"Link\",\"options\":\"Item\",\"width\":110,\"id\":\"production_item\",\"name\":\"Production Item\",\"editable\":false,\"compareValue\":null},{\"label\":\"Item Name\",\"fieldname\":\"item_name\",\"fieldtype\":\"Data\",\"width\":100,\"id\":\"item_name\",\"name\":\"Item Name\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"qty\",\"fieldtype\":\"Float\",\"label\":\"Qty To Manufacture\",\"insert_after_index\":5,\"link_field\":{\"fieldname\":\"work_order\",\"names\":{}},\"doctype\":\"Work Order\",\"width\":100,\"id\":\"qty\",\"name\":\"Qty To Manufacture\",\"editable\":false,\"compareValue\":null},{\"label\":\"Workstation\",\"fieldname\":\"workstation\",\"fieldtype\":\"Link\",\"options\":\"Workstation\",\"width\":110,\"id\":\"workstation\",\"name\":\"Workstation\",\"editable\":false,\"compareValue\":null},{\"label\":\"Operation\",\"fieldname\":\"operation\",\"fieldtype\":\"Link\",\"options\":\"Operation\",\"width\":110,\"id\":\"operation\",\"name\":\"Operation\",\"editable\":false,\"compareValue\":null},{\"label\":\"Total Completed Qty\",\"fieldname\":\"total_completed_qty\",\"fieldtype\":\"Float\",\"width\":120,\"id\":\"total_completed_qty\",\"name\":\"Total Completed Qty\",\"editable\":false,\"compareValue\":null},{\"label\":\"From Time\",\"fieldname\":\"from_time\",\"fieldtype\":\"Datetime\",\"width\":120,\"id\":\"from_time\",\"name\":\"From Time\",\"editable\":false,\"compareValue\":null},{\"label\":\"To Time\",\"fieldname\":\"to_time\",\"fieldtype\":\"Datetime\",\"width\":120,\"id\":\"to_time\",\"name\":\"To Time\",\"editable\":false,\"compareValue\":null},{\"label\":\"Time Required (In Mins)\",\"fieldname\":\"total_time_in_mins\",\"fieldtype\":\"Float\",\"width\":100,\"id\":\"total_time_in_mins\",\"name\":\"Time Required (In Mins)\",\"editable\":false,\"compareValue\":null}],\"filters\":{\"company\":\"SMK PETROCHEMICALS INDIA PVT LTD\",\"fiscal_year\":\"2024-2025\",\"from_date\":\"2024-04-01\",\"to_date\":\"2025-03-31\",\"work_order\":[],\"production_item\":[]}}",
+ "letterhead": null,
+ "modified": "2024-11-08 16:37:25.684464",
+ "modified_by": "Administrator",
+ "module": "SMK SCM",
+ "name": "Work Order Format",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Job Card",
+ "reference_report": "",
+ "report_name": "Work Order Format",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Manufacturing User"
+  },
+  {
+   "role": "Manufacturing Manager"
+  }
+ ],
+ "timeout": 0
+}
