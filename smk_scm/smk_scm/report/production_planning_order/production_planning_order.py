@@ -49,15 +49,15 @@ def execute(filters=None):
 		LEFT JOIN `tabWork Order` AS WO ON PR.name = WO.production_plan AND WO.production_item = PRI.item_code
 		WHERE PR.docstatus = 1
 	"""
-	# if filters.get('from_date') and filters.get('to_date'):
-	# 	sql += f"AND PR.posting_date BETWEEN '{filters.get('from_date')}' AND '{filters.get('to_date')}'"
+	if filters.get('from_date') and filters.get('to_date'):
+		sql += f"AND PR.posting_date BETWEEN '{filters.get('from_date')}' AND '{filters.get('to_date')}'"
 
-	# if filters.get('item_code'):
-	# 	sql += f"AND PRI.item_code  = '{filters.get('item_code')}'"
+	if filters.get('item_code'):
+		sql += f"AND PRI.item_code  = '{filters.get('item_code')}'"
 
-	# if filters.get('custom_lcv_created'):
-	# 	sql += f"AND PR.custom_lcv_created = {1 if filters.get('custom_lcv_created') == 'Yes' else 0}"
+	if filters.get('name'):
+		sql += f"AND PR.name  = '{filters.get('name')}'"
 
-	# sql += f"\n	ORDER BY PR.name"
+	sql += f"\n	ORDER BY PR.name"
 	data = frappe.db.sql(sql,as_dict = True)
 	return columns, data

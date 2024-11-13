@@ -213,8 +213,8 @@ def get_columns(filters):
 				"options": "Operation",
 				"width": 110,
 			},
-			{"label": _("From Time"), "fieldname": "from_time", "fieldtype": "Datetime", "width": 120},
-			{"label": _("To Time"), "fieldname": "to_time", "fieldtype": "Datetime", "width": 120},
+			{"label": _("Start Time"), "fieldname": "from_time", "fieldtype": "Datetime", "width": 120},
+			{"label": _("End Time"), "fieldname": "to_time", "fieldtype": "Datetime", "width": 120},
 			{
 				"label": _("Time Required (In Mins)"),
 				"fieldname": "total_time_in_mins",
