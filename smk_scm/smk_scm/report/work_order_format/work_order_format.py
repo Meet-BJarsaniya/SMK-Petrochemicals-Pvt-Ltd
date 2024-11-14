@@ -196,8 +196,8 @@ def get_columns(filters):
 			{
 				"label": _("No of Workers"),
 				"fieldname": "custom_no_of_workers",
-				"fieldtype": "Float",
-				"width": 110,
+				"fieldtype": "Int",
+				"width": 90,
 			},
 			{
 				"label": _("Workstation"),

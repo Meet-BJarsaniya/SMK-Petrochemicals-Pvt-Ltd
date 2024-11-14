@@ -41,8 +41,8 @@ frappe.ui.form.on("Material Request", {
                 name: frm.doc.name,
                 doctype: frm.doc.doctype,
                 company: frm.doc.company,
-                recipient_id: frm.doc.custom_user_id,
-                recipient: frm.doc.custom_user_full_name,
+                recipient_id: frm.doc.custom_user_id || "",
+                recipient: frm.doc.custom_user_full_name || "",
                 mr_details
             },
             callback: function(response) {

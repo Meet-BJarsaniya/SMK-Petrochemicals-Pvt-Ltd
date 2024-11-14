@@ -10,15 +10,15 @@ def execute(filters=None):
 		{"label": _('<b>Plan No.</b>'), "fieldtype":"Link", "options":"Production Plan", "fieldname":"name" },
 		# {"label": _('<b>Batch No.</b>'), "fieldtype":"Data", "fieldname":"batch_no" },
 		{"label": _('<b>Item</b>'), "fieldtype":"Link", "options":"Item", "fieldname":"item_code" },
-		{"label": _('<b>Product Type</b>'), "fieldtype":"Data", "fieldname":"item_group" },
+		{"label": _('<b>Product Type</b>'), "fieldtype":"Data", "fieldname":"item_group", "width":100 },
 		{"label": _('<b>Order Qty</b>'), "fieldtype":"Data", "fieldname":"ordered_qty" },
 		{"label": _('<b>Plan Qty</b>'), "fieldtype":"Data", "fieldname":"planned_qty" },
 		{"label": _('<b>ETP</b>'), "fieldtype":"Date", "fieldname":"planned_start_date" },
 		{"label": _('<b>ETD</b>'), "fieldtype":"Date", "fieldname":"expected_delivery_date" },
-		{"label": _('<b>Stock Remarks</b>'), "fieldtype":"Data", "fieldname":"status" },
-		{"label": _('<b>Qty Recvd from Production Ledger</b>'), "fieldtype":"Float", "fieldname":"total_required_qty" },
-		{"label": _('<b>Remarks 1</b>'), "fieldtype":"Data", "fieldname":"remarks_1" },
-		{"label": _('<b>Remarks 2</b>'), "fieldtype":"Data", "fieldname":"remarks_2" },
+		{"label": _('<b>Stock Remarks</b>'), "fieldtype":"Data", "fieldname":"status", "width":100 },
+		{"label": _('<b>Qty Recvd from Production Ledger</b>'), "fieldtype":"Float", "fieldname":"total_required_qty", "width":100 },
+		{"label": _('<b>Remarks 1</b>'), "fieldtype":"Data", "fieldname":"remarks_1", "width":100 },
+		{"label": _('<b>Remarks 2</b>'), "fieldtype":"Data", "fieldname":"remarks_2", "width":100 },
 	]
 
 	sql = f"""

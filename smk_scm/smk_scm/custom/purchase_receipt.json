@@ -106,7 +106,7 @@
    "modified_by": "Administrator",
    "module": null,
    "name": "Purchase Receipt-custom_lcv_created",
-   "no_copy": 0,
+   "no_copy": 1,
    "non_negative": 0,
    "options": null,
    "owner": "Administrator",
