@@ -8,9 +8,9 @@ def execute(filters=None):
 	columns = [
 		{"label": _('<b>Date</b>'), "fieldtype":"Date", "fieldname":"posting_date" },
 		{"label": _('<b>Plan No.</b>'), "fieldtype":"Link", "options":"Production Plan", "fieldname":"name" },
-		# {"label": _('<b>Batch No.</b>'), "fieldtype":"Data", "fieldname":"batch_no" },
+		{"label": _('<b>Batch No.</b>'), "fieldtype":"Data", "fieldname":"batch_no" },
 		{"label": _('<b>Item</b>'), "fieldtype":"Link", "options":"Item", "fieldname":"item_code" },
-		{"label": _('<b>Product Type</b>'), "fieldtype":"Data", "fieldname":"item_group", "width":100 },
+		{"label": _('<b>Product Type</b>'), "fieldtype":"Link", "options":"Item Group", "fieldname":"item_group", "width":100 },
 		{"label": _('<b>Order Qty</b>'), "fieldtype":"Data", "fieldname":"ordered_qty" },
 		{"label": _('<b>Plan Qty</b>'), "fieldtype":"Data", "fieldname":"planned_qty" },
 		{"label": _('<b>ETP</b>'), "fieldtype":"Date", "fieldname":"planned_start_date" },
@@ -25,6 +25,7 @@ def execute(filters=None):
 		SELECT 
 			PR.posting_date,
 			PR.name,
+			GROUP_CONCAT(DISTINCT SEI.batch_no ORDER BY SEI.batch_no SEPARATOR ', ') AS batch_no,
 			PRI.item_code,
 			I.item_group,
 			CASE 
@@ -37,7 +38,7 @@ def execute(filters=None):
 			WO.expected_delivery_date,
 			(SELECT SUM(WOI.required_qty)
 				FROM `tabWork Order Item` AS WOI
-				JOIN `tabWork Order` AS WO1 ON PR.name = WO1.production_plan
+				JOIN `tabWork Order` AS WO1 ON PR.name = WO1.production_plan AND WO1.docstatus = 1
 				WHERE WOI.parent = WO1.name
 				AND WOI.item_code NOT IN 
 				(SELECT WO2.production_item
@@ -46,8 +47,11 @@ def execute(filters=None):
 		FROM `tabProduction Plan` AS PR
 		JOIN `tabProduction Plan Item` AS PRI ON PR.name = PRI.parent
 		JOIN `tabItem` AS I ON I.name = PRI.item_code
-		LEFT JOIN `tabWork Order` AS WO ON PR.name = WO.production_plan AND WO.production_item = PRI.item_code
+		LEFT JOIN `tabWork Order` AS WO ON PR.name = WO.production_plan AND WO.production_item = PRI.item_code AND WO.docstatus = 1
+		LEFT JOIN `tabStock Entry` AS SE ON SE.work_order = WO.name AND SE.stock_entry_type = 'Manufacture' AND SE.docstatus = 1
+		LEFT JOIN `tabStock Entry Detail` AS SEI ON SE.name = SEI.parent AND SEI.item_code = PRI.item_code
 		WHERE PR.docstatus = 1
+		GROUP BY PR.posting_date, PR.name, PRI.item_code, I.item_group, PR.status, WO.planned_start_date, WO.expected_delivery_date
 	"""
 	if filters.get('from_date') and filters.get('to_date'):
 		sql += f"AND PR.posting_date BETWEEN '{filters.get('from_date')}' AND '{filters.get('to_date')}'"

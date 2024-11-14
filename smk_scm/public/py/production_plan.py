@@ -69,3 +69,13 @@ def send_email(name, doctype, company, so_name):
     )
     flush()
     frappe.msgprint('An Email sent successfully')
+
+
+@frappe.whitelist()
+def update_production_plan_status():
+    frappe.db.sql("""
+        UPDATE `tabProduction Plan`
+        SET status = 'Released'
+        WHERE status = 'In Process'
+    """)
+    frappe.db.commit()
