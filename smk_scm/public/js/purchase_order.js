@@ -88,6 +88,7 @@ frappe.ui.form.on('Purchase Order', {
             }
         });
     },
+    // after_save: function(frm) {
     on_submit: function(frm) {
         let po_details = `
             <table border="1" cellpadding="5" cellspacing="0">
@@ -98,11 +99,13 @@ frappe.ui.form.on('Purchase Order', {
                         <th>UOM</th>
                         <th>Rate</th>
                         <th>Required By</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
         `;
         frm.doc.items.forEach(item => {
+            let descriptionText = item.description.replace(/<\/?p[^>]*>/g, '').trim();
             const formattedRate = item.rate.toLocaleString('en-US', { 
                 style: 'currency', 
                 currency: frm.doc.currency
@@ -120,6 +123,7 @@ frappe.ui.form.on('Purchase Order', {
                     <td>${item.uom}</td>
                     <td>${formattedRate}</td>
                     <td>${formattedDate}</td>
+                    <td>${descriptionText}</td>
                 </tr>
             `;
         });
@@ -133,9 +137,8 @@ frappe.ui.form.on('Purchase Order', {
                     <tr>
                         <th>Payment Term</th>
                         <th>Due Date</th>
-                        <th>Invoice Portion</th>
+                        <th>Invoice Portion (%)</th>
                         <th>Payment Amount (INR)</th>
-                        <th>Required By</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -158,7 +161,6 @@ frappe.ui.form.on('Purchase Order', {
                     <td>${formattedDate}</td>
                     <td>${ps.invoice_portion}</td>
                     <td>${formattedRate}</td>
-                    <td>${formattedDate}</td>
                 </tr>
             `;
         });
@@ -173,10 +175,11 @@ frappe.ui.form.on('Purchase Order', {
                 doctype: frm.doc.doctype,
                 company: frm.doc.company,
                 supplier: frm.doc.supplier,
+                schedule_date: frm.doc.schedule_date,
                 acc_id: frm.doc.custom_accounting_team,
                 acc_name: frm.doc.custom_accounting_team_name,
                 payment_terms_template: frm.doc.payment_terms_template,
-                payment_schedule: frm.doc.payment_schedule,
+                payment_schedule: payment_sch_details,
                 logi_id: frm.doc.custom_logistics_team,
                 logi_name: frm.doc.custom_logistics_team_name,
                 prod_id: frm.doc.custom_production_user || "",
@@ -204,6 +207,35 @@ frappe.ui.form.on('Purchase Order', {
             });
         }
     },
+    after_save: function(frm) {
+        if (frm.doc.docstatus === 1) {
+            frappe.call({
+                method: 'smk_scm.public.py.purchase_order.send_schedule_email',
+                args: {
+                    name: frm.doc.name,
+                    doctype: frm.doc.doctype,
+                    company: frm.doc.company,
+                    supplier: frm.doc.supplier,
+                    schedule_date: frm.doc.schedule_date,
+                    etd: frm.doc.custom_dispatch_date || "",
+                    eta: frm.doc.custom_arrival_date || "",
+                    email_subject: frm.doc.custom_email_subject,
+                    custom_company_users: frm.doc.custom_company_users
+                },
+                callback: function(response) {
+                    if (response.message) {
+                        frappe.msgprint('Emails sent successfully');
+                    }
+                }
+            });
+            if (frm.doc.custom_quote_from_cha) {
+                frappe.db.set_value('Quote From CHA', frm.doc.custom_quote_from_cha, {
+                    'any_po_approved': 1
+                });
+            }
+        }
+    },
+    // after_save: function(frm) {
     after_workflow_action: function(frm) {
 		if (frm.doc.workflow_state === "Approved") {
             let po_details = `
@@ -292,17 +324,21 @@ frappe.ui.form.on('Purchase Order', {
                     company: frm.doc.company,
                     supplier: frm.doc.supplier,
                     schedule_date: frm.doc.schedule_date,
-                    acc_id: frm.doc.custom_accounting_team,
-                    acc_name: frm.doc.custom_accounting_team_name,
+                    etd: frm.doc.custom_dispatch_date || "",
+                    eta: frm.doc.custom_arrival_date || "",
+                    email_subject: frm.doc.custom_email_subject,
+                    acc_id: frm.doc.custom_accounting_team || "",
+                    acc_name: frm.doc.custom_accounting_team_name || "",
                     payment_terms_template: frm.doc.payment_terms_template,
                     payment_schedule: payment_sch_details,
-                    logi_id: frm.doc.custom_logistics_team,
-                    logi_name: frm.doc.custom_logistics_team_name,
+                    logi_id: frm.doc.custom_logistics_team || "",
+                    logi_name: frm.doc.custom_logistics_team_name || "",
                     prod_id: frm.doc.custom_production_user || "",
                     prod_name: frm.doc.custom_production_user_name || "",
                     custom_delivery_terms: frm.doc.custom_delivery_terms,
                     custom_delivery_term_description: frm.doc.custom_delivery_term_description || '',
-                    po_details
+                    po_details,
+                    custom_company_users: frm.doc.custom_company_users
                 },
                 callback: function(response) {
                     if (response.message) {
