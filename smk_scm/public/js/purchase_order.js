@@ -323,22 +323,15 @@ frappe.ui.form.on('Purchase Order', {
                     doctype: frm.doc.doctype,
                     company: frm.doc.company,
                     supplier: frm.doc.supplier,
-                    schedule_date: frm.doc.schedule_date,
-                    etd: frm.doc.custom_dispatch_date || "",
-                    eta: frm.doc.custom_arrival_date || "",
-                    email_subject: frm.doc.custom_email_subject,
-                    acc_id: frm.doc.custom_accounting_team || "",
-                    acc_name: frm.doc.custom_accounting_team_name || "",
                     payment_terms_template: frm.doc.payment_terms_template,
                     payment_schedule: payment_sch_details,
-                    logi_id: frm.doc.custom_logistics_team || "",
-                    logi_name: frm.doc.custom_logistics_team_name || "",
-                    prod_id: frm.doc.custom_production_user || "",
-                    prod_name: frm.doc.custom_production_user_name || "",
                     custom_delivery_terms: frm.doc.custom_delivery_terms,
                     custom_delivery_term_description: frm.doc.custom_delivery_term_description || '',
                     po_details,
-                    custom_company_users: frm.doc.custom_company_users
+                    custom_company_users: frm.doc.custom_company_users,
+                    etd: frm.doc.custom_dispatch_date || "",
+                    eta: frm.doc.custom_arrival_date || "",
+                    email_subject: frm.doc.custom_email_subject
                 },
                 callback: function(response) {
                     if (response.message) {

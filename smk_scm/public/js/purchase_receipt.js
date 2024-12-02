@@ -32,7 +32,7 @@ frappe.ui.form.on('Purchase Receipt', {
                         frappe.db.insert(new_doc).then(doc => {
                             frappe.msgprint({
                                 title: __('Quality Inspection Created'),
-                                message: __('A new Quality Inspection document {0} has been created for Item {1}', 
+                                message: __('A new Quality Inspection document <a href="/app/quality-inspection/{0}" style="font-weight: bold; color: #007BFF;">{0}</a> has been created for Item {1}', 
                                             [doc.name, item.item_code]),
                                 indicator: 'green'
                             });

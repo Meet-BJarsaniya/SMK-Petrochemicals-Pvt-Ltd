@@ -5,7 +5,7 @@ from frappe.email.queue import flush
 from frappe.utils import get_url
 
 @frappe.whitelist()
-def send_email(name, doctype, company, supplier, acc_id, acc_name, payment_terms_template, payment_schedule, logi_id, logi_name, prod_name, prod_id, custom_delivery_terms, custom_delivery_term_description, po_details, custom_company_users, etd, eta, email_subject):
+def send_email(name, doctype, company, supplier, payment_terms_template, payment_schedule, custom_delivery_terms, custom_delivery_term_description, po_details, custom_company_users, etd, eta, email_subject):
     # Convert ETD and ETA to dd-mm-yyyy format
     def format_date(date_string):
         try:
@@ -33,7 +33,7 @@ def send_email(name, doctype, company, supplier, acc_id, acc_name, payment_terms
     message = f"""
     <p>Dear {supplier},</p>
     <p>I hope this message finds you well.
-    <br>We are pleased to place a purchase order with your company for the following items. Please review the details and confirm the order.</p>
+    <br>We are pleased to place a purchase order { name } with your company for the following items. Please review the details and confirm the order.</p>
     <b>Item Details:</b>
     <p>{po_details}</p>
     <p>Please confirm the receipt of this order and share the expected dispatch details. If there are any questions or clarifications required, feel free to contact us.
