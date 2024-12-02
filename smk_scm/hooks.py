@@ -36,6 +36,8 @@ doctype_js = {
     "Production Plan": "public/js/production_plan.js",
     "Job Card": "public/js/job_card.js",
     "Work Order": "public/js/work_order.js",
+    "Purchase Receipt": "public/js/purchase_receipt.js",
+    "Quality Inspection": "public/js/quality_inspection.js",
 }
 doctype_list_js = {
     "Production Plan": "public/js/production_plan_list.js",
