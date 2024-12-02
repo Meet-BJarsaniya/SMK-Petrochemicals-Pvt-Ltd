@@ -25,7 +25,7 @@ def send_email(name, doctype, company, supplier, payment_terms_template, payment
             schedule_details += f"<li>Estimated Time of Arrival (ETA): {eta}</li>"
         schedule_details += "</ul>"
     supplier_id = frappe.get_value("Supplier", supplier, "email_id")
-    logo_url = get_url("/private/files/SMK logo.jpg")
+    logo_url = get_url("/files/SMK logo.jpg")
     doctype_slug = frappe.scrub(doctype).replace("_", "-")
     document_url = frappe.utils.get_url(f"app/{doctype_slug}/{name}")
     
@@ -177,7 +177,7 @@ def send_schedule_email(name, doctype, company, supplier, custom_company_users, 
         if eta:
             schedule_details += f"<li>Estimated Time of Arrival (ETA): {eta}</li>"
         schedule_details += "</ul>"
-    logo_url = get_url("/private/files/SMK logo.jpg")
+    logo_url = get_url("/files/SMK logo.jpg")
     doctype_slug = frappe.scrub(doctype).replace("_", "-")
     document_url = frappe.utils.get_url(f"app/{doctype_slug}/{name}")
 

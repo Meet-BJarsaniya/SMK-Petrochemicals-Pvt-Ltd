@@ -4,7 +4,7 @@ from frappe.utils import get_url
 
 @frappe.whitelist()
 def send_email(name, company, recipient_id, recipient, rfq_details, tc_name, terms):
-    logo_url = get_url("/private/files/SMK logo.jpg")
+    logo_url = get_url("/files/SMK logo.jpg")
     message = f"""
     <p>Dear {recipient},</p>
     <p>I hope this message finds you well.

@@ -14,7 +14,7 @@ def send_email(name, doctype, company, so_name):
     delivery_date = delivery_date.strftime("%d-%m-%Y")
     # log(formatted_date)
     customer = frappe.get_value("Customer", customer, "email_id")
-    logo_url = get_url("/private/files/SMK logo.jpg")
+    logo_url = get_url("/files/SMK logo.jpg")
     doctype_slug = frappe.scrub(doctype).replace("_", "-")
     document_url = frappe.utils.get_url(f"app/{doctype_slug}/{name}")
 
