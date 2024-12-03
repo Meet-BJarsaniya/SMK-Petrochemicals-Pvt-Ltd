@@ -18,7 +18,7 @@ def send_email_to_owners(recipient_id, name, doctype, supplier_quotation_details
     <p>Please proceed with the next steps to ensure timely delivery. If you have any further questions or require any additional information, feel free to reach out.
     <br>Thank you for your prompt attention to this request. We look forward to your response.</p>
     <p>Best regards,<br>{company}</p>
-    <img src= "{logo_url}" alt="SMK Petrochemicals" width="200" />
+    <img src= "{logo_url}" alt="SMK Petrochemicals" width="128" />
     """
     frappe.sendmail(
         recipients=[recipient_id],

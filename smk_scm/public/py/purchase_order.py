@@ -39,7 +39,7 @@ def send_email(name, doctype, company, supplier, payment_terms_template, payment
     <p>Please confirm the receipt of this order and share the expected dispatch details. If there are any questions or clarifications required, feel free to contact us.
     <br>Thank you for your prompt attention to this order. We look forward to receiving the goods as per the agreed terms.</p>
     <p>Best regards,<br>{company}</p>
-    <img src="{logo_url}" alt="SMK Petrochemicals" width="200" />
+    <img src="{logo_url}" alt="SMK Petrochemicals" width="128" />
     """
     frappe.sendmail(
         recipients=[supplier_id],
@@ -62,7 +62,7 @@ def send_email(name, doctype, company, supplier, payment_terms_template, payment
     # <p>{payment_schedule}</p>
     # <p>Kindly ensure that the payment is processed according to the agreed terms. Please feel free to reach out if any additional information is needed.</p>
     # <p>Best regards,<br>{company}</p>
-    # <img src="{logo_url}" alt="SMK Petrochemicals" width="200" />
+    # <img src="{logo_url}" alt="SMK Petrochemicals" width="128" />
     # """
     # frappe.sendmail(
     #     recipients=[acc_id],
@@ -84,7 +84,7 @@ def send_email(name, doctype, company, supplier, payment_terms_template, payment
     # <br>Delivery Terms Description: {custom_delivery_term_description}</p>
     # <p>Please ensure that the logistics are coordinated accordingly. If you need further information, feel free to contact us.</p>
     # <p>Best regards,<br>{company}</p>
-    # <img src="{logo_url}" alt="SMK Petrochemicals" width="200" />
+    # <img src="{logo_url}" alt="SMK Petrochemicals" width="128" />
     # """
     # frappe.sendmail(
     #     recipients=[logi_id],
@@ -107,7 +107,7 @@ def send_email(name, doctype, company, supplier, payment_terms_template, payment
     #     <br>Delivery Terms Description: {custom_delivery_term_description}</p>
     #     <p>Please ensure that the logistics are coordinated accordingly. If you need further information, feel free to contact us.</p>
     #     <p>Best regards,<br>{company}</p>
-    #     <img src="{logo_url}" alt="SMK Petrochemicals" width="200" />
+    #     <img src="{logo_url}" alt="SMK Petrochemicals" width="128" />
     #     """
     #     frappe.sendmail(
     #         recipients=[prod_id],
@@ -141,7 +141,7 @@ def send_email(name, doctype, company, supplier, payment_terms_template, payment
     {schedule_details}
     <p>Kindly ensure the payment is processed according to the agreed terms and logistics are coordinated accordingly. Please feel free to reach out if any additional information is needed.</p>
     <p>Best regards,<br>{company}</p>
-    <img src="{logo_url}" alt="SMK Petrochemicals" width="200" />
+    <img src="{logo_url}" alt="SMK Petrochemicals" width="128" />
     """
     frappe.sendmail(
         recipients=recipients,
@@ -197,7 +197,7 @@ def send_schedule_email(name, doctype, company, supplier, custom_company_users, 
     {schedule_details}
     <p>Kindly ensure the payment is processed according to the agreed terms and logistics are coordinated accordingly. Please feel free to reach out if any additional information is needed.</p>
     <p>Best regards,<br>{company}</p>
-    <img src="{logo_url}" alt="SMK Petrochemicals" width="200" />
+    <img src="{logo_url}" alt="SMK Petrochemicals" width="128" />
     """
     frappe.sendmail(
         recipients=recipients,

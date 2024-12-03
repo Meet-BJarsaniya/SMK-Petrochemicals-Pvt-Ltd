@@ -30,7 +30,7 @@ def send_email(name, doctype, company, so_name):
     <br><b>Estimated Time of Departure (ETD): </b>{ delivery_date }</p>
     <p>Please feel free to contact us if any further details are needed.</p>
     <p>Best regards,<br>{company}</p>
-    <img src="{logo_url}" alt="SMK Petrochemicals" width="200" />
+    <img src="{logo_url}" alt="SMK Petrochemicals" width="128" />
     """
     frappe.sendmail(
         recipients=[customer],
@@ -60,7 +60,7 @@ def send_email(name, doctype, company, so_name):
     <br><b>Estimated Time of Departure (ETD): </b>{ delivery_date }</p>
     <p>Please feel free to contact us if any further details are needed.</p>
     <p>Best regards,<br>{company}</p>
-    <img src="{logo_url}" alt="SMK Petrochemicals" width="200" />
+    <img src="{logo_url}" alt="SMK Petrochemicals" width="128" />
     """
     frappe.sendmail(
         recipients=sales_manager_emails,

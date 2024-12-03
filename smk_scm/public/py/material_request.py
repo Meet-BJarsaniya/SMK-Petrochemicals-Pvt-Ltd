@@ -17,7 +17,7 @@ def send_email(name, doctype, company, recipient_id, recipient, mr_details):
     <p>Please feel free to contact us if any further details are needed.
     <br>Thank you for your prompt attention to this request. We look forward to your response.</p>
     <p>Best regards,<br>{company}</p>
-    <img src="{logo_url}" alt="SMK Petrochemicals" width="200" />
+    <img src="{logo_url}" alt="SMK Petrochemicals" width="128" />
     """
     frappe.sendmail(
         recipients=[recipient_id],

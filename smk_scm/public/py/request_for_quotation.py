@@ -20,7 +20,7 @@ def send_email(name, company, recipient_id, recipient, rfq_details, tc_name, ter
     <p>Please provide us with a detailed quotation, and do not hesitate to contact me if you require any further information.
     <br>Thank you for your attention to this request. We look forward to your prompt response.</p>
     <p>Best regards,<br>{company}</p>
-    <p><img src="{logo_url}" alt="SMK Petrochemicals" width="200" /></p>
+    <p><img src="{logo_url}" alt="SMK Petrochemicals" width="128" /></p>
     """
     frappe.sendmail(
         recipients=[recipient_id],
