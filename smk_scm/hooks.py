@@ -242,6 +242,7 @@ doctype_list_js = {
 fixtures=[
     "Custom DocPerm",
     "Role",
+    "Workspace",
     {"dt": "Payment Terms Template"},
     {"dt": "Email Template", "filters":[
         [
