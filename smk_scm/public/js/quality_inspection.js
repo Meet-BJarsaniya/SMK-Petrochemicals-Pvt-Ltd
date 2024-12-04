@@ -19,18 +19,9 @@ frappe.ui.form.on('Quality Inspection', {
                     items.uom = item_doc.stock_uom;
                     items.stock_uom = item_doc.stock_uom;
                     items.basic_rate = item_doc.valuation_rate;
-                    items.description = item_doc.description;
-                    items.s_warehouse = 'QC Warehouse - SPIPL';
-                    if (frm.doc.status == 'Accepted') {
-                        items.t_warehouse = 'Stores - SPIPL';
-                    }
-                    if (frm.doc.status == 'Rejected') {
-                        items.t_warehouse = 'Rejected goods W/H - SPIPL';
-                    }
-                    
+                    items.description = item_doc.description;                    
                     // Refresh the field to show updated data
                     frappe.model.set_value(new_doc.doctype, new_doc.name, 'items', new_doc.items);
-
                     // Save the new document and navigate to it
                     frappe.set_route('Form', 'Stock Entry', new_doc.name);
                 });
@@ -42,7 +33,7 @@ frappe.ui.form.on('Quality Inspection', {
                 });
             });
 
-            // Link Stock Entry to the Purchase Receipt
+            // Link QI to the Purchase Receipt
             frappe.db.get_doc('Purchase Receipt', frm.doc.reference_name).then(purchase_receipt => {
                 let pr_item = purchase_receipt.items.find(d => d.item_code === frm.doc.item_code);
                 if (pr_item) {

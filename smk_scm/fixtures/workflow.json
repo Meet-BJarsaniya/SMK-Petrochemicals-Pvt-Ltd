@@ -4,10 +4,10 @@
   "doctype": "Workflow",
   "document_type": "Purchase Order",
   "is_active": 1,
-  "modified": "2024-09-06 14:02:12.844552",
+  "modified": "2024-12-04 16:53:32.207114",
   "name": "Purchase Order",
   "override_status": 1,
-  "send_email_alert": 1,
+  "send_email_alert": 0,
   "states": [
    {
     "allow_edit": "Purchase Manager",
