@@ -251,6 +251,13 @@ fixtures=[
             ]
         ]
     ]},
+    {"dt": "Purchase Taxes and Charges Template", "filters":[
+        [
+            "title", "in",[
+                "Import Tax 10%", "Import Tax 7.5%"
+            ]
+        ]
+    ]},
     {"dt":"Property Setter","filters":[
         [
             "module","in",[
