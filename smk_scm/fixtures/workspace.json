@@ -9277,7 +9277,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Goal\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Procedure\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Inspection\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Review\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Action\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Non Conformance\",\"col\":3}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports & Masters</b></span>\",\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Goal and Procedure\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Feedback\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Meeting\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Review and Action\",\"col\":4}}]",
+  "content": "[{\"id\":\"Wt8YAzjl64\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"wZcL8pNXiW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Goal\",\"col\":3}},{\"id\":\"Rw5dvXuAKr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Procedure\",\"col\":3}},{\"id\":\"wB1PFDTcbl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Inspection\",\"col\":3}},{\"id\":\"PSqy9bY1cI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Review\",\"col\":3}},{\"id\":\"gIHQ_2ofa8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Action\",\"col\":3}},{\"id\":\"NCWVjnNUw4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Non Conformance\",\"col\":3}},{\"id\":\"BPkizEN_VC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of PR\",\"col\":3}},{\"id\":\"IOg0Aler2D\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hRsZjbntia\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"NZ753fZkcW\",\"type\":\"card\",\"data\":{\"card_name\":\"Goal and Procedure\",\"col\":4}},{\"id\":\"huw34NHH9q\",\"type\":\"card\",\"data\":{\"card_name\":\"Feedback\",\"col\":4}},{\"id\":\"o6QDVY-eYn\",\"type\":\"card\",\"data\":{\"card_name\":\"Meeting\",\"col\":4}},{\"id\":\"l1KZ7OB5Qs\",\"type\":\"card\",\"data\":{\"card_name\":\"Review and Action\",\"col\":4}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -9523,7 +9523,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2023-05-24 14:47:22.597974",
+  "modified": "2024-12-04 16:20:22.030561",
   "module": "Quality Management",
   "name": "Quality",
   "number_cards": [],
@@ -9534,6 +9534,22 @@
   "roles": [],
   "sequence_id": 9.0,
   "shortcuts": [
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Pending QC of PR",
+    "link_to": "Purchase Receipt",
+    "parent": "Quality",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[[\"Purchase Receipt Item\",\"quality_inspection\",\"is\",\"not set\",false]]",
+    "type": "DocType",
+    "url": null
+   },
    {
     "color": "Grey",
     "doc_view": null,

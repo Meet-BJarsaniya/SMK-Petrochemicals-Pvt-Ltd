@@ -1,5 +1,5 @@
 frappe.ui.form.on('Quality Inspection', {
-    after_save(frm) {
+    on_submit(frm) {
         if (frm.doc.reference_type == 'Purchase Receipt') {
             // Fetch additional data from the Item Master   && frm.doc.status == 'Accepted'
             frappe.db.get_doc('Item', frm.doc.item_code).then(item_doc => {
@@ -40,6 +40,20 @@ frappe.ui.form.on('Quality Inspection', {
                     message: __('Failed to fetch data from Item Master for Item {0}: {1}', [frm.doc.item_code, err.message]),
                     indicator: 'red'
                 });
+            });
+
+            // Link Stock Entry to the Purchase Receipt
+            frappe.db.get_doc('Purchase Receipt', frm.doc.reference_name).then(purchase_receipt => {
+                let pr_item = purchase_receipt.items.find(d => d.item_code === frm.doc.item_code);
+                if (pr_item) {
+                    pr_item.quality_inspection = frm.doc.name; // Link Quality Inspection
+                    frappe.db.update({
+                        doctype: 'Purchase Receipt',
+                        name: purchase_receipt.name,
+                        fieldname: 'items',
+                        value: purchase_receipt.items
+                    });
+                }
             });
         }
     }
