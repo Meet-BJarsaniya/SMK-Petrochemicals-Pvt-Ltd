@@ -1,4 +1,68 @@
 frappe.ui.form.on('Purchase Receipt', {
+    onload: function(frm) {
+        if (frm.doc.custom_branch) {
+            // Fetch child warehouses based on custom_branch
+            frappe.call({
+                method: 'smk_scm.public.py.purchase_order.get_child_warehouses',
+                args: {
+                    branch: frm.doc.custom_branch
+                },
+                callback: function(response) {
+                    console.log(response)
+                    if (response.message) {
+                        const warehouse_list = response.message;
+        
+                        // Dynamically set the filter for "set_warehouse"
+                        frm.set_query("set_warehouse", () => {
+                            return {
+                                filters: {
+                                    name: ["in", warehouse_list],
+                                    is_group: 0
+                                }
+                            };
+                        });
+                    } else {
+                        // Fallback if no data is returned
+                        frm.set_query("set_warehouse", () => {
+                            return {
+                                filters: {
+                                    company: frm.doc.company,
+                                    is_group: 0
+                                }
+                            };
+                        });
+                    }
+                }
+            });
+        }
+    },
+    custom_branch(frm) {
+        frm.set_value("set_warehouse", '');
+        frm.set_value("rejected_warehouse", '');
+    
+        const default_query = () => ({
+            filters: { company: frm.doc.company, is_group: 0 }
+        });
+    
+        if (!frm.doc.custom_branch) {
+            frm.set_query("set_warehouse", default_query);
+            frm.set_query("rejected_warehouse", default_query);
+            return;
+        }
+    
+        frappe.call({
+            method: 'smk_scm.public.py.purchase_order.get_child_warehouses',
+            args: { branch: frm.doc.custom_branch },
+            callback: function (response) {
+                const warehouse_list = response.message || [];
+                const dynamic_query = () => ({
+                    filters: { name: ["in", warehouse_list], is_group: 0 }
+                });
+                frm.set_query("set_warehouse", dynamic_query);
+                frm.set_query("rejected_warehouse", dynamic_query);
+            }
+        });
+    },    
     custom_quality_inspection(frm) {
         // Iterate through each item in the Purchase Receipt
         frm.doc.items.forEach(item => {
