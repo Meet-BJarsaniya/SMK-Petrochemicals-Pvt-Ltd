@@ -1,0 +1,16 @@
+[
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Warehouse Type",
+  "modified": "2024-08-07 11:08:33.686241",
+  "name": "Transit"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Warehouse Type",
+  "modified": "2024-12-05 10:46:51.743421",
+  "name": "Branch"
+ }
+]

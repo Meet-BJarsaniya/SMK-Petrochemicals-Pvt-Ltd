@@ -206,3 +206,23 @@ def send_schedule_email(name, doctype, company, supplier, custom_company_users, 
         message=message
     )
     flush()
+
+
+@frappe.whitelist()
+def get_child_warehouses(branch):
+    warehouses = frappe.get_all(
+        "Warehouse",
+        # filters={"is_group": 0},
+        fields=["name", "parent_warehouse"]
+    )
+    
+    def fetch_children(parent, all_warehouses):
+        children = [w for w in all_warehouses if w["parent_warehouse"] == parent]
+        result = []
+        for child in children:
+            result.append(child["name"])
+            # Recursively fetch the children of the current child
+            result.extend(fetch_children(child["name"], all_warehouses))
+        return result
+    
+    return fetch_children(branch, warehouses)

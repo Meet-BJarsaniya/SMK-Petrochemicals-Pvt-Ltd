@@ -243,6 +243,7 @@ fixtures=[
     "Custom DocPerm",
     "Role",
     "Workspace",
+    "Warehouse Type",
     {"dt": "Payment Terms Template"},
     {"dt": "Email Template", "filters":[
         [

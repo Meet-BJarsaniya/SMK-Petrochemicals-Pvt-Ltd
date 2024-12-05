@@ -1,7 +1,7 @@
 frappe.ui.form.on('Job Card', {
-    employee: function(frm) {
-        frm.set_value("custom_no_of_workers", frm.doc.employee.length);
-    },
+    // employee: function(frm) {
+    //     frm.set_value("custom_no_of_workers", frm.doc.employee.length);
+    // },
     before_submit: async function (frm) {
         // Ensure Quality Inspection is linked
         if (!frm.doc.quality_inspection) {

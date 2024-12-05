@@ -28,7 +28,7 @@ frappe.ui.form.on('Purchase Order', {
                         }
                     };
                 });
-            }
+            };
         }, 100);
     },
     supplier: function(frm) {
@@ -36,6 +36,53 @@ frappe.ui.form.on('Purchase Order', {
             // frm.set_df_property('naming_series', 'hidden', 1);
         }, 1);
     },
+    custom_branch(frm) {
+        if (!frm.doc.custom_branch) {
+            // If no branch is selected, clear the query
+            frm.set_query("set_warehouse", () => {
+                return {
+                    filters: {
+                        company: frm.doc.company,
+                        is_group: 0
+                    }
+                };
+            });
+            return;
+        }
+    
+        // Fetch child warehouses based on custom_branch
+        frappe.call({
+            method: 'smk_scm.public.py.purchase_order.get_child_warehouses',
+            args: {
+                branch: frm.doc.custom_branch
+            },
+            callback: function(response) {
+                console.log(response)
+                if (response.message) {
+                    const warehouse_list = response.message;
+    
+                    // Dynamically set the filter for "set_warehouse"
+                    frm.set_query("set_warehouse", () => {
+                        return {
+                            filters: {
+                                name: ["in", warehouse_list],
+                                is_group: 0
+                            }
+                        };
+                    });
+                } else {
+                    // Fallback if no data is returned
+                    frm.set_query("set_warehouse", () => {
+                        return {
+                            filters: {
+                                is_group: 0
+                            }
+                        };
+                    });
+                }
+            }
+        });
+    },    
 	custom_purchase_type(frm) {
         if (frm.is_new()){
             // frm.set_df_property('naming_series', 'hidden', 1)
