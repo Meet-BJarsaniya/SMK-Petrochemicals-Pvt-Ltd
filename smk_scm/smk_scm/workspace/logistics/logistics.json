@@ -1,7 +1,7 @@
 {
  "charts": [],
- "content": "[{\"id\":\"aW2i5R5GRP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"x7pLl-spS4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"-5J_yLxDaS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Analytics\",\"col\":3}},{\"id\":\"6YEYpnIBKV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Note\",\"col\":3}},{\"id\":\"oNjjNbnUHp\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"egYPWbUzbZ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>CHA DocTypes</b></span>\",\"col\":12}},{\"id\":\"qFPPSAJ762\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Request for CHA Quote\",\"col\":3}},{\"id\":\"XdSjNDq6mc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quote From CHA\",\"col\":3}},{\"id\":\"QyifXJ757b\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CHA Purchase Order\",\"col\":3}},{\"id\":\"RhYAGBJePr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CHA Purchase Invoice\",\"col\":3}},{\"id\":\"IM5l8k3MjS\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"NrItmIZ8rl\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Logistics Tracking Form</b></span>\",\"col\":12}},{\"id\":\"sPbSywG78e\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Logistic Tracking\",\"col\":3}},{\"id\":\"yEg3OvOXpm\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"0BcePLg0g1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"L2nt5sBerU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cha Quote Comparison\",\"col\":3}},{\"id\":\"yq4RMZTnUd\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Note Analysis\",\"col\":3}}]",
- "creation": "2024-12-04 12:51:07.638655",
+ "content": "[{\"id\":\"aW2i5R5GRP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"x7pLl-spS4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"-5J_yLxDaS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Analytics\",\"col\":3}},{\"id\":\"6YEYpnIBKV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Note\",\"col\":3}},{\"id\":\"oNjjNbnUHp\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"wJWG7NIdld\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>CHA DocTypes</b></span><br>\",\"col\":12}},{\"id\":\"g2942qNeON\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Request for CHA Quote\",\"col\":3}},{\"id\":\"71lwF_V4HY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quote From CHA\",\"col\":3}},{\"id\":\"y9wMw6k2Sy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CHA Purchase Order\",\"col\":3}},{\"id\":\"-0ahexR9QZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CHA Purchase Invoice\",\"col\":3}},{\"id\":\"A6Jc2tmwMM\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hOVdbanDjA\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Logistics Tracking Form</b></span>\",\"col\":12}},{\"id\":\"RHdO_2rEhg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Logistic Tracking\",\"col\":3}},{\"id\":\"BAbZd3ReHV\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"0BcePLg0g1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"nlPQ9sMgoE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Note Analysis\",\"col\":3}},{\"id\":\"NnUQucVpUT\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cha Quote Comparison\",\"col\":3}}]",
+ "creation": "2024-12-06 11:46:14.574272",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -289,7 +289,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-12-05 19:03:50.259489",
+ "modified": "2024-12-06 12:13:28.096091",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Logistics",
@@ -310,6 +310,20 @@
  "sequence_id": 6.1,
  "shortcuts": [
   {
+   "doc_view": "",
+   "label": "Delivery Note",
+   "link_to": "Delivery Note",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Delivery Note Analysis",
+   "link_to": "Delivery Note Analysis",
+   "type": "Report"
+  },
+  {
    "color": "Grey",
    "doc_view": "List",
    "label": "Request for CHA Quote",
@@ -320,45 +334,16 @@
   {
    "color": "Grey",
    "doc_view": "List",
+   "label": "CHA Purchase Order",
+   "link_to": "Purchase Order",
+   "stats_filter": "[[\"Purchase Order\",\"custom_purchase_type\",\"=\",\"CHA\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
    "label": "Logistic Tracking",
    "link_to": "Logistic Tracking",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "CHA Purchase Invoice",
-   "link_to": "Purchase Invoice",
-   "stats_filter": "[[\"Purchase Invoice\",\"custom_purchase_type\",\"=\",\"CHA\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Cha Quote Comparison",
-   "link_to": "CHA Quote Comparison",
-   "type": "Report"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Delivery Note Analysis",
-   "link_to": "Delivery Note Analysis",
-   "type": "Report"
-  },
-  {
-   "doc_view": "",
-   "label": "Delivery Note",
-   "link_to": "Delivery Note",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Quote From CHA",
-   "link_to": "Quote From CHA",
    "stats_filter": "[]",
    "type": "DocType"
   },
@@ -374,9 +359,24 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "CHA Purchase Order",
-   "link_to": "Purchase Order",
-   "stats_filter": "[[\"Purchase Order\",\"custom_purchase_type\",\"=\",\"CHA\",false]]",
+   "label": "Cha Quote Comparison",
+   "link_to": "CHA Quote Comparison",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Quote From CHA",
+   "link_to": "Quote From CHA",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "CHA Purchase Invoice",
+   "link_to": "Purchase Invoice",
+   "stats_filter": "[[\"Purchase Invoice\",\"custom_purchase_type\",\"=\",\"CHA\",false]]",
    "type": "DocType"
   },
   {
