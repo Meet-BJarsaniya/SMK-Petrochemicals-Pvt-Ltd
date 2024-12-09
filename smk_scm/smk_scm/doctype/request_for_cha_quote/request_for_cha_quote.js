@@ -57,9 +57,9 @@ frappe.ui.form.on("Request for CHA Quote", {
                     <td>${frm.doc.nature}</td>
                     <td>${frm.doc.quantity}</td>
                     <td>${frm.doc.uom}</td>
-                    <td>${frm.doc.net_weight_kgs}</td>
+                    <td>${frm.doc.net_weight}</td>
                     <td>${frm.doc.tare_weight}</td>
-                    <td>${frm.doc.gross_weight_kgs}</td>
+                    <td>${frm.doc.gross_weight}</td>
                     <td>${frm.doc.dimensions_in_mm3}</td>
                     <td>${frm.doc.volume_in_cbm_}</td>
                 </tr>
