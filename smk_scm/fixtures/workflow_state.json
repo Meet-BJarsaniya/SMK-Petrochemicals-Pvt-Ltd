@@ -1,0 +1,11 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2024-12-09 16:26:18.971161",
+  "name": "Pending Review",
+  "style": "",
+  "workflow_state_name": "Pending Review"
+ }
+]

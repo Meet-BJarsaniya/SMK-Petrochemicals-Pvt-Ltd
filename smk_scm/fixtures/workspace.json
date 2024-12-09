@@ -14870,7 +14870,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"DU24WEPCsI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Product Manager</span>\",\"col\":12}},{\"id\":\"QljPip76rh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"3dY-oJTlYL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Bom\",\"col\":3}},{\"id\":\"Xq9zIFm2sE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Future Cost\",\"col\":3}},{\"id\":\"1zAGbuhTG3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Landed Cost Voucher\",\"col\":3}}]",
+  "content": "[{\"id\":\"DU24WEPCsI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Product Manager</span>\",\"col\":12}},{\"id\":\"QljPip76rh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"3dY-oJTlYL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Bom\",\"col\":3}},{\"id\":\"Xq9zIFm2sE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Future Cost\",\"col\":3}},{\"id\":\"1zAGbuhTG3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Landed Cost Voucher\",\"col\":3}},{\"id\":\"Ly75st3Aeu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Purchase Order\",\"col\":3}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -14881,7 +14881,7 @@
   "is_hidden": 0,
   "label": "Product Manager",
   "links": [],
-  "modified": "2024-12-09 12:03:51.243554",
+  "modified": "2024-12-09 16:57:33.215945",
   "module": "SMK SCM",
   "name": "Product Manager",
   "number_cards": [],
@@ -14889,7 +14889,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Product Manager",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Product Manager"
+   }
+  ],
   "sequence_id": 24.0,
   "shortcuts": [
    {
@@ -14905,6 +14912,22 @@
     "parenttype": "Workspace",
     "restrict_to_domain": null,
     "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Pending Purchase Order",
+    "link_to": "Purchase Order",
+    "parent": "Product Manager",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[[\"Purchase Order\",\"workflow_state\",\"=\",\"Pending Review\",false]]",
     "type": "DocType",
     "url": null
    },

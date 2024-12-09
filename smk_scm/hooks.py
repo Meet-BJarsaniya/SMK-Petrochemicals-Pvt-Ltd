@@ -274,4 +274,11 @@ fixtures=[
             ]
         ]
     ]},
+    {"dt": "Workflow State", "filters":[
+        [
+            "name", "in",[
+                "Pending Review"
+            ]
+        ]
+    ]},
 ]
