@@ -245,6 +245,7 @@ fixtures=[
     "Role",
     "Workspace",
     "Warehouse Type",
+    "Payment Term",
     {"dt": "Payment Terms Template"},
     {"dt": "Email Template", "filters":[
         [
