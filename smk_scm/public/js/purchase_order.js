@@ -463,6 +463,35 @@ frappe.ui.form.on('Purchase Order', {
             }
         }
 		if (frm.doc.docstatus === 1) {
+            if (!["Closed", "Delivered"].includes(frm.doc.status)) {
+				if (
+					frm.doc.status !== "Closed" &&
+					flt(frm.doc.per_received, 2) < 100 &&
+					flt(frm.doc.per_billed, 2) < 100
+				) {
+					if (!frm.doc.__onload || frm.doc.__onload.can_update_items) {
+						frm.add_custom_button(__("Update Items"), () => {
+                            console.log(frappe.user_roles)
+                            console.log(frappe)
+							if (frappe.user_roles.includes("Product Manager")) {
+								erpnext.utils.update_child_items({
+									frm: frm,
+									child_docname: "items",
+									child_doctype: "Purchase Order Detail",
+									cannot_add_row: false,
+								});
+							} else {
+								erpnext.utils.update_child_items({
+									frm: frm,
+									child_docname: "items",
+									child_doctype: "Purchase Order Detail",
+									cannot_add_row: true,
+								});
+							}
+						});
+					}
+				}
+            }
             frm.add_custom_button('QC Warehouse Entry', () => {
                 // Create a new QC Warehouse Entry document
                 frappe.model.with_doctype('QC Warehouse Entry', () => {
