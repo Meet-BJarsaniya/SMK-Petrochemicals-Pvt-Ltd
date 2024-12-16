@@ -10,6 +10,13 @@
   "description": null,
   "docstatus": 0,
   "doctype": "Warehouse Type",
+  "modified": "2024-12-16 11:38:30.451213",
+  "name": "QC"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Warehouse Type",
   "modified": "2024-12-05 10:46:51.743421",
   "name": "Branch"
  }

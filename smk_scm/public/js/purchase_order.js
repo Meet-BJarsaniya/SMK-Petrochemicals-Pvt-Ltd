@@ -46,7 +46,8 @@ frappe.ui.form.on('Purchase Order', {
                                 return {
                                     filters: {
                                         name: ["in", warehouse_list],
-                                        is_group: 0
+                                        is_group: 0,
+                                        warehouse_type: 'QC'
                                     }
                                 };
                             });
@@ -56,12 +57,24 @@ frappe.ui.form.on('Purchase Order', {
                                 return {
                                     filters: {
                                         company: frm.doc.company,
-                                        is_group: 0
+                                        is_group: 0,
+                                        warehouse_type: 'QC'
                                     }
                                 };
                             });
                         }
                     }
+                });
+            } else {
+                // Fallback if no data is returned
+                frm.set_query("set_warehouse", () => {
+                    return {
+                        filters: {
+                            company: frm.doc.company,
+                            is_group: 0,
+                            warehouse_type: 'QC'
+                        }
+                    };
                 });
             }
         }, 100);
@@ -79,7 +92,8 @@ frappe.ui.form.on('Purchase Order', {
                 return {
                     filters: {
                         company: frm.doc.company,
-                        is_group: 0
+                        is_group: 0,
+                        warehouse_type: 'QC'
                     }
                 };
             });
@@ -101,7 +115,8 @@ frappe.ui.form.on('Purchase Order', {
                         return {
                             filters: {
                                 name: ["in", warehouse_list],
-                                is_group: 0
+                                is_group: 0,
+                                warehouse_type: 'QC'
                             }
                         };
                     });
@@ -111,7 +126,8 @@ frappe.ui.form.on('Purchase Order', {
                         return {
                             filters: {
                                 company: frm.doc.company,
-                                is_group: 0
+                                is_group: 0,
+                                warehouse_type: 'QC'
                             }
                         };
                     });

@@ -4,13 +4,13 @@
   "doctype": "Workflow",
   "document_type": "Purchase Order",
   "is_active": 1,
-  "modified": "2024-12-09 17:32:12.353419",
+  "modified": "2024-12-16 12:06:06.832894",
   "name": "Purchase Order",
   "override_status": 1,
   "send_email_alert": 0,
   "states": [
    {
-    "allow_edit": "Purchase Manager",
+    "allow_edit": "Purchase User",
     "avoid_status_override": 0,
     "doc_status": "0",
     "is_optional_state": 0,
@@ -25,7 +25,7 @@
     "workflow_builder_id": null
    },
    {
-    "allow_edit": "Product Manager",
+    "allow_edit": "Purchase Manager",
     "avoid_status_override": 0,
     "doc_status": "0",
     "is_optional_state": 0,
@@ -40,7 +40,7 @@
     "workflow_builder_id": null
    },
    {
-    "allow_edit": "Product Manager",
+    "allow_edit": "Purchase Manager",
     "avoid_status_override": 0,
     "doc_status": "1",
     "is_optional_state": 0,
@@ -55,7 +55,7 @@
     "workflow_builder_id": null
    },
    {
-    "allow_edit": "Purchase Manager",
+    "allow_edit": "Purchase User",
     "avoid_status_override": 0,
     "doc_status": "0",
     "is_optional_state": 0,
@@ -74,7 +74,7 @@
    {
     "action": "Review",
     "allow_self_approval": 1,
-    "allowed": "Purchase Manager",
+    "allowed": "Purchase User",
     "condition": null,
     "next_state": "Pending Review",
     "parent": "Purchase Order",
@@ -98,7 +98,7 @@
    {
     "action": "Reject",
     "allow_self_approval": 1,
-    "allowed": "Product Manager",
+    "allowed": "Purchase Manager",
     "condition": null,
     "next_state": "Rejected",
     "parent": "Purchase Order",
@@ -110,7 +110,7 @@
    {
     "action": "Review",
     "allow_self_approval": 1,
-    "allowed": "Purchase Manager",
+    "allowed": "Purchase User",
     "condition": null,
     "next_state": "Pending",
     "parent": "Purchase Order",
@@ -122,6 +122,131 @@
   ],
   "workflow_data": null,
   "workflow_name": "Purchase Order",
+  "workflow_state_field": "workflow_state"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow",
+  "document_type": "Sales Order",
+  "is_active": 1,
+  "modified": "2024-12-16 12:16:41.161860",
+  "name": "Sales Order",
+  "override_status": 1,
+  "send_email_alert": 0,
+  "states": [
+   {
+    "allow_edit": "Sales Manager",
+    "avoid_status_override": 0,
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "parent": "Sales Order",
+    "parentfield": "states",
+    "parenttype": "Workflow",
+    "state": "Pending",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Product Manager",
+    "avoid_status_override": 0,
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "parent": "Sales Order",
+    "parentfield": "states",
+    "parenttype": "Workflow",
+    "state": "Pending Review",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Product Manager",
+    "avoid_status_override": 0,
+    "doc_status": "1",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "parent": "Sales Order",
+    "parentfield": "states",
+    "parenttype": "Workflow",
+    "state": "Approved",
+    "update_field": "",
+    "update_value": "",
+    "workflow_builder_id": null
+   },
+   {
+    "allow_edit": "Sales Manager",
+    "avoid_status_override": 0,
+    "doc_status": "0",
+    "is_optional_state": 0,
+    "message": null,
+    "next_action_email_template": null,
+    "parent": "Sales Order",
+    "parentfield": "states",
+    "parenttype": "Workflow",
+    "state": "Rejected",
+    "update_field": null,
+    "update_value": null,
+    "workflow_builder_id": null
+   }
+  ],
+  "transitions": [
+   {
+    "action": "Review",
+    "allow_self_approval": 1,
+    "allowed": "Sales Manager",
+    "condition": null,
+    "next_state": "Pending Review",
+    "parent": "Sales Order",
+    "parentfield": "transitions",
+    "parenttype": "Workflow",
+    "state": "Pending",
+    "workflow_builder_id": null
+   },
+   {
+    "action": "Approve",
+    "allow_self_approval": 1,
+    "allowed": "Product Manager",
+    "condition": null,
+    "next_state": "Approved",
+    "parent": "Sales Order",
+    "parentfield": "transitions",
+    "parenttype": "Workflow",
+    "state": "Pending Review",
+    "workflow_builder_id": null
+   },
+   {
+    "action": "Reject",
+    "allow_self_approval": 1,
+    "allowed": "Product Manager",
+    "condition": null,
+    "next_state": "Rejected",
+    "parent": "Sales Order",
+    "parentfield": "transitions",
+    "parenttype": "Workflow",
+    "state": "Pending Review",
+    "workflow_builder_id": null
+   },
+   {
+    "action": "Review",
+    "allow_self_approval": 1,
+    "allowed": "Sales Manager",
+    "condition": null,
+    "next_state": "Pending",
+    "parent": "Sales Order",
+    "parentfield": "transitions",
+    "parenttype": "Workflow",
+    "state": "Rejected",
+    "workflow_builder_id": null
+   }
+  ],
+  "workflow_data": null,
+  "workflow_name": "Sales Order",
   "workflow_state_field": "workflow_state"
  }
 ]

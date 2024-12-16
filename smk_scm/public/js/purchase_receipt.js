@@ -17,7 +17,8 @@ frappe.ui.form.on('Purchase Receipt', {
                             return {
                                 filters: {
                                     name: ["in", warehouse_list],
-                                    is_group: 0
+                                    is_group: 0,
+                                    warehouse_type: 'QC'
                                 }
                             };
                         });
@@ -27,12 +28,24 @@ frappe.ui.form.on('Purchase Receipt', {
                             return {
                                 filters: {
                                     company: frm.doc.company,
-                                    is_group: 0
+                                    is_group: 0,
+                                    warehouse_type: 'QC'
                                 }
                             };
                         });
                     }
                 }
+            });
+        } else {
+            // Fallback if no data is returned
+            frm.set_query("set_warehouse", () => {
+                return {
+                    filters: {
+                        company: frm.doc.company,
+                        is_group: 0,
+                        warehouse_type: 'QC'
+                    }
+                };
             });
         }
     },
@@ -41,7 +54,7 @@ frappe.ui.form.on('Purchase Receipt', {
         frm.set_value("rejected_warehouse", '');
     
         const default_query = () => ({
-            filters: { company: frm.doc.company, is_group: 0 }
+            filters: { company: frm.doc.company, is_group: 0, warehouse_type: 'QC' }
         });
     
         if (!frm.doc.custom_branch) {
@@ -56,7 +69,7 @@ frappe.ui.form.on('Purchase Receipt', {
             callback: function (response) {
                 const warehouse_list = response.message || [];
                 const dynamic_query = () => ({
-                    filters: { name: ["in", warehouse_list], is_group: 0 }
+                    filters: { name: ["in", warehouse_list], is_group: 0, warehouse_type: 'QC' }
                 });
                 frm.set_query("set_warehouse", dynamic_query);
                 frm.set_query("rejected_warehouse", dynamic_query);
