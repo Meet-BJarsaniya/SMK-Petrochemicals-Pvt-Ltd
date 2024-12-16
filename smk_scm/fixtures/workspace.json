@@ -9277,7 +9277,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"Wt8YAzjl64\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"wZcL8pNXiW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Goal\",\"col\":3}},{\"id\":\"Rw5dvXuAKr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Procedure\",\"col\":3}},{\"id\":\"wB1PFDTcbl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Inspection\",\"col\":3}},{\"id\":\"PSqy9bY1cI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Review\",\"col\":3}},{\"id\":\"gIHQ_2ofa8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Action\",\"col\":3}},{\"id\":\"NCWVjnNUw4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Non Conformance\",\"col\":3}},{\"id\":\"BPkizEN_VC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of PR\",\"col\":3}},{\"id\":\"IOg0Aler2D\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hRsZjbntia\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"NZ753fZkcW\",\"type\":\"card\",\"data\":{\"card_name\":\"Goal and Procedure\",\"col\":4}},{\"id\":\"huw34NHH9q\",\"type\":\"card\",\"data\":{\"card_name\":\"Feedback\",\"col\":4}},{\"id\":\"o6QDVY-eYn\",\"type\":\"card\",\"data\":{\"card_name\":\"Meeting\",\"col\":4}},{\"id\":\"l1KZ7OB5Qs\",\"type\":\"card\",\"data\":{\"card_name\":\"Review and Action\",\"col\":4}}]",
+  "content": "[{\"id\":\"Wt8YAzjl64\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"wZcL8pNXiW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Goal\",\"col\":3}},{\"id\":\"Rw5dvXuAKr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Procedure\",\"col\":3}},{\"id\":\"wB1PFDTcbl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Inspection\",\"col\":3}},{\"id\":\"PSqy9bY1cI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Review\",\"col\":3}},{\"id\":\"gIHQ_2ofa8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Action\",\"col\":3}},{\"id\":\"NCWVjnNUw4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Non Conformance\",\"col\":3}},{\"id\":\"BPkizEN_VC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of PR\",\"col\":3}},{\"id\":\"FB6Ch46Jn9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of Job Card\",\"col\":3}},{\"id\":\"IOg0Aler2D\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hRsZjbntia\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"NZ753fZkcW\",\"type\":\"card\",\"data\":{\"card_name\":\"Goal and Procedure\",\"col\":4}},{\"id\":\"huw34NHH9q\",\"type\":\"card\",\"data\":{\"card_name\":\"Feedback\",\"col\":4}},{\"id\":\"o6QDVY-eYn\",\"type\":\"card\",\"data\":{\"card_name\":\"Meeting\",\"col\":4}},{\"id\":\"l1KZ7OB5Qs\",\"type\":\"card\",\"data\":{\"card_name\":\"Review and Action\",\"col\":4}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -9523,7 +9523,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-12-04 16:20:22.030561",
+  "modified": "2024-12-16 18:33:55.161994",
   "module": "Quality Management",
   "name": "Quality",
   "number_cards": [],
@@ -9534,6 +9534,22 @@
   "roles": [],
   "sequence_id": 9.0,
   "shortcuts": [
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Pending QC of Job Card",
+    "link_to": "Quality Inspection",
+    "parent": "Quality",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[[\"Quality Inspection\",\"docstatus\",\"=\",\"0\",false],[\"Quality Inspection\",\"inspection_type\",\"=\",\"In Process\",false],[\"Quality Inspection\",\"reference_type\",\"=\",\"Job Card\",false]]",
+    "type": "DocType",
+    "url": null
+   },
    {
     "color": "Grey",
     "doc_view": "List",
@@ -13959,7 +13975,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-12-06 12:13:28.096091",
+  "modified": "2024-12-16 17:02:05.513485",
   "module": "SMK SCM",
   "name": "Logistics",
   "number_cards": [],
@@ -13972,13 +13988,13 @@
     "parent": "Logistics",
     "parentfield": "roles",
     "parenttype": "Workspace",
-    "role": "Delivery User"
+    "role": "Logistics Manager"
    },
    {
     "parent": "Logistics",
     "parentfield": "roles",
     "parenttype": "Workspace",
-    "role": "Delivery Manager"
+    "role": "Logistics User"
    }
   ],
   "sequence_id": 6.1,
@@ -14870,7 +14886,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"DU24WEPCsI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Product Manager</span>\",\"col\":12}},{\"id\":\"QljPip76rh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"3dY-oJTlYL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Bom\",\"col\":3}},{\"id\":\"Xq9zIFm2sE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Future Cost\",\"col\":3}},{\"id\":\"1zAGbuhTG3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Landed Cost Voucher\",\"col\":3}},{\"id\":\"Ly75st3Aeu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Purchase Order\",\"col\":3}}]",
+  "content": "[{\"id\":\"DU24WEPCsI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Product Manager</span>\",\"col\":12}},{\"id\":\"QljPip76rh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"3dY-oJTlYL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Bom\",\"col\":3}},{\"id\":\"xy3T6V-TZR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Production Plan\",\"col\":3}},{\"id\":\"IyL44b67T-\",\"type\":\"spacer\",\"data\":{\"col\":3}},{\"id\":\"Xq9zIFm2sE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Future Cost\",\"col\":3}},{\"id\":\"1zAGbuhTG3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Landed Cost Voucher\",\"col\":3}},{\"id\":\"eya0vF9Bid\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"iU3OuHXx9W\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quotation\",\"col\":3}},{\"id\":\"Ly75st3Aeu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Sales Order\",\"col\":3}},{\"id\":\"OvXwxmdjrb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order Analysis\",\"col\":3}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -14881,7 +14897,7 @@
   "is_hidden": 0,
   "label": "Product Manager",
   "links": [],
-  "modified": "2024-12-09 16:57:33.215945",
+  "modified": "2024-12-16 16:16:09.803977",
   "module": "SMK SCM",
   "name": "Product Manager",
   "number_cards": [],
@@ -14895,10 +14911,48 @@
     "parentfield": "roles",
     "parenttype": "Workspace",
     "role": "Product Manager"
+   },
+   {
+    "parent": "Product Manager",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Product User"
    }
   ],
   "sequence_id": 24.0,
   "shortcuts": [
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Sales Order Analysis",
+    "link_to": "Sales Order Analysis",
+    "parent": "Product Manager",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": null,
+    "type": "Report",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Quotation",
+    "link_to": "Quotation",
+    "parent": "Product Manager",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
    {
     "color": "Grey",
     "doc_view": "List",
@@ -14921,13 +14975,13 @@
     "format": null,
     "icon": null,
     "kanban_board": null,
-    "label": "Pending Purchase Order",
-    "link_to": "Purchase Order",
+    "label": "Bom",
+    "link_to": "BOM",
     "parent": "Product Manager",
     "parentfield": "shortcuts",
     "parenttype": "Workspace",
     "restrict_to_domain": null,
-    "stats_filter": "[[\"Purchase Order\",\"workflow_state\",\"=\",\"Pending Review\",false]]",
+    "stats_filter": "[]",
     "type": "DocType",
     "url": null
    },
@@ -14937,8 +14991,24 @@
     "format": null,
     "icon": null,
     "kanban_board": null,
-    "label": "Bom",
-    "link_to": "BOM",
+    "label": "Pending Sales Order",
+    "link_to": "Sales Order",
+    "parent": "Product Manager",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Pending Review\",false]]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Production Plan",
+    "link_to": "Production Plan",
     "parent": "Product Manager",
     "parentfield": "shortcuts",
     "parenttype": "Workspace",

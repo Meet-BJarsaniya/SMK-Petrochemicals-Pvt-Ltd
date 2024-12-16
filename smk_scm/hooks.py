@@ -244,43 +244,43 @@ fixtures=[
     "Custom DocPerm",
     "Role",
     "Workspace",
-    "Warehouse Type",
-    "Payment Term",
-    {"dt": "Payment Terms Template"},
-    {"dt": "Email Template", "filters":[
-        [
-            "name", "in",[
-                "RFQ"
-            ]
-        ]
-    ]},
-    {"dt": "Purchase Taxes and Charges Template", "filters":[
-        [
-            "title", "in",[
-                "Import Tax 10%", "Import Tax 7.5%"
-            ]
-        ]
-    ]},
-    {"dt":"Property Setter","filters":[
-        [
-            "module","in",[
-                "SMK SCM"
-            ]
-        ]
-    ]},
-    {"dt": "Workflow", "filters":[
-        [
-            "name", "in",[
-                "Purchase Order",
-                "Sales Order"
-            ]
-        ]
-    ]},
-    {"dt": "Workflow State", "filters":[
-        [
-            "name", "in",[
-                "Pending Review"
-            ]
-        ]
-    ]},
+    # "Warehouse Type",
+    # "Payment Term",
+    # {"dt": "Payment Terms Template"},
+    # {"dt": "Email Template", "filters":[
+    #     [
+    #         "name", "in",[
+    #             "RFQ"
+    #         ]
+    #     ]
+    # ]},
+    # {"dt": "Purchase Taxes and Charges Template", "filters":[
+    #     [
+    #         "title", "in",[
+    #             "Import Tax 10%", "Import Tax 7.5%"
+    #         ]
+    #     ]
+    # ]},
+    # {"dt":"Property Setter","filters":[
+    #     [
+    #         "module","in",[
+    #             "SMK SCM"
+    #         ]
+    #     ]
+    # ]},
+    # {"dt": "Workflow", "filters":[
+    #     [
+    #         "name", "in",[
+    #             "Purchase Order",
+    #             "Sales Order"
+    #         ]
+    #     ]
+    # ]},
+    # {"dt": "Workflow State", "filters":[
+    #     [
+    #         "name", "in",[
+    #             "Pending Review"
+    #         ]
+    #     ]
+    # ]},
 ]
