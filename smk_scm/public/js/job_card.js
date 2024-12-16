@@ -16,5 +16,49 @@ frappe.ui.form.on('Job Card', {
         if (status !== 'Accepted' || docstatus !== 1) {
             frappe.throw(__('The selected Quality Inspection is not accepted. Please ensure it is accepted before submitting.'));
         }
+    },
+    refresh (frm) {
+        if (frm.doc.docstatus == 0 && !frm.is_new()) {
+            frappe.db.get_value('Quality Inspection', { name: frm.doc.quality_inspection }, 'docstatus')
+                .then(response => {
+                    const docstatus = response.message?.docstatus;
+                    console.log(docstatus)    
+                    if (docstatus === 1 || !frm.doc.quality_inspection) {
+                        frm.add_custom_button('Create QC', () => {
+                            // Proceed to create a new Quality Inspection document
+                            frappe.model.with_doctype('Quality Inspection', () => {
+                                let new_doc = frappe.model.get_new_doc('Quality Inspection');
+                                new_doc.inspection_type = 'In Process';
+                                new_doc.reference_type = 'Job Card';
+                                new_doc.reference_name = frm.doc.name;
+
+                                // Map item fields to the Quality Inspection document
+                                new_doc.item_code = frm.doc.production_item;
+                                // new_doc.item_name = item.item_name;
+                                new_doc.sample_size = frm.doc.for_quantity;
+
+                                // Save the new document
+                                frappe.db.insert(new_doc).then(doc => {
+                                    frappe.msgprint({
+                                        title: __('Quality Inspection Created'),
+                                        message: __('A new Quality Inspection document <a href="/app/quality-inspection/{0}" style="font-weight: bold; color: #007BFF;">{0}</a> has been created for Item {1}', 
+                                                    [doc.name, new_doc.item_code]),
+                                        indicator: 'green'
+                                    });
+                                    frm.set_value('quality_inspection', doc.name)
+                                    frm.save()
+                                }).catch(err => {
+                                    frappe.msgprint({
+                                        title: __('Error'),
+                                        message: __('Failed to create Quality Inspection for Item {0}: {1}', 
+                                                    [item.item_code, err.message]),
+                                        indicator: 'red'
+                                    });
+                                });
+                            });
+                        })
+                    }
+                });
+        }
     }
 });

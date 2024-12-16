@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"DU24WEPCsI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Product Manager</span>\",\"col\":12}},{\"id\":\"QljPip76rh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"3dY-oJTlYL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Bom\",\"col\":3}},{\"id\":\"Xq9zIFm2sE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Future Cost\",\"col\":3}},{\"id\":\"1zAGbuhTG3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Landed Cost Voucher\",\"col\":3}},{\"id\":\"Ly75st3Aeu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Purchase Order\",\"col\":3}}]",
+ "content": "[{\"id\":\"DU24WEPCsI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Product Manager</span>\",\"col\":12}},{\"id\":\"QljPip76rh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"3dY-oJTlYL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Bom\",\"col\":3}},{\"id\":\"xy3T6V-TZR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Production Plan\",\"col\":3}},{\"id\":\"IyL44b67T-\",\"type\":\"spacer\",\"data\":{\"col\":3}},{\"id\":\"Xq9zIFm2sE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Future Cost\",\"col\":3}},{\"id\":\"1zAGbuhTG3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Landed Cost Voucher\",\"col\":3}},{\"id\":\"eya0vF9Bid\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"iU3OuHXx9W\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quotation\",\"col\":3}},{\"id\":\"Ly75st3Aeu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Sales Order\",\"col\":3}},{\"id\":\"OvXwxmdjrb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order Analysis\",\"col\":3}}]",
  "creation": "2024-12-06 12:25:47.015427",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,8 +13,8 @@
  "is_hidden": 0,
  "label": "Product Manager",
  "links": [],
- "modified": "2024-12-09 16:57:33.215945",
- "modified_by": "Administrator",
+ "modified": "2024-12-16 16:16:09.803977",
+ "modified_by": "aditya@g.co",
  "module": "SMK SCM",
  "name": "Product Manager",
  "number_cards": [],
@@ -25,10 +25,28 @@
  "roles": [
   {
    "role": "Product Manager"
+  },
+  {
+   "role": "Product User"
   }
  ],
  "sequence_id": 24.0,
  "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Sales Order Analysis",
+   "link_to": "Sales Order Analysis",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Quotation",
+   "link_to": "Quotation",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
   {
    "color": "Grey",
    "doc_view": "List",
@@ -40,16 +58,24 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Pending Purchase Order",
-   "link_to": "Purchase Order",
-   "stats_filter": "[[\"Purchase Order\",\"workflow_state\",\"=\",\"Pending Review\",false]]",
+   "label": "Bom",
+   "link_to": "BOM",
+   "stats_filter": "[]",
    "type": "DocType"
   },
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Bom",
-   "link_to": "BOM",
+   "label": "Pending Sales Order",
+   "link_to": "Sales Order",
+   "stats_filter": "[[\"Sales Order\",\"workflow_state\",\"=\",\"Pending Review\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Production Plan",
+   "link_to": "Production Plan",
    "stats_filter": "[]",
    "type": "DocType"
   },

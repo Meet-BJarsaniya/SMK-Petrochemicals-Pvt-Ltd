@@ -9,7 +9,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-10-18 16:27:07.403209",
+ "modified": "2024-12-16 17:13:12.192508",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Landed Cost Custom",
@@ -23,13 +23,7 @@
    "role": "Stock Manager"
   },
   {
-   "role": "Stock User"
-  },
-  {
-   "role": "Purchase User"
-  },
-  {
-   "role": "Accounts User"
+   "role": "Product Manager"
   }
  ],
  "timeout": 0

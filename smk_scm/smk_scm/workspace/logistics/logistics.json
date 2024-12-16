@@ -289,7 +289,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-12-06 12:13:28.096091",
+ "modified": "2024-12-16 17:02:05.513485",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Logistics",
@@ -301,10 +301,10 @@
  "restrict_to_domain": "",
  "roles": [
   {
-   "role": "Delivery User"
+   "role": "Logistics Manager"
   },
   {
-   "role": "Delivery Manager"
+   "role": "Logistics User"
   }
  ],
  "sequence_id": 6.1,

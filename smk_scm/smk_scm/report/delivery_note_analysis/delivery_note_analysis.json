@@ -6,10 +6,10 @@
  "docstatus": 0,
  "doctype": "Report",
  "filters": [],
- "idx": 0,
+ "idx": 24,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-12-04 12:46:48.029454",
+ "modified": "2024-12-16 17:01:30.966029",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Delivery Note Analysis",
@@ -20,10 +20,7 @@
  "report_type": "Script Report",
  "roles": [
   {
-   "role": "Delivery User"
-  },
-  {
-   "role": "Delivery Manager"
+   "role": "Logistics Manager"
   }
  ],
  "timeout": 0
