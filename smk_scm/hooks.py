@@ -136,12 +136,13 @@ doctype_list_js = {
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#     "Job Card": {
-#         "before_insert": "smk_scm.public.py.job_card.before_insert",
-#         # "on_update": "smk_scm.public.py.purchase_order.on_update",
-#     },
-# }
+doc_events = {
+    "Job Card": {
+        # "on_update": "smk_scm.public.py.job_card.after_insert",
+        "after_insert": "smk_scm.public.py.job_card.after_insert",
+        # "on_update": "smk_scm.public.py.purchase_order.on_update",
+    },
+}
 
 # Scheduled Tasks
 # ---------------
