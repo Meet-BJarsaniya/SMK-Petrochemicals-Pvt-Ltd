@@ -137,9 +137,9 @@ doctype_list_js = {
 # Hook on document methods and events
 
 # doc_events = {
-#     "Purchase Order": {
-#         "on_submit": "smk_scm.public.py.purchase_order.on_submit",
-#         "on_update": "smk_scm.public.py.purchase_order.on_update",
+#     "Job Card": {
+#         "before_insert": "smk_scm.public.py.job_card.before_insert",
+#         # "on_update": "smk_scm.public.py.purchase_order.on_update",
 #     },
 # }
 
@@ -254,13 +254,13 @@ fixtures=[
             ]
         ]
     ]},
-    {"dt": "Purchase Taxes and Charges Template", "filters":[
-        [
-            "title", "in",[
-                "Import Tax 10%", "Import Tax 7.5%"
-            ]
-        ]
-    ]},
+    # {"dt": "Purchase Taxes and Charges Template", "filters":[
+    #     [
+    #         "title", "in",[
+    #             "Import Tax 10%", "Import Tax 7.5%"
+    #         ]
+    #     ]
+    # ]},
     {"dt":"Property Setter","filters":[
         [
             "module","in",[
