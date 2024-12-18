@@ -1,7 +1,7 @@
 {
  "charts": [],
- "content": "[{\"id\":\"aW2i5R5GRP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"x7pLl-spS4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"-5J_yLxDaS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Analytics\",\"col\":3}},{\"id\":\"6YEYpnIBKV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Note\",\"col\":3}},{\"id\":\"oNjjNbnUHp\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"wJWG7NIdld\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>CHA DocTypes</b></span><br>\",\"col\":12}},{\"id\":\"g2942qNeON\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Request for CHA Quote\",\"col\":3}},{\"id\":\"71lwF_V4HY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quote From CHA\",\"col\":3}},{\"id\":\"y9wMw6k2Sy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CHA Purchase Order\",\"col\":3}},{\"id\":\"-0ahexR9QZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CHA Purchase Invoice\",\"col\":3}},{\"id\":\"A6Jc2tmwMM\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hOVdbanDjA\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Logistics Tracking Form</b></span>\",\"col\":12}},{\"id\":\"RHdO_2rEhg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Logistic Tracking\",\"col\":3}},{\"id\":\"BAbZd3ReHV\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"0BcePLg0g1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"nlPQ9sMgoE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Note Analysis\",\"col\":3}},{\"id\":\"NnUQucVpUT\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cha Quote Comparison\",\"col\":3}}]",
- "creation": "2024-12-06 11:46:14.574272",
+ "content": "[{\"id\":\"aW2i5R5GRP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"1it3dCOnm6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"x7pLl-spS4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"SSGrXWmY-H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order\",\"col\":3}},{\"id\":\"-5J_yLxDaS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Analytics\",\"col\":3}},{\"id\":\"6YEYpnIBKV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Note\",\"col\":3}},{\"id\":\"oJTxFltYow\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Docs To Be Atteched\",\"col\":3}},{\"id\":\"oNjjNbnUHp\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"wJWG7NIdld\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>CHA DocTypes</b></span><br>\",\"col\":12}},{\"id\":\"g2942qNeON\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Request for CHA Quote\",\"col\":3}},{\"id\":\"71lwF_V4HY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quote From CHA\",\"col\":3}},{\"id\":\"y9wMw6k2Sy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CHA Purchase Order\",\"col\":3}},{\"id\":\"-0ahexR9QZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CHA Purchase Invoice\",\"col\":3}},{\"id\":\"A6Jc2tmwMM\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hOVdbanDjA\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Logistics Tracking Form</b></span>\",\"col\":12}},{\"id\":\"RHdO_2rEhg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Logistic Tracking\",\"col\":3}},{\"id\":\"BAbZd3ReHV\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"0BcePLg0g1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"nlPQ9sMgoE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Note Analysis\",\"col\":3}},{\"id\":\"NnUQucVpUT\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cha Quote Comparison\",\"col\":3}}]",
+ "creation": "2024-12-18 11:10:47.612962",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -289,7 +289,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-12-16 17:02:05.513485",
+ "modified": "2024-12-18 18:11:50.275455",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Logistics",
@@ -315,6 +315,13 @@
    "link_to": "Delivery Note",
    "stats_filter": "[]",
    "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Docs To Be Atteched",
+   "link_to": "Docs to be Atteched",
+   "type": "Report"
   },
   {
    "color": "Grey",

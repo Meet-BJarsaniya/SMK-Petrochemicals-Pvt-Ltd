@@ -7,7 +7,7 @@
   "doctype_or_field": "DocField",
   "field_name": "supplier_type",
   "is_system_generated": 0,
-  "modified": "2024-11-18 17:57:34.428309",
+  "modified": "2024-12-18 11:10:56.696543",
   "module": "SMK SCM",
   "name": "Supplier-supplier_type-options",
   "property": "options",

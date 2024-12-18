@@ -1,0 +1,29 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-12-18 18:09:06.607107",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2024-12-18 18:09:06.607107",
+ "modified_by": "Administrator",
+ "module": "SMK SCM",
+ "name": "Docs to be Atteched",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "import frappe\n\ndef execute(filters=None):\n    columns = [\n        {\"label\": \"Sales Order\", \"fieldname\": \"sales_order\", \"fieldtype\": \"Link\", \"options\": \"Sales Order\", \"width\": 150},\n        {\"label\": \"Customer\", \"fieldname\": \"customer\", \"fieldtype\": \"Data\", \"width\": 200},\n        {\"label\": \"Transaction Date\", \"fieldname\": \"transaction_date\", \"fieldtype\": \"Date\", \"width\": 120},\n        {\"label\": \"Print Format PDF\", \"fieldname\": \"pdf_link\", \"fieldtype\": \"HTML\", \"width\": 300},\n    ]\n\n    data = []\n    sales_orders = frappe.get_all(\"Sales Order\", fields=[\"name\", \"customer\", \"transaction_date\"])\n\n    for so in sales_orders:\n        pdf_link = (\n            f\"<a href='/api/method/frappe.utils.print_format.download_pdf?\"\n            f\"doctype=Sales Order&name={so.name}&format=Standard&no_letterhead=0' target='_blank'>\"\n            f\"Download PDF</a>\"\n        )\n        data.append({\n            \"sales_order\": so.name,\n            \"customer\": so.customer,\n            \"transaction_date\": so.transaction_date,\n            \"pdf_link\": pdf_link,\n        })\n\n    return columns, data\n",
+ "ref_doctype": "Sales Order",
+ "report_name": "Docs to be Atteched",
+ "report_script": "# Fetch all Sales Orders\nsales_orders = frappe.get_all(\"Sales Order\", fields=[\"name\"])\n\n# Generate URLs for PDF downloads\npdf_urls = []\nfor so in sales_orders:\n    pdf_url = f\"/api/method/frappe.utils.print_format.download_pdf?doctype=Sales Order&name={so.name}&format=Standard&no_letterhead=0\"\n    pdf_urls.append({\"sales_order\": so.name, \"pdf_url\": pdf_url})\n\n# Output the result\nreturn 678\n",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Logistics Manager"
+  }
+ ],
+ "timeout": 0
+}
