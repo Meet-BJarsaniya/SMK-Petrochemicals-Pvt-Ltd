@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{item}-{batch_no}-{####}",
+ "creation": "2024-12-25 16:19:56.521590",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "source",
+  "batch_no",
+  "column_break_ejwz",
+  "item_incoming_date",
+  "item",
+  "qc_details_section",
+  "table_ymhq"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "label": "Batch No.",
+   "link_filters": "[[\"Batch\",\"item\",\"=\",\"eval: doc.item\"]]",
+   "options": "Batch",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "column_break_ejwz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_incoming_date",
+   "fieldtype": "Date",
+   "label": "Item Incoming Date"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "qc_details_section",
+   "fieldtype": "Section Break",
+   "label": "QC Details"
+  },
+  {
+   "fieldname": "table_ymhq",
+   "fieldtype": "Table",
+   "options": "Long Term QC Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-26 15:06:04.606440",
+ "modified_by": "Administrator",
+ "module": "SMK SCM",
+ "name": "Long Term QC",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "R&D Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

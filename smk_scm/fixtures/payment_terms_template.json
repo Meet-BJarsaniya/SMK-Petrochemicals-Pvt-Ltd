@@ -3,6 +3,32 @@
   "allocate_payment_based_on_payment_terms": 1,
   "docstatus": 0,
   "doctype": "Payment Terms Template",
+  "modified": "2024-07-15 16:30:36.899766",
+  "name": "Open Credit",
+  "template_name": "Open Credit",
+  "terms": [
+   {
+    "credit_days": 60,
+    "credit_months": 0,
+    "description": null,
+    "discount": 0.0,
+    "discount_type": "Percentage",
+    "discount_validity": 0,
+    "discount_validity_based_on": "Day(s) after invoice date",
+    "due_date_based_on": "Day(s) after invoice date",
+    "invoice_portion": 100.0,
+    "mode_of_payment": "",
+    "parent": "Open Credit",
+    "parentfield": "terms",
+    "parenttype": "Payment Terms Template",
+    "payment_term": "Open Credit"
+   }
+  ]
+ },
+ {
+  "allocate_payment_based_on_payment_terms": 1,
+  "docstatus": 0,
+  "doctype": "Payment Terms Template",
   "modified": "2024-09-12 18:02:38.409741",
   "name": "Part Advance / Part Credit",
   "template_name": "Part Advance / Part Credit",
@@ -38,32 +64,6 @@
     "parentfield": "terms",
     "parenttype": "Payment Terms Template",
     "payment_term": "Part Credit"
-   }
-  ]
- },
- {
-  "allocate_payment_based_on_payment_terms": 1,
-  "docstatus": 0,
-  "doctype": "Payment Terms Template",
-  "modified": "2024-07-15 16:30:36.899766",
-  "name": "Open Credit",
-  "template_name": "Open Credit",
-  "terms": [
-   {
-    "credit_days": 60,
-    "credit_months": 0,
-    "description": null,
-    "discount": 0.0,
-    "discount_type": "Percentage",
-    "discount_validity": 0,
-    "discount_validity_based_on": "Day(s) after invoice date",
-    "due_date_based_on": "Day(s) after invoice date",
-    "invoice_portion": 100.0,
-    "mode_of_payment": "",
-    "parent": "Open Credit",
-    "parentfield": "terms",
-    "parenttype": "Payment Terms Template",
-    "payment_term": "Open Credit"
    }
   ]
  },

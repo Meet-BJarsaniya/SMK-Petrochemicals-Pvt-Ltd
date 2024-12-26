@@ -1,0 +1,57 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-12-25 16:30:16.261543",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "quality_inspection",
+  "qc_date",
+  "status",
+  "item_code"
+ ],
+ "fields": [
+  {
+   "fieldname": "quality_inspection",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Quality Inspection",
+   "link_filters": "[[\"Quality Inspection\",\"docstatus\",\"=\",\"1\"],[\"Quality Inspection\",\"reference_type\",\"=\",\"Long Term QC\"],[\"Quality Inspection\",\"inspection_type\",\"=\",\"R&D\"]]",
+   "options": "Quality Inspection"
+  },
+  {
+   "fetch_from": "quality_inspection.report_date",
+   "fieldname": "qc_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "QC Date"
+  },
+  {
+   "fetch_from": "quality_inspection.status",
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Item Code",
+   "options": "Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-12-25 17:11:28.946384",
+ "modified_by": "Administrator",
+ "module": "SMK SCM",
+ "name": "Long Term QC Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
