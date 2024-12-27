@@ -5402,7 +5402,7 @@
     "parenttype": "Workspace"
    }
   ],
-  "content": "[{\"id\":\"MmUf9abwxg\",\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Accounts\",\"col\":12}},{\"id\":\"nDhfcJYbKH\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Profit and Loss\",\"col\":12}},{\"id\":\"VVvJ1lUcfc\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Outgoing Bills\",\"col\":3}},{\"id\":\"Vlj2FZtlHV\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Incoming Bills\",\"col\":3}},{\"id\":\"VVVjQVAhPf\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Incoming Payment\",\"col\":3}},{\"id\":\"DySNdlysIW\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Outgoing Payment\",\"col\":3}},{\"id\":\"9k1rDm2C0l\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vikWSkNm6_\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Shortcuts</b></span>\",\"col\":12}},{\"id\":\"pMywM0nhlj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Chart of Accounts\",\"col\":3}},{\"id\":\"_pRdD6kqUG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Invoice\",\"col\":3}},{\"id\":\"G984SgVRJN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Invoice\",\"col\":3}},{\"id\":\"1ArNvt9qhz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Journal Entry\",\"col\":3}},{\"id\":\"F9f4I1viNr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Payment Entry\",\"col\":3}},{\"id\":\"4IBBOIxfqW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Accounts Receivable\",\"col\":3}},{\"id\":\"El2anpPaFY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"General Ledger\",\"col\":3}},{\"id\":\"1nwcM9upJo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Trial Balance\",\"col\":3}},{\"id\":\"OF9WOi1Ppc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"id\":\"iAwpe-Chra\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Learn Accounting\",\"col\":3}},{\"id\":\"kI9w1oQ53D\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Finance Request\",\"col\":3}},{\"id\":\"t5dPfXcyEt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending SO Against DN\",\"col\":3}},{\"id\":\"B7-uxs8tkU\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"tHb3yxthkR\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"DnNtsmxpty\",\"type\":\"card\",\"data\":{\"card_name\":\"Accounting Masters\",\"col\":4}},{\"id\":\"nKKr6fjgjb\",\"type\":\"card\",\"data\":{\"card_name\":\"Payments\",\"col\":4}},{\"id\":\"KlqilF5R_V\",\"type\":\"card\",\"data\":{\"card_name\":\"Tax Masters\",\"col\":4}},{\"id\":\"jTUy8LB0uw\",\"type\":\"card\",\"data\":{\"card_name\":\"Cost Center and Budgeting\",\"col\":4}},{\"id\":\"Wn2lhs7WLn\",\"type\":\"card\",\"data\":{\"card_name\":\"Multi Currency\",\"col\":4}},{\"id\":\"PAQMqqNkBM\",\"type\":\"card\",\"data\":{\"card_name\":\"Banking\",\"col\":4}},{\"id\":\"kxhoaiqdLq\",\"type\":\"card\",\"data\":{\"card_name\":\"Opening and Closing\",\"col\":4}},{\"id\":\"q0MAlU2j_Z\",\"type\":\"card\",\"data\":{\"card_name\":\"Subscription Management\",\"col\":4}},{\"id\":\"ptm7T6Hwu-\",\"type\":\"card\",\"data\":{\"card_name\":\"Share Management\",\"col\":4}}]",
+  "content": "[{\"id\":\"MmUf9abwxg\",\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Accounts\",\"col\":12}},{\"id\":\"nDhfcJYbKH\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Profit and Loss\",\"col\":12}},{\"id\":\"VVvJ1lUcfc\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Outgoing Bills\",\"col\":3}},{\"id\":\"Vlj2FZtlHV\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Incoming Bills\",\"col\":3}},{\"id\":\"VVVjQVAhPf\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Incoming Payment\",\"col\":3}},{\"id\":\"DySNdlysIW\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Outgoing Payment\",\"col\":3}},{\"id\":\"9k1rDm2C0l\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vikWSkNm6_\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Shortcuts</b></span>\",\"col\":12}},{\"id\":\"pMywM0nhlj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Chart of Accounts\",\"col\":3}},{\"id\":\"_pRdD6kqUG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Invoice\",\"col\":3}},{\"id\":\"G984SgVRJN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Invoice\",\"col\":3}},{\"id\":\"1ArNvt9qhz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Journal Entry\",\"col\":3}},{\"id\":\"F9f4I1viNr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Payment Entry\",\"col\":3}},{\"id\":\"4IBBOIxfqW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Accounts Receivable\",\"col\":3}},{\"id\":\"El2anpPaFY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"General Ledger\",\"col\":3}},{\"id\":\"1nwcM9upJo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Trial Balance\",\"col\":3}},{\"id\":\"OF9WOi1Ppc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"id\":\"iAwpe-Chra\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Learn Accounting\",\"col\":3}},{\"id\":\"kI9w1oQ53D\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Finance Request\",\"col\":3}},{\"id\":\"t5dPfXcyEt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending SO Against DN\",\"col\":3}},{\"id\":\"RlKa9TZwhZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"GST vise General Ledger\",\"col\":3}},{\"id\":\"B7-uxs8tkU\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"tHb3yxthkR\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"DnNtsmxpty\",\"type\":\"card\",\"data\":{\"card_name\":\"Accounting Masters\",\"col\":4}},{\"id\":\"nKKr6fjgjb\",\"type\":\"card\",\"data\":{\"card_name\":\"Payments\",\"col\":4}},{\"id\":\"KlqilF5R_V\",\"type\":\"card\",\"data\":{\"card_name\":\"Tax Masters\",\"col\":4}},{\"id\":\"jTUy8LB0uw\",\"type\":\"card\",\"data\":{\"card_name\":\"Cost Center and Budgeting\",\"col\":4}},{\"id\":\"Wn2lhs7WLn\",\"type\":\"card\",\"data\":{\"card_name\":\"Multi Currency\",\"col\":4}},{\"id\":\"PAQMqqNkBM\",\"type\":\"card\",\"data\":{\"card_name\":\"Banking\",\"col\":4}},{\"id\":\"kxhoaiqdLq\",\"type\":\"card\",\"data\":{\"card_name\":\"Opening and Closing\",\"col\":4}},{\"id\":\"q0MAlU2j_Z\",\"type\":\"card\",\"data\":{\"card_name\":\"Subscription Management\",\"col\":4}},{\"id\":\"ptm7T6Hwu-\",\"type\":\"card\",\"data\":{\"card_name\":\"Share Management\",\"col\":4}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -6386,7 +6386,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-12-18 18:22:39.058479",
+  "modified": "2024-12-26 18:37:18.582884",
   "module": "Accounts",
   "name": "Accounting",
   "number_cards": [
@@ -6426,6 +6426,22 @@
   "roles": [],
   "sequence_id": 2.0,
   "shortcuts": [
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "GST vise General Ledger",
+    "link_to": "GST vise General Ledger",
+    "parent": "Accounting",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": null,
+    "type": "Report",
+    "url": null
+   },
    {
     "color": "Grey",
     "doc_view": "List",
@@ -9309,7 +9325,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"Wt8YAzjl64\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"wZcL8pNXiW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Goal\",\"col\":3}},{\"id\":\"Rw5dvXuAKr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Procedure\",\"col\":3}},{\"id\":\"wB1PFDTcbl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Inspection\",\"col\":3}},{\"id\":\"PSqy9bY1cI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Review\",\"col\":3}},{\"id\":\"gIHQ_2ofa8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Action\",\"col\":3}},{\"id\":\"NCWVjnNUw4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Non Conformance\",\"col\":3}},{\"id\":\"BPkizEN_VC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of PR\",\"col\":3}},{\"id\":\"FB6Ch46Jn9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of Job Card\",\"col\":3}},{\"id\":\"EYCRZst2cV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Long Term Qc\",\"col\":3}},{\"id\":\"IOg0Aler2D\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hRsZjbntia\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"NZ753fZkcW\",\"type\":\"card\",\"data\":{\"card_name\":\"Goal and Procedure\",\"col\":4}},{\"id\":\"huw34NHH9q\",\"type\":\"card\",\"data\":{\"card_name\":\"Feedback\",\"col\":4}},{\"id\":\"o6QDVY-eYn\",\"type\":\"card\",\"data\":{\"card_name\":\"Meeting\",\"col\":4}},{\"id\":\"l1KZ7OB5Qs\",\"type\":\"card\",\"data\":{\"card_name\":\"Review and Action\",\"col\":4}}]",
+  "content": "[{\"id\":\"Wt8YAzjl64\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"wZcL8pNXiW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Goal\",\"col\":3}},{\"id\":\"Rw5dvXuAKr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Procedure\",\"col\":3}},{\"id\":\"wB1PFDTcbl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Inspection\",\"col\":3}},{\"id\":\"PSqy9bY1cI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Review\",\"col\":3}},{\"id\":\"gIHQ_2ofa8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Action\",\"col\":3}},{\"id\":\"NCWVjnNUw4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Non Conformance\",\"col\":3}},{\"id\":\"BPkizEN_VC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of PR\",\"col\":3}},{\"id\":\"FB6Ch46Jn9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of Job Card\",\"col\":3}},{\"id\":\"EYCRZst2cV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Long Term QC\",\"col\":3}},{\"id\":\"IOg0Aler2D\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hRsZjbntia\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"NZ753fZkcW\",\"type\":\"card\",\"data\":{\"card_name\":\"Goal and Procedure\",\"col\":4}},{\"id\":\"huw34NHH9q\",\"type\":\"card\",\"data\":{\"card_name\":\"Feedback\",\"col\":4}},{\"id\":\"o6QDVY-eYn\",\"type\":\"card\",\"data\":{\"card_name\":\"Meeting\",\"col\":4}},{\"id\":\"l1KZ7OB5Qs\",\"type\":\"card\",\"data\":{\"card_name\":\"Review and Action\",\"col\":4}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -9555,7 +9571,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-12-26 15:03:37.404830",
+  "modified": "2024-12-26 18:40:12.889750",
   "module": "Quality Management",
   "name": "Quality",
   "number_cards": [],
@@ -9572,7 +9588,7 @@
     "format": null,
     "icon": null,
     "kanban_board": null,
-    "label": "Long Term Qc",
+    "label": "Long Term QC",
     "link_to": "Long Term QC",
     "parent": "Quality",
     "parentfield": "shortcuts",
@@ -15115,5 +15131,125 @@
    }
   ],
   "title": "Product Manager"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"TqNgHAoRJ5\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">R&amp;D</span>\",\"col\":12}},{\"id\":\"CDwnX9TGg6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Long Term QC\",\"col\":3}},{\"id\":\"v8MwyfbD_S\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"R&D Quality Inspection\",\"col\":3}},{\"id\":\"mZ6dW_VGcP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Work Order\",\"col\":3}},{\"id\":\"ZS2RNCQI1e\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Job Card\",\"col\":3}},{\"id\":\"WfYYK-gsJy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "image-view",
+  "indicator_color": "",
+  "is_hidden": 0,
+  "label": "R&D",
+  "links": [],
+  "modified": "2024-12-27 17:21:11.455884",
+  "module": null,
+  "name": "R&D",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "parent": "R&D",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "R&D Manager"
+   },
+   {
+    "parent": "R&D",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "System Manager"
+   }
+  ],
+  "sequence_id": 25.0,
+  "shortcuts": [
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Work Order",
+    "link_to": "Work Order",
+    "parent": "R&D",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[[\"Work Order\",\"custom_is_rd\",\"=\",1,false]]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Stock Entry",
+    "link_to": "Stock Entry",
+    "parent": "R&D",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[[\"Stock Entry\",\"stock_entry_type\",\"=\",\"R&D\",false]]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Long Term QC",
+    "link_to": "Long Term QC",
+    "parent": "R&D",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "R&D Quality Inspection",
+    "link_to": "Quality Inspection",
+    "parent": "R&D",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[[\"Quality Inspection\",\"inspection_type\",\"=\",\"R&D\",false]]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Job Card",
+    "link_to": "Job Card",
+    "parent": "R&D",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[[\"Job Card\",\"custom_is_rd\",\"=\",1,false]]",
+    "type": "DocType",
+    "url": null
+   }
+  ],
+  "title": "R&D"
  }
 ]

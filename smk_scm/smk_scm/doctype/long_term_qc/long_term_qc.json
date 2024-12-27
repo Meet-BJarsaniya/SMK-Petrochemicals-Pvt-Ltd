@@ -12,6 +12,7 @@
   "column_break_ejwz",
   "item_incoming_date",
   "item",
+  "sample_retain_for_qc",
   "qc_details_section",
   "table_ymhq"
  ],
@@ -66,11 +67,17 @@
    "fieldname": "table_ymhq",
    "fieldtype": "Table",
    "options": "Long Term QC Item"
+  },
+  {
+   "default": "0",
+   "fieldname": "sample_retain_for_qc",
+   "fieldtype": "Check",
+   "label": "Sample Retain for QC"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-26 15:06:04.606440",
+ "modified": "2024-12-27 11:33:11.286343",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Long Term QC",

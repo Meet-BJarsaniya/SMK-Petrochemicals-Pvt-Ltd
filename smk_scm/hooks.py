@@ -43,6 +43,7 @@ doctype_list_js = {
     "Production Plan": "public/js/production_plan_list.js",
     "User": "public/js/user_list.js",
     "Work Order": "public/js/work_order_list.js",
+    "Job Card": "public/js/job_card_list.js",
 }
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -284,4 +285,11 @@ fixtures=[
             ]
         ]
     ]},
+    {"dt": "Stock Entry Type", "filters":[
+        [
+            "name", "in",[
+                "R&D"
+            ]
+        ]
+    ]},    
 ]

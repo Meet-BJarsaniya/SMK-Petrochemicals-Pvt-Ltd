@@ -10,6 +10,24 @@
 // });
 
 frappe.ui.form.on('Work Order', {
+    validate: function (frm) {
+        // Double-check during validation to prevent saving by unauthorized users
+        if (!frappe.user_roles.includes("R&D Manager") && frm.doc.custom_is_rd) {
+            frappe.throw(__("You are not authorized to view or modify this R&D Job Card."));
+        }
+    },
+    refresh (frm) {
+        // Check if the user is NOT an R&D Manager and the Job Card is R&D-related
+        if (!frappe.user_roles.includes("R&D Manager") && frm.doc.custom_is_rd) {
+            frappe.msgprint({
+                title: __("Access Restricted"),
+                message: __("You are not authorized to view this R&D Job Card."),
+                indicator: "red"
+            });
+            // Prevent loading the form and redirect
+            frappe.set_route("List", "Job Card");
+        }
+    },
     custom_change_qty: function (frm) {
         let custom_change_qty = true
         frm.doc.required_items.forEach(item => {
