@@ -12,20 +12,37 @@
 frappe.ui.form.on('Work Order', {
     validate: function (frm) {
         // Double-check during validation to prevent saving by unauthorized users
-        if (!frappe.user_roles.includes("R&D Manager") && frm.doc.custom_is_rd) {
-            frappe.throw(__("You are not authorized to view or modify this R&D Job Card."));
+        if (!(frappe.user_roles.includes("R&D User") || frappe.user_roles.includes("R&D Manager")) && frm.doc.custom_is_rd) {
+            frappe.throw(__("You are not authorized to view or modify this R&D Work Order."));
         }
     },
     refresh (frm) {
-        // Check if the user is NOT an R&D Manager and the Job Card is R&D-related
-        if (!frappe.user_roles.includes("R&D Manager") && frm.doc.custom_is_rd) {
+        // Check if the user is NOT an R&D Manager and the Work Order is R&D-related
+        if (!(frappe.user_roles.includes("R&D User") || frappe.user_roles.includes("R&D Manager")) && frm.doc.custom_is_rd) {
             frappe.msgprint({
                 title: __("Access Restricted"),
-                message: __("You are not authorized to view this R&D Job Card."),
+                message: __("You are not authorized to view this R&D Work Order."),
                 indicator: "red"
             });
             // Prevent loading the form and redirect
-            frappe.set_route("List", "Job Card");
+            frappe.set_route("List", "Work Order");
+        }
+        if (!frappe.user_roles.includes("R&D Manager") && frm.doc.custom_is_rd && frm.doc.status == "Completed") {
+            frappe.msgprint({
+                title: __("Access Restricted"),
+                message: __("You are not authorized to view this R&D Work Order."),
+                indicator: "red"
+            });
+            frappe.set_route("List", "Work Order");
+        }
+    },
+    before_submit: function(frm) {
+        if (!frappe.user_roles.includes("R&D Manager") && frm.doc.custom_is_rd) {
+            frappe.throw({
+                title: __("Access Restricted"),
+                message: __("You are not authorized to Submit this R&D Work Order."),
+                indicator: "red"
+            });
         }
     },
     custom_change_qty: function (frm) {
@@ -55,5 +72,5 @@ frappe.ui.form.on('Work Order', {
                 }
             );
         }
-    }
+    },
 });

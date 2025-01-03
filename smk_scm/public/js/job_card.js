@@ -3,6 +3,13 @@ frappe.ui.form.on('Job Card', {
     //     frm.set_value("custom_no_of_workers", frm.doc.employee.length);
     // },
     before_submit: async function (frm) {
+        if (!frappe.user_roles.includes("R&D Manager") && frm.doc.custom_is_rd) {
+            frappe.throw({
+                title: __("Access Restricted"),
+                message: __("You are not authorized to Submit this R&D Job Card."),
+                indicator: "red"
+            });
+        }
         // Ensure Quality Inspection is linked
         if (!frm.doc.quality_inspection) {
             frappe.throw(__('Please select a Quality Inspection before submitting.'));
@@ -19,19 +26,27 @@ frappe.ui.form.on('Job Card', {
     },
     validate: function (frm) {
         // Double-check during validation to prevent saving by unauthorized users
-        if (!frappe.user_roles.includes("R&D Manager") && frm.doc.custom_is_rd) {
+        if (!(frappe.user_roles.includes("R&D User") || frappe.user_roles.includes("R&D Manager")) && frm.doc.custom_is_rd) {
             frappe.throw(__("You are not authorized to view or modify this R&D Job Card."));
         }
     },
     refresh (frm) {
         // Check if the user is NOT an R&D Manager and the Job Card is R&D-related
-        if (!frappe.user_roles.includes("R&D Manager") && frm.doc.custom_is_rd) {
+        if (!(frappe.user_roles.includes("R&D User") || frappe.user_roles.includes("R&D Manager")) && frm.doc.custom_is_rd) {
             frappe.msgprint({
                 title: __("Access Restricted"),
                 message: __("You are not authorized to view this R&D Job Card."),
                 indicator: "red"
             });
             // Prevent loading the form and redirect
+            frappe.set_route("List", "Job Card");
+        }
+        if (!frappe.user_roles.includes("R&D Manager") && frm.doc.custom_is_rd && frm.doc.docstatus == 1) {
+            frappe.msgprint({
+                title: __("Access Restricted"),
+                message: __("You are not authorized to view this R&D Job Card."),
+                indicator: "red"
+            });
             frappe.set_route("List", "Job Card");
         }
         if (frm.doc.docstatus == 0 && !frm.is_new()) {
@@ -76,5 +91,5 @@ frappe.ui.form.on('Job Card', {
                     }
                 });
         }
-    }
+    },
 });

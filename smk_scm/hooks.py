@@ -33,6 +33,7 @@ doctype_js = {
     "Request for Quotation" : "public/js/request_for_quotation.js",
     "Supplier Quotation" : "public/js/supplier_quotation.js",
     "Purchase Order" : "public/js/purchase_order.js",
+    "BOM": "public/js/BOM.js",
     "Production Plan": "public/js/production_plan.js",
     "Job Card": "public/js/job_card.js",
     "Work Order": "public/js/work_order.js",
@@ -292,5 +293,16 @@ fixtures=[
                 "R&D"
             ]
         ]
-    ]},    
+    ]},
+    {"dt": "File", "filters":[
+        [
+            "file_name", "in",[
+                "SMK DN LH.jpg", "SMK UP LH.jpg"
+            ]
+        ]
+    ]},
 ]
+
+has_permission = {
+    "Job Card": "smk_scm.public.py.job_card.has_permission"
+}
