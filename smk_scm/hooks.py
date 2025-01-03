@@ -249,7 +249,7 @@ fixtures=[
     "Workspace",
     "Warehouse Type",
     "Payment Term",
-    "Letter Head",
+    # "Letter Head",
     {"dt": "Payment Terms Template"},
     {"dt": "Email Template", "filters":[
         [
@@ -291,13 +291,6 @@ fixtures=[
         [
             "name", "in",[
                 "R&D"
-            ]
-        ]
-    ]},
-    {"dt": "File", "filters":[
-        [
-            "file_name", "in",[
-                "SMK DN LH.jpg", "SMK UP LH.jpg"
             ]
         ]
     ]},
