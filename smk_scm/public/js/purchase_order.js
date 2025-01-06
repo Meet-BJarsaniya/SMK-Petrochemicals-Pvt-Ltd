@@ -537,6 +537,39 @@ frappe.ui.form.on('Purchase Order', {
             }, 'Create');            
         }
     },
+    payment_terms_template (frm) {
+        if (frm.doc.payment_terms_template) {
+            frappe.call({
+                method: 'frappe.client.get',
+                args: {
+                    doctype: 'Payment Terms Template',
+                    name: frm.doc.payment_terms_template
+                },
+                callback: function(r) {
+                    if (r.message && r.message.terms) {
+                        // Wait for 1 second to ensure payment_schedule rows are fully loaded
+                        setTimeout(() => {
+                            frm.refresh_field('payment_schedule'); // Refresh the child table
+    
+                            if (frm.doc.payment_schedule && frm.doc.payment_schedule.length > 0) {
+                                r.message.terms.forEach(term => {
+                                    frm.doc.payment_schedule.forEach(ps => {
+                                        if (ps.payment_term === term.payment_term) {
+                                            console.log(ps); // Log the matching row
+                                            frappe.model.set_value(ps.doctype, ps.name, 'custom_credit_days', term.credit_days);
+                                            frappe.model.set_value(ps.doctype, ps.name, 'custom_due_date_based_on', term.due_date_based_on);
+                                        }
+                                    });
+                                });
+                            } else {
+                                console.log("No rows in payment_schedule after waiting 1 second.");
+                            }
+                        }, 500);
+                    }
+                }
+            });
+        }
+    }
 });
 
 function update_terms_options(frm) {
