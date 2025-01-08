@@ -249,7 +249,7 @@ fixtures=[
     "Workspace",
     "Warehouse Type",
     "Payment Term",
-    # "Letter Head",
+    "Letter Head",
     {"dt": "Payment Terms Template"},
     {"dt": "Email Template", "filters":[
         [

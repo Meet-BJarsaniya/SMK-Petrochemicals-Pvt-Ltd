@@ -1,0 +1,25 @@
+[
+ {
+  "align": "Left",
+  "content": "<div style=\"text-align: left;\">\n<img src=\"/files/SMK UP LH.jpg\" alt=\"SMK Letter Pad\" width=\"720.0\" style=\"width: 720.0px;\">\n</div>",
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Letter Head",
+  "footer": "<div style=\"text-align: left;\">\n<img src=\"/files/SMK DN LH.jpg\" alt=\"SMK Letter Pad\" width=\"720.0\" style=\"width: 720.0px;\">\n</div>",
+  "footer_align": "Left",
+  "footer_image": "/files/SMK DN LH.jpg",
+  "footer_image_height": 10.0,
+  "footer_image_width": 720.0,
+  "footer_script": null,
+  "footer_source": "Image",
+  "header_script": null,
+  "image": "/files/SMK UP LH.jpg",
+  "image_height": 10.0,
+  "image_width": 720.0,
+  "is_default": 1,
+  "letter_head_name": "SMK Letter Pad",
+  "modified": "2024-12-26 12:05:09.792639",
+  "name": "SMK Letter Pad",
+  "source": "Image"
+ }
+]

@@ -1,5 +1,6 @@
 frappe.ui.form.on('Purchase Order', {
     onload: function(frm) {
+        console.log('response')
         setTimeout(function() {
             frm.doc.items.forEach(item => {
                 if (item.supplier_quotation && item.supplier_quotation.startsWith('SQ')) {
@@ -37,7 +38,6 @@ frappe.ui.form.on('Purchase Order', {
                         branch: frm.doc.custom_branch
                     },
                     callback: function(response) {
-                        console.log(response)
                         if (response.message) {
                             const warehouse_list = response.message;
             
@@ -106,7 +106,6 @@ frappe.ui.form.on('Purchase Order', {
                 branch: frm.doc.custom_branch
             },
             callback: function(response) {
-                console.log(response)
                 if (response.message) {
                     const warehouse_list = response.message;
     
@@ -487,8 +486,6 @@ frappe.ui.form.on('Purchase Order', {
 				) {
 					if (!frm.doc.__onload || frm.doc.__onload.can_update_items) {
 						frm.add_custom_button(__("Update Items"), () => {
-                            console.log(frappe.user_roles)
-                            console.log(frappe)
 							if (frappe.user_roles.includes("Product Manager")) {
 								erpnext.utils.update_child_items({
 									frm: frm,
@@ -555,7 +552,6 @@ frappe.ui.form.on('Purchase Order', {
                                 r.message.terms.forEach(term => {
                                     frm.doc.payment_schedule.forEach(ps => {
                                         if (ps.payment_term === term.payment_term) {
-                                            console.log(ps); // Log the matching row
                                             frappe.model.set_value(ps.doctype, ps.name, 'custom_credit_days', term.credit_days);
                                             frappe.model.set_value(ps.doctype, ps.name, 'custom_due_date_based_on', term.due_date_based_on);
                                         }
