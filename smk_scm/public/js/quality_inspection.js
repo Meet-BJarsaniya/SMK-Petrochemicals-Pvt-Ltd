@@ -1,5 +1,5 @@
 frappe.ui.form.on('Quality Inspection', {
-    validate: function (frm) {
+    validate (frm) {
         // Double-check during validation to prevent saving by unauthorized users
         if (!(frappe.user_roles.includes("R&D User") || frappe.user_roles.includes("R&D Manager")) && frm.doc.inspection_type == 'R&D') {
             frappe.throw(__("You are not authorized to view or modify this R&D Quality Inspection."));
@@ -17,7 +17,7 @@ frappe.ui.form.on('Quality Inspection', {
             frappe.set_route("List", "Quality Inspection");
         }
     },
-    on_submit(frm) {
+    on_submit (frm) {
         if (frm.doc.reference_type == 'Purchase Receipt') {
             // Link QI to the Purchase Receipt
             frappe.db.get_doc('Purchase Receipt', frm.doc.reference_name).then(purchase_receipt => {
@@ -28,5 +28,28 @@ frappe.ui.form.on('Quality Inspection', {
                 }
             });
         }
-    }
+    },
+    quality_inspection_template (frm) {
+        if (frm.doc.quality_inspection_template) {
+            frappe.call({
+                method: 'frappe.client.get',
+                args: {
+                    doctype: 'Quality Inspection Template',
+                    name: frm.doc.quality_inspection_template
+                },
+                callback: (r) => {
+                    parameters = r.message.item_quality_inspection_parameter
+                    parameters.forEach(parameter => {
+                        frm.doc.readings.forEach(reading => {
+                            if (reading.specification == parameter.specification) {
+                                reading.custom_unit = parameter.custom_unit;
+                                reading.custom_test_method = parameter.custom_test_method;
+                            }
+                        });
+                    });
+                    frm.refresh_field('readings');
+                }
+            });
+        }
+    },
 });

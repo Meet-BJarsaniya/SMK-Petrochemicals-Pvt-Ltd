@@ -146,9 +146,6 @@ doc_events = {
     },
 }
 
-# Ensure monkey patch is loaded at startup
-# app_include = ["smk_scm.public.py.quality_inspection"]
-
 # Scheduled Tasks
 # ---------------
 
@@ -179,13 +176,9 @@ doc_events = {
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	# "frappe.desk.doctype.event.event.get_events": "smk_scm.event.get_events"
-#     "erpnext.stock.doctype.quality_inspection_template.quality_inspection_template.get_template_details": "smk_scm.public.py.quality_inspection.custom_get_template_details"
+# 	"frappe.desk.doctype.event.event.get_events": "smk_scm.event.get_events"
 # }
-# from smk_scm.public.py.quality_inspection import custom_get_template_details
-# print(custom_get_template_details("MP-3 QC"))
-# print("====================================================================================")
-#
+
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
