@@ -93,3 +93,30 @@ frappe.ui.form.on('Job Card', {
         }
     },
 });
+
+frappe.ui.form.on("Job Card Item", {
+    custom_plant_code: function(frm, cdt, cdn) {
+        const child_row = locals[cdt][cdn]; // Get the current row
+        if (child_row.custom_plant_code) {
+            frappe.call({
+                method: "frappe.client.get_list",
+                args: {
+                    doctype: "Item",
+                    filters: {
+                        custom_plant_code: child_row.custom_plant_code
+                    },
+                    fields: ["name"]
+                },
+                callback: function(r) {
+                    if (r.message && r.message.length > 0) {
+                        // Assuming there's only one matching item
+                        const item_name = r.message[0].name;
+                        // Set the item in the current row of the child table
+                        frappe.model.set_value(cdt, cdn, "item_code", item_name);
+                        frappe.msgprint(__('Item found for the plant code.'));
+                    }
+                }
+            });
+        }
+    },
+});
