@@ -68,10 +68,26 @@ frappe.ui.form.on('Quality Inspection', {
                                     },
                                     callback: function(response) {
                                         if (response.message) {
-                                            frappe.msgprint({
-                                                title: __('Success'),
-                                                message: __('Stock Entry <a href="/app/stock-entry/{0}" style="font-weight: bold; color: #007BFF;">{0}</a> created successfully.', [response.message.name]),
-                                                indicator: 'green'
+                                            let stock_entry_name = response.message.name;
+    
+                                            // Fetch the latest version of the Stock Entry before submission
+                                            frappe.db.get_doc('Stock Entry', stock_entry_name).then(latest_stock_entry => {
+                                                // Submit the Stock Entry
+                                                frappe.call({
+                                                    method: "frappe.client.submit",
+                                                    args: {
+                                                        doc: latest_stock_entry
+                                                    },
+                                                    callback: function(submit_response) {
+                                                        if (submit_response.message) {
+                                                            frappe.msgprint({
+                                                                title: __('Success'),
+                                                                message: __('Stock Entry <a href="/app/stock-entry/{0}" style="font-weight: bold; color: #007BFF;">{0}</a> created and submitted successfully.', [stock_entry_name]),
+                                                                indicator: 'green'
+                                                            });
+                                                        }
+                                                    }
+                                                });
                                             });
                                         }
                                     }
@@ -84,38 +100,6 @@ frappe.ui.form.on('Quality Inspection', {
                                 });
                             }
                         });
-                    });
-                }
-            }); 
-        }
-        
-        if (frm.doc.reference_type === 'Delivery Note' && frm.doc.inspection_type === 'Outgoing') {
-            // Fetch the Certificate of Analysis linked to the Delivery Note and Item Code
-            frappe.db.get_list('Certificate of Analysis', {
-                filters: {
-                    delivery_note: frm.doc.reference_name,
-                    item: frm.doc.item_code,
-                    final_quality_inspection: ['=', ''] // Ensure CoA doesn't already have a linked QI
-                },
-                fields: ['name'] // Fetch only the name of the CoA
-            }).then(coa_list => {
-                if (coa_list && coa_list.length > 0) {
-                    const coa_name = coa_list[0].name; // Take the first matching CoA
-        
-                    // Update the CoA with the current QI's name
-                    frappe.db.set_value('Certificate of Analysis', coa_name, 'final_quality_inspection', frm.doc.name)
-                        .then(() => {
-                            frappe.msgprint({
-                                title: __('Success'),
-                                message: __('Linked Quality Inspection {0} to Certificate of Analysis {1}', [frm.doc.name, coa_name]),
-                                indicator: 'green'
-                            });
-                        });
-                } else {
-                    frappe.msgprint({
-                        title: __('No Match Found'),
-                        message: __('No Certificate of Analysis found for Delivery Note {0} and Item {1} with no final Quality Inspection.', [frm.doc.reference_name, frm.doc.item_code]),
-                        indicator: 'orange'
                     });
                 }
             });
