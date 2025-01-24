@@ -125,82 +125,7 @@ frappe.ui.form.on('Purchase Receipt', {
             });
         });
     },
-    refresh (frm) {
-        let items_array = [];
-        // Loop through the items and push the details into the array
-        for (let item of frm.doc.items) {
-            if (item.quality_inspection) {
-                items_array.push({
-                    quality_inspection: item.quality_inspection,
-                    item_code: item.item_code,
-                    qty: item.qty,
-                    warehouse: item.warehouse,
-                    uom: item.uom,
-                    barcode: item.barcode,
-                    description: item.description,
-                    item_group: item.item_group,
-                    gst_hsn_code: item.gst_hsn_code,
-                    stock_uom: item.stock_uom,
-                    conversion_factor: item.conversion_factor,
-                    retain_sample: item.retain_sample,
-                    basic_rate: item.basic_rate,
-                    item_tax_template: item.item_tax_template,
-                    use_serial_batch_fields: item.use_serial_batch_fields,
-                    serial_no: item.serial_no,
-                    batch_no: item.batch_no,
-                    expense_account: item.expense_account,
-                    cost_center: item.cost_center,
-                    project: item.project,
-                    allow_alternative_item: item.allow_alternative_item,
-                    base_rate: item.base_rate,
-                    qty_as_per_stock_uom: item.qty_as_per_stock_uom,
-                });
-            }
-        }
-
-        if (items_array.length > 0) {
-            frm.add_custom_button('Transfer Material', function () {
-                // Create a new Stock Entry document
-                frappe.model.with_doctype('Stock Entry', () => {
-                    let new_doc = frappe.model.get_new_doc('Stock Entry');
-                    new_doc.stock_entry_type = 'Material Transfer';
-
-                    // Add item details to the Stock Entry
-                    items_array.forEach(item => {
-                        let child_item = frappe.model.add_child(new_doc, 'items');
-                        child_item.item_code = item.item_code;
-                        child_item.qty = item.qty;
-                        child_item.s_warehouse = item.warehouse;
-                        child_item.uom = item.uom;
-                        child_item.barcode = item.barcode;
-                        child_item.description = item.description;
-                        child_item.item_group = item.item_group;
-                        child_item.gst_hsn_code = item.gst_hsn_code;
-                        child_item.stock_uom = item.stock_uom;
-                        child_item.transfer_qty = item.qty;
-                        child_item.conversion_factor = item.conversion_factor;
-                        child_item.retain_sample = item.retain_sample;
-                        child_item.basic_rate = item.basic_rate;
-                        child_item.item_tax_template = item.item_tax_template;
-                        child_item.use_serial_batch_fields = item.use_serial_batch_fields;
-                        child_item.serial_no = item.serial_no;
-                        child_item.batch_no = item.batch_no;
-                        child_item.expense_account = item.expense_account;
-                        child_item.cost_center = item.cost_center;
-                        child_item.project = item.project;
-                        child_item.allow_alternative_item = item.allow_alternative_item;
-                        child_item.basic_rate = item.base_rate;
-                    });
-
-                    // Save and navigate to the new document
-                    frappe.set_route('Form', 'Stock Entry', new_doc.name);
-                });
-            }, 'Create');
-        }
-    }
-// });
-
-
+});
 
 // frappe.ui.form.on('Purchase Receipt', {
 //     custom_quality_inspection(frm) {
@@ -236,4 +161,4 @@ frappe.ui.form.on('Purchase Receipt', {
 //             });
 //         });
 //     }
-});
+// });

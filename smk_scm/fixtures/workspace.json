@@ -7681,7 +7681,7 @@
     "parenttype": "Workspace"
    }
   ],
-  "content": "[{\"id\":\"BJTnTemGjc\",\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Stock\",\"col\":12}},{\"id\":\"WKeeHLcyXI\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Stock Value\",\"col\":4}},{\"id\":\"6nVoOHuy5w\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Warehouses\",\"col\":4}},{\"id\":\"OUex5VED7d\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Active Items\",\"col\":4}},{\"id\":\"A3svBa974t\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Warehouse wise Stock Value\",\"col\":12}},{\"id\":\"wwAoBx30p3\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"LkqrpJHM9X\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"OR8PYiYspy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"KP1A22WjDl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Request\",\"col\":3}},{\"id\":\"0EYKOrx6U1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"id\":\"cqotiphmhZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Receipt\",\"col\":3}},{\"id\":\"Xhjqnm-JxZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Note\",\"col\":3}},{\"id\":\"yxCx6Tay4Z\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Ledger\",\"col\":3}},{\"id\":\"o3sdEnNy34\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Balance\",\"col\":3}},{\"id\":\"m9O0HUUDS5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"id\":\"NwWcNC_xNj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Learn Inventory Management\",\"col\":3}},{\"id\":\"VGyrltbvgn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"QC Verified Purchase Receipt\",\"col\":3}},{\"id\":\"9AmAh9LnPI\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"3SmmwBbOER\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters &amp; Reports</b></span>\",\"col\":12}},{\"id\":\"OAGNH9njt7\",\"type\":\"card\",\"data\":{\"card_name\":\"Items Catalogue\",\"col\":4}},{\"id\":\"jF9eKz0qr0\",\"type\":\"card\",\"data\":{\"card_name\":\"Stock Transactions\",\"col\":4}},{\"id\":\"tyTnQo-MIS\",\"type\":\"card\",\"data\":{\"card_name\":\"Stock Reports\",\"col\":4}},{\"id\":\"dJaJw6YNPU\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}},{\"id\":\"rQf5vK4N_T\",\"type\":\"card\",\"data\":{\"card_name\":\"Serial No and Batch\",\"col\":4}},{\"id\":\"7oM7hFL4v8\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"ve3L6ZifkB\",\"type\":\"card\",\"data\":{\"card_name\":\"Key Reports\",\"col\":4}},{\"id\":\"8Kfvu3umw7\",\"type\":\"card\",\"data\":{\"card_name\":\"Other Reports\",\"col\":4}}]",
+  "content": "[{\"id\":\"BJTnTemGjc\",\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Stock\",\"col\":12}},{\"id\":\"WKeeHLcyXI\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Stock Value\",\"col\":4}},{\"id\":\"6nVoOHuy5w\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Warehouses\",\"col\":4}},{\"id\":\"OUex5VED7d\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Active Items\",\"col\":4}},{\"id\":\"A3svBa974t\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Warehouse wise Stock Value\",\"col\":12}},{\"id\":\"wwAoBx30p3\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"LkqrpJHM9X\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Access</b></span>\",\"col\":12}},{\"id\":\"OR8PYiYspy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"KP1A22WjDl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Request\",\"col\":3}},{\"id\":\"0EYKOrx6U1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"id\":\"cqotiphmhZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Receipt\",\"col\":3}},{\"id\":\"Xhjqnm-JxZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivery Note\",\"col\":3}},{\"id\":\"yxCx6Tay4Z\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Ledger\",\"col\":3}},{\"id\":\"o3sdEnNy34\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Balance\",\"col\":3}},{\"id\":\"m9O0HUUDS5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"id\":\"NwWcNC_xNj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Learn Inventory Management\",\"col\":3}},{\"id\":\"VGyrltbvgn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"QC Verified Purchase Receipt\",\"col\":3}},{\"id\":\"f_kzERQFVq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of PR\",\"col\":3}},{\"id\":\"9AmAh9LnPI\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"3SmmwBbOER\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters &amp; Reports</b></span>\",\"col\":12}},{\"id\":\"OAGNH9njt7\",\"type\":\"card\",\"data\":{\"card_name\":\"Items Catalogue\",\"col\":4}},{\"id\":\"jF9eKz0qr0\",\"type\":\"card\",\"data\":{\"card_name\":\"Stock Transactions\",\"col\":4}},{\"id\":\"tyTnQo-MIS\",\"type\":\"card\",\"data\":{\"card_name\":\"Stock Reports\",\"col\":4}},{\"id\":\"dJaJw6YNPU\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}},{\"id\":\"rQf5vK4N_T\",\"type\":\"card\",\"data\":{\"card_name\":\"Serial No and Batch\",\"col\":4}},{\"id\":\"7oM7hFL4v8\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"ve3L6ZifkB\",\"type\":\"card\",\"data\":{\"card_name\":\"Key Reports\",\"col\":4}},{\"id\":\"8Kfvu3umw7\",\"type\":\"card\",\"data\":{\"card_name\":\"Other Reports\",\"col\":4}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -8953,7 +8953,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-12-24 16:10:49.138839",
+  "modified": "2025-01-22 18:02:10.432395",
   "module": "Stock",
   "name": "Stock",
   "number_cards": [
@@ -8987,6 +8987,22 @@
   "sequence_id": 7.0,
   "shortcuts": [
    {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "QC Verified Purchase Receipt",
+    "link_to": "Purchase Receipt",
+    "parent": "Stock",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[[\"Purchase Receipt\",\"custom_qc_verified\",\"=\",1,false],[\"Purchase Receipt\",\"docstatus\",\"=\",\"1\",false]]",
+    "type": "DocType",
+    "url": null
+   },
+   {
     "color": "Green",
     "doc_view": null,
     "format": "{}  Available",
@@ -9008,13 +9024,13 @@
     "format": null,
     "icon": null,
     "kanban_board": null,
-    "label": "QC Verified Purchase Receipt",
+    "label": "Pending QC of PR",
     "link_to": "Purchase Receipt",
     "parent": "Stock",
     "parentfield": "shortcuts",
     "parenttype": "Workspace",
     "restrict_to_domain": null,
-    "stats_filter": "[[\"Purchase Receipt\",\"custom_qc_verified\",\"=\",1,false]]",
+    "stats_filter": "[[\"Purchase Receipt Item\",\"quality_inspection\",\"is\",\"not set\",false],[\"Purchase Receipt\",\"docstatus\",\"=\",\"1\",false]]",
     "type": "DocType",
     "url": null
    },
@@ -10359,7 +10375,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"Wt8YAzjl64\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"wZcL8pNXiW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Goal\",\"col\":3}},{\"id\":\"Rw5dvXuAKr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Procedure\",\"col\":3}},{\"id\":\"wB1PFDTcbl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Inspection\",\"col\":3}},{\"id\":\"PSqy9bY1cI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Review\",\"col\":3}},{\"id\":\"gIHQ_2ofa8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Action\",\"col\":3}},{\"id\":\"NCWVjnNUw4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Non Conformance\",\"col\":3}},{\"id\":\"BPkizEN_VC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of PR\",\"col\":3}},{\"id\":\"FB6Ch46Jn9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of Job Card\",\"col\":3}},{\"id\":\"EYCRZst2cV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Long Term QC\",\"col\":3}},{\"id\":\"IOg0Aler2D\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hRsZjbntia\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"NZ753fZkcW\",\"type\":\"card\",\"data\":{\"card_name\":\"Goal and Procedure\",\"col\":4}},{\"id\":\"huw34NHH9q\",\"type\":\"card\",\"data\":{\"card_name\":\"Feedback\",\"col\":4}},{\"id\":\"o6QDVY-eYn\",\"type\":\"card\",\"data\":{\"card_name\":\"Meeting\",\"col\":4}},{\"id\":\"l1KZ7OB5Qs\",\"type\":\"card\",\"data\":{\"card_name\":\"Review and Action\",\"col\":4}}]",
+  "content": "[{\"id\":\"Wt8YAzjl64\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"wZcL8pNXiW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Goal\",\"col\":3}},{\"id\":\"Rw5dvXuAKr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Procedure\",\"col\":3}},{\"id\":\"wB1PFDTcbl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Inspection\",\"col\":3}},{\"id\":\"PSqy9bY1cI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Review\",\"col\":3}},{\"id\":\"gIHQ_2ofa8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Action\",\"col\":3}},{\"id\":\"NCWVjnNUw4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Non Conformance\",\"col\":3}},{\"id\":\"BPkizEN_VC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of PR\",\"col\":3}},{\"id\":\"FB6Ch46Jn9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending QC of Job Card\",\"col\":3}},{\"id\":\"EYCRZst2cV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Long Term QC\",\"col\":3}},{\"id\":\"IKBcIeaiKf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Inspection Template\",\"col\":3}},{\"id\":\"HIYfk_2SJa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quality Inspection Parameter\",\"col\":3}},{\"id\":\"IOg0Aler2D\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hRsZjbntia\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"NZ753fZkcW\",\"type\":\"card\",\"data\":{\"card_name\":\"Goal and Procedure\",\"col\":4}},{\"id\":\"huw34NHH9q\",\"type\":\"card\",\"data\":{\"card_name\":\"Feedback\",\"col\":4}},{\"id\":\"o6QDVY-eYn\",\"type\":\"card\",\"data\":{\"card_name\":\"Meeting\",\"col\":4}},{\"id\":\"l1KZ7OB5Qs\",\"type\":\"card\",\"data\":{\"card_name\":\"Review and Action\",\"col\":4}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -10605,7 +10621,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-12-26 18:40:12.889750",
+  "modified": "2025-01-22 17:56:50.640034",
   "module": "Quality Management",
   "name": "Quality",
   "number_cards": [],
@@ -10616,6 +10632,38 @@
   "roles": [],
   "sequence_id": 9.0,
   "shortcuts": [
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Pending QC of PR",
+    "link_to": "Quality Inspection",
+    "parent": "Quality",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[[\"Quality Inspection\",\"docstatus\",\"=\",\"0\",false],[\"Quality Inspection\",\"reference_type\",\"=\",\"Purchase Receipt\",false]]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Quality Inspection Template",
+    "link_to": "Quality Inspection Template",
+    "parent": "Quality",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
    {
     "color": "Grey",
     "doc_view": "List",
@@ -10638,13 +10686,13 @@
     "format": null,
     "icon": null,
     "kanban_board": null,
-    "label": "Pending QC of Job Card",
-    "link_to": "Quality Inspection",
+    "label": "Quality Inspection Parameter",
+    "link_to": "Quality Inspection Parameter",
     "parent": "Quality",
     "parentfield": "shortcuts",
     "parenttype": "Workspace",
     "restrict_to_domain": null,
-    "stats_filter": "[[\"Quality Inspection\",\"docstatus\",\"=\",\"0\",false],[\"Quality Inspection\",\"inspection_type\",\"=\",\"In Process\",false],[\"Quality Inspection\",\"reference_type\",\"=\",\"Job Card\",false]]",
+    "stats_filter": "[]",
     "type": "DocType",
     "url": null
    },
@@ -10654,13 +10702,13 @@
     "format": null,
     "icon": null,
     "kanban_board": null,
-    "label": "Pending QC of PR",
-    "link_to": "Purchase Receipt",
+    "label": "Pending QC of Job Card",
+    "link_to": "Quality Inspection",
     "parent": "Quality",
     "parentfield": "shortcuts",
     "parenttype": "Workspace",
     "restrict_to_domain": null,
-    "stats_filter": "[[\"Purchase Receipt Item\",\"quality_inspection\",\"is\",\"not set\",false]]",
+    "stats_filter": "[[\"Quality Inspection\",\"docstatus\",\"=\",\"0\",false],[\"Quality Inspection\",\"inspection_type\",\"=\",\"In Process\",false],[\"Quality Inspection\",\"reference_type\",\"=\",\"Job Card\",false]]",
     "type": "DocType",
     "url": null
    },
