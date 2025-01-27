@@ -120,6 +120,7 @@ frappe.ui.form.on('Quality Inspection', {
                             if (reading.specification == parameter.specification) {
                                 reading.custom_unit = parameter.custom_unit;
                                 reading.custom_test_method = parameter.custom_test_method;
+                                reading.custom_test_name = parameter.custom_test_name;
                             }
                         });
                     });
