@@ -24,6 +24,13 @@
   "description": null,
   "docstatus": 0,
   "doctype": "Warehouse Type",
+  "modified": "2025-01-28 11:09:36.494374",
+  "name": "Rejected Goods"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Warehouse Type",
   "modified": "2025-01-23 11:53:36.351571",
   "name": "Raw Material"
  }
