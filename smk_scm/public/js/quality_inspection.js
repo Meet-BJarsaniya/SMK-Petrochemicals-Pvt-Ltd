@@ -29,11 +29,18 @@ frappe.ui.form.on('Quality Inspection', {
                     // Fetch the parent warehouse to determine t_warehouse
                     frappe.db.get_value('Warehouse', pr_item.warehouse, 'parent_warehouse').then(parent_warehouse_result => {
                         let parent_warehouse = parent_warehouse_result.message.parent_warehouse;
+                        let warehouse_type
+                        if (frm.doc.status == 'Accepted'){
+                            warehouse_type = 'Raw Material'
+                        }
+                        else {
+                            warehouse_type = 'Rejected Goods'
+                        }
                         // Fetch a warehouse with the same parent and warehouse_type = 'Raw Material'
                         frappe.db.get_list('Warehouse', {
                             filters: {
                                 parent_warehouse: parent_warehouse,
-                                warehouse_type: 'Raw Material'
+                                warehouse_type
                             },
                             fields: ['name']
                         }).then(warehouse_results => {
