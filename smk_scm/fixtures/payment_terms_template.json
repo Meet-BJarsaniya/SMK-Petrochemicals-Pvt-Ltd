@@ -29,7 +29,7 @@
   "allocate_payment_based_on_payment_terms": 1,
   "docstatus": 0,
   "doctype": "Payment Terms Template",
-  "modified": "2024-07-15 16:30:36.989907",
+  "modified": "2025-01-06 13:02:17.789504",
   "name": "Advance Payment",
   "template_name": "Advance Payment",
   "terms": [
