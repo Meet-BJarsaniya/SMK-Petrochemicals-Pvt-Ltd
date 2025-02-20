@@ -62,7 +62,7 @@ frappe.ui.form.on('Quality Inspection', {
                                                     reference_purchase_receipt: frm.doc.reference_name,
                                                     expense_account: pr_item.expense_account,
                                                     cost_center: pr_item.cost_center,
-                                                    serial_and_batch_bundle: pr_item.serial_and_batch_bundle,
+                                                    // serial_and_batch_bundle: pr_item.serial_and_batch_bundle,
                                                     use_serial_batch_fields: pr_item.use_serial_batch_fields,
                                                     batch_no: pr_item.batch_no,
                                                     serial_no: pr_item.serial_no,
