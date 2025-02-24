@@ -79,22 +79,22 @@ frappe.ui.form.on('Quality Inspection', {
     
                                             // Fetch the latest version of the Stock Entry before submission
                                             frappe.db.get_doc('Stock Entry', stock_entry_name).then(latest_stock_entry => {
-                                                // Submit the Stock Entry
-                                                frappe.call({
-                                                    method: "frappe.client.submit",
-                                                    args: {
-                                                        doc: latest_stock_entry
-                                                    },
-                                                    callback: function(submit_response) {
-                                                        if (submit_response.message) {
+                                                // // Submit the Stock Entry
+                                                // frappe.call({
+                                                //     method: "frappe.client.submit",
+                                                //     args: {
+                                                //         doc: latest_stock_entry
+                                                //     },
+                                                //     callback: function(submit_response) {
+                                                //         if (submit_response.message) {
                                                             frappe.msgprint({
                                                                 title: __('Success'),
-                                                                message: __('Stock Entry <a href="/app/stock-entry/{0}" style="font-weight: bold; color: #007BFF;">{0}</a> created and submitted successfully.', [stock_entry_name]),
+                                                                message: __('Stock Entry <a href="/app/stock-entry/{0}" style="font-weight: bold; color: #007BFF;">{0}</a> has been created successfully and saved as a draft.', [stock_entry_name]),
                                                                 indicator: 'green'
                                                             });
-                                                        }
-                                                    }
-                                                });
+                                                //         }
+                                                //     }
+                                                // });
                                             });
                                         }
                                     }
