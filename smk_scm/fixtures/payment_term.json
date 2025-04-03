@@ -32,5 +32,39 @@
   "modified": "2024-09-12 12:45:38.777631",
   "name": "Part Advance",
   "payment_term_name": "Part Advance"
+ },
+ {
+  "credit_days": 30,
+  "credit_months": 0,
+  "description": null,
+  "discount": 0.0,
+  "discount_type": "Percentage",
+  "discount_validity": 0,
+  "discount_validity_based_on": "Day(s) after invoice date",
+  "docstatus": 0,
+  "doctype": "Payment Term",
+  "due_date_based_on": "Day(s) after invoice date",
+  "invoice_portion": 100.0,
+  "mode_of_payment": "Cash",
+  "modified": "2025-03-07 16:21:57.150044",
+  "name": "Advanced",
+  "payment_term_name": "Advanced"
+ },
+ {
+  "credit_days": 60,
+  "credit_months": 0,
+  "description": null,
+  "discount": 0.0,
+  "discount_type": "Percentage",
+  "discount_validity": 0,
+  "discount_validity_based_on": "Day(s) after invoice date",
+  "docstatus": 0,
+  "doctype": "Payment Term",
+  "due_date_based_on": "Day(s) after invoice date",
+  "invoice_portion": 100.0,
+  "mode_of_payment": "Bank Draft",
+  "modified": "2025-03-18 11:15:25.217176",
+  "name": "Open Credit",
+  "payment_term_name": "Open Credit"
  }
 ]
