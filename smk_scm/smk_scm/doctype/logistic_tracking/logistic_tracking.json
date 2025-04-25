@@ -13,8 +13,10 @@
   "posting_date",
   "purchase_order_no",
   "purchase_order_date",
+  "purchase_invoice_no",
   "sales_order_no",
   "sales_order_date",
+  "sales_invoice_no",
   "section_break_xood",
   "items",
   "section_break_sdbp",
@@ -41,7 +43,7 @@
   "draft_bl_date",
   "bl_no",
   "bl_date",
-  "eta_destinartion_1",
+  "eta_destination_1",
   "section_break_cwcd",
   "switch_bl_request",
   "connecting_vessel_date",
@@ -161,11 +163,6 @@
    "fieldtype": "Select",
    "label": "Any Transshipment",
    "options": "\nYes\nNo"
-  },
-  {
-   "fieldname": "eta_destinartion_1",
-   "fieldtype": "Date",
-   "label": "ETA Destinartion 1"
   },
   {
    "collapsible": 1,
@@ -313,7 +310,7 @@
   },
   {
    "fieldname": "warehouse_location",
-   "fieldtype": "Date",
+   "fieldtype": "Data",
    "label": "Warehouse Location"
   },
   {
@@ -451,7 +448,7 @@
   {
    "depends_on": "eval: doc.type_of_format==\"Export\"",
    "fieldname": "courier_docket_no_",
-   "fieldtype": "Date",
+   "fieldtype": "Data",
    "label": "Courier docket no"
   },
   {
@@ -494,11 +491,34 @@
    "label": "Items",
    "options": "Logistic Tracking Item",
    "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Import\"",
+   "fieldname": "purchase_invoice_no",
+   "fieldtype": "Link",
+   "label": "Purchase Invoice No.",
+   "mandatory_depends_on": "eval: doc.type_of_format==\"Import\"",
+   "options": "Purchase Invoice",
+   "set_only_once": 1
+  },
+  {
+   "depends_on": "eval: doc.type_of_format==\"Export\"",
+   "fieldname": "sales_invoice_no",
+   "fieldtype": "Link",
+   "label": "Sales Invoice No.",
+   "mandatory_depends_on": "eval: doc.type_of_format==\"Export\"",
+   "options": "Sales Invoice",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "eta_destination_1",
+   "fieldtype": "Date",
+   "label": "ETA Destination 1"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-08 10:53:15.483917",
+ "modified": "2025-04-25 11:34:07.820087",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Logistic Tracking",
