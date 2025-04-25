@@ -497,6 +497,7 @@
    "fieldname": "purchase_invoice_no",
    "fieldtype": "Link",
    "label": "Purchase Invoice No.",
+   "link_filters": "[[\"Purchase Invoice\",\"docstatus\",\"=\",\"1\"]]",
    "mandatory_depends_on": "eval: doc.type_of_format==\"Import\"",
    "options": "Purchase Invoice",
    "set_only_once": 1
@@ -506,6 +507,7 @@
    "fieldname": "sales_invoice_no",
    "fieldtype": "Link",
    "label": "Sales Invoice No.",
+   "link_filters": "[[\"Sales Invoice\",\"docstatus\",\"=\",\"1\"]]",
    "mandatory_depends_on": "eval: doc.type_of_format==\"Export\"",
    "options": "Sales Invoice",
    "set_only_once": 1
@@ -518,7 +520,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-25 11:34:07.820087",
+ "modified": "2025-04-25 16:44:27.304760",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Logistic Tracking",
