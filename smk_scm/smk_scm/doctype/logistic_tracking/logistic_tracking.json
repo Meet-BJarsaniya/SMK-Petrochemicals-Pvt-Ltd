@@ -20,6 +20,7 @@
   "section_break_xood",
   "items",
   "section_break_sdbp",
+  "port_code",
   "port_of_origin",
   "port_of_discharge",
   "exw_dly_date",
@@ -33,6 +34,7 @@
   "shipment_route_track",
   "any_transshipment",
   "column_break_hmdh",
+  "custom__edi__sez__wh",
   "connection_port",
   "exwciffob",
   "gate_in_cut_off_date",
@@ -516,11 +518,26 @@
    "fieldname": "eta_destination_1",
    "fieldtype": "Date",
    "label": "ETA Destination 1"
+  },
+  {
+   "fieldname": "port_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Port Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "custom__edi__sez__wh",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Custom / EDI / SEZ / WH",
+   "options": "Custom\nEDI\nSEZ\nWH",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-25 16:44:27.304760",
+ "modified": "2025-05-06 11:06:13.872887",
  "modified_by": "Administrator",
  "module": "SMK SCM",
  "name": "Logistic Tracking",
