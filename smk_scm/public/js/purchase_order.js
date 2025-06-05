@@ -138,7 +138,8 @@ frappe.ui.form.on('Purchase Order', {
         if (frm.is_new()){
             // frm.set_df_property('naming_series', 'hidden', 1)
             if (frm.doc.custom_purchase_type == "Local"){
-                frm.set_value("naming_series", "PO/LO/.FY./.#####")
+                frm.set_value("naming_series", "PO/LO/.FY./.#####");
+                frm.set_value("business_type", "Local Purchase");
                 frm.set_df_property('supplier', 'label', `Supplier`);
                 frm.set_value("supplier", null);
                 frm.set_query("supplier", function() {
@@ -151,6 +152,7 @@ frappe.ui.form.on('Purchase Order', {
             }
             else if (frm.doc.custom_purchase_type == "Import"){
                 frm.set_value("naming_series", "PO/IM/.FY./.#####")
+                frm.set_value("business_type", "Import");
                 frm.set_df_property('supplier', 'label', `Supplier`);
                 frm.set_value("supplier", null);
                 frm.set_query("supplier", function() {
@@ -163,6 +165,7 @@ frappe.ui.form.on('Purchase Order', {
             }
             else {
                 frm.set_value("naming_series", "PO/CHA/.FY./.#####")
+                frm.set_value("business_type", "Import");
                 frm.set_df_property('supplier', 'label', `Forwarder`);
                 frm.set_value("supplier", null);
                 frm.set_query("supplier", function() {
